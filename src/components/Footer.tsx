@@ -1,7 +1,5 @@
 import Link from "next/link";
 import { Share2, Mail, Globe, Star } from "lucide-react";
-import Image from "next/image";
-
 export default function Footer() {
   return (
     <footer
@@ -37,7 +35,7 @@ export default function Footer() {
             </Link>
             
             <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(240,237,224,0.45)" }}>
-              "Chiến đấu vì vinh quang Tổ Quốc" - Tựa game dàn trận quân sự hàng đầu, mang tinh thần hào hùng của dân tộc vào kỷ nguyên số.
+              &quot;Chiến đấu vì vinh quang Tổ Quốc&quot; - Tựa game dàn trận quân sự hàng đầu, mang tinh thần hào hùng của dân tộc vào kỷ nguyên số.
             </p>
 
             {/* Social Icons */}
