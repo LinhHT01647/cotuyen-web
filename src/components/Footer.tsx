@@ -76,7 +76,7 @@ export default function Footer() {
                 {[
                   { label: "Chiến Dịch Lịch Sử", href: "/chien-dich" },
                   { label: "Hướng Dẫn Luật Chơi", href: "/luat-choi" },
-                  { label: "Cộng Đồng Cờ Tuyển", href: "/cong-dong" },
+                  { label: "Cộng Đồng Cờ Tuyến", href: "/cong-dong" },
                   { label: "Giải Đấu Thể Thao", href: "/cong-dong" },
                 ].map((item) => (
                   <li key={item.label}>
@@ -138,7 +138,7 @@ export default function Footer() {
               </div>
             </div>
             <span className="text-xs" style={{ color: "rgba(240,237,224,0.35)" }}>
-              © 2024 Cờ Tuyển Studio. All rights reserved.
+              © 2024 Cờ Tuyến Studio. All rights reserved.
             </span>
           </div>
 

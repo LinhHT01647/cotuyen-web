@@ -103,7 +103,7 @@ export default function LuatChoiPage() {
 
           <p className="text-lg mb-8 max-w-2xl mx-auto" style={{ color: "#9CA3AF" }}>
             Nắm vững binh pháp, thấu hiểu địa hình và vận dụng linh hoạt từng đơn vị quân.
-            Đó là chìa khóa để giành lấy vinh quang trên sa bàn Cờ Tuyển.
+            Đó là chìa khóa để giành lấy vinh quang trên sa bàn Cờ Tuyến.
           </p>
         </div>
       </section>

@@ -47,7 +47,7 @@ export default function ChienDichPage() {
         <div className="absolute inset-0">
           <Image
             src="/images/hero-vietnam.png"
-            alt="Cờ Tuyển"
+            alt="Cờ Tuyến"
             fill
             className="object-cover object-center opacity-40"
           />
@@ -77,7 +77,7 @@ export default function ChienDichPage() {
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
             }}>
-              Cờ Tuyển?
+              Cờ Tuyến?
             </span>
           </h1>
         </div>
@@ -106,11 +106,11 @@ export default function ChienDichPage() {
                 </span>
               </h2>
               <p className="leading-relaxed mb-4 text-sm" style={{ color: "#9CA3AF" }}>
-                Cờ Tuyển là tựa game chiến thuật độc đáo được xây dựng trên nền tảng lịch sử
+                Cờ Tuyến là tựa game chiến thuật độc đáo được xây dựng trên nền tảng lịch sử
                 và văn hóa Việt Nam. Mỗi trận đấu là một câu chuyện về lòng dũng cảm và tinh thần bất khuất.
               </p>
               <p className="leading-relaxed mb-6 text-sm" style={{ color: "#9CA3AF" }}>
-                Từ bố cục chiến thuật phức tạp đến nghệ thuật phối hợp đội hình, Cờ Tuyển
+                Từ bố cục chiến thuật phức tạp đến nghệ thuật phối hợp đội hình, Cờ Tuyến
                 mang đến trải nghiệm game độc đáo mà không tựa game nào có thể so sánh.
               </p>
               <Link

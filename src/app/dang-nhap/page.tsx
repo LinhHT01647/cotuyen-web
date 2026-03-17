@@ -419,7 +419,7 @@ export default function DangNhapPage() {
               <a href="#" style={{ color: "rgba(218,0,0,0.6)" }}>
                 Điều khoản dịch vụ
               </a>{" "}
-              của Cờ Tuyển Studio.
+              của Cờ Tuyến Studio.
             </p>
           </div>
         </div>
