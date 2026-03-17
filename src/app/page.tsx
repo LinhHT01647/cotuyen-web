@@ -519,6 +519,91 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── TIN TỨC & CẬP NHẬT ── */}
+      <section className="py-20 px-6 sm:px-10 lg:px-16" style={{ background: "#050202" }}>
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <span className="w-8 h-px bg-[#DA0000]"></span>
+                <span className="heading-font font-bold text-[#DA0000] tracking-widest text-sm uppercase">TIN TỨC MỚI NHẤT</span>
+              </div>
+              <h2 className="display-font font-black text-3xl sm:text-4xl text-[#F0EDE0]">BẢN TIN CHIẾN TRƯỜNG</h2>
+            </div>
+            <Link href="/cong-dong" className="heading-font font-bold text-sm text-[#DA0000] hover:text-white transition-colors tracking-widest uppercase flex items-center gap-2">
+              Xem tất cả <span className="text-xl leading-none">→</span>
+            </Link>
+          </div>
+
+          {/* Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                img: "/images/news-update.png",
+                tag: "BẢN CẬP NHẬT",
+                title: "Chiến Dịch Điện Biên Phủ Đã Mở Cửa",
+                desc: "Khám phá bản đồ sa bàn mới và thử thách tài cầm quân với độ khó cực cao.",
+                date: "15 THG 03, 2026"
+              },
+              {
+                img: "/images/news-update.png",
+                tag: "SỰ KIỆN",
+                title: "Giải Đấu Cờ Tuyến Mùa 1 Chính Thức Khởi Tranh",
+                desc: "Đăng ký ngay để có cơ hội nhận tổng giải thưởng lên đến 500 triệu VNĐ.",
+                date: "12 THG 03, 2026"
+              },
+              {
+                img: "/images/news-update.png",
+                tag: "TƯỚNG MỚI",
+                title: "Hé Lộ Sức Mạnh Tướng Chỉ Huy Thay Đổi Cục Diện",
+                desc: "Kỹ năng đặc biệt giúp gia tăng hỏa lực và buff tinh thần cho toàn bộ lính trên sa bàn.",
+                date: "08 THG 03, 2026"
+              }
+            ].map((news, i) => (
+              <div key={i} className="group cursor-pointer rounded-xl overflow-hidden bg-[#120a0a] border border-[#DA0000]/10 hover:border-[#DA0000]/40 transition-all duration-300 transform hover:-translate-y-1">
+                <div className="relative h-48 sm:h-56 overflow-hidden">
+                  <Image src={news.img} fill alt={news.title} className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute top-4 left-4 bg-[#DA0000] px-3 py-1 rounded-sm heading-font font-bold text-xs text-white tracking-widest">{news.tag}</div>
+                </div>
+                <div className="p-6">
+                  <span className="heading-font text-[10px] text-white/40 tracking-widest mb-3 block">{news.date}</span>
+                  <h3 className="heading-font font-bold text-lg text-[#F0EDE0] mb-3 group-hover:text-[#DA0000] transition-colors">{news.title}</h3>
+                  <p className="text-sm text-white/50">{news.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA NHẬN GIFTCODE ── */}
+      <section className="relative py-24 px-6 sm:px-10 lg:px-16 overflow-hidden" style={{ background: "#0A0404" }}>
+        {/* Background Overlay Image */}
+        <div className="absolute inset-0 z-0 opactiy-60">
+          <Image src="/images/cta-giftcode.png" fill alt="Nhận Giftcode" className="object-cover object-right md:object-center opacity-70 mix-blend-lighten" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0404] via-[#0A0404]/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0404] via-transparent to-[#0A0404]" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
+          <div className="md:w-3/5 text-center md:text-left">
+            <h2 className="display-font font-black text-4xl sm:text-5xl text-white leading-tight mb-4" style={{ textShadow: "0 0 30px rgba(255,100,0,0.4)" }}>
+              NHẬN TÚI QUÀ <span className="text-[#DA0000] block sm:inline">TÂN BINH</span>
+            </h2>
+            <p className="text-lg text-white/80 mb-8 max-w-lg mx-auto md:mx-0">
+              Tạo tài khoản ngay hôm nay để nhận được Giftcode khởi nghiệp trị giá 500,000 Xu và Gói Vũ Khí Tối Thượng chỉ dành riêng cho tài khoản đăng ký mới.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
+              <Link href="/dang-nhap" className="inline-flex items-center gap-3 px-8 py-4 heading-font text-sm font-black tracking-widest text-white hover:opacity-90 transition-opacity rounded-sm" style={{ background: "linear-gradient(135deg, #CC0000 0%, #FF2020 100%)", boxShadow: "0 0 30px rgba(218,0,0,0.5)"}}>
+                TẠO TÀI KHOẢN & NHẬN QUÀ →
+              </Link>
+            </div>
+            <p className="heading-font text-xs text-white/40 tracking-widest mt-6">*Chỉ mở giới hạn cho người chơi đăng ký trước ngày 30/04/2026.</p>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </main>
   );
