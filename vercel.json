@@ -1,5 +1,8 @@
 {
   "buildCommand": "npm run build",
   "installCommand": "npm install",
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "env": {
+    "DANGEROUSLY_DEPLOY_VULNERABLE_CVE_2025_66478": "1"
+  }
 }
