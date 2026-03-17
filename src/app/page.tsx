@@ -71,7 +71,7 @@ export default function HomePage() {
 
           {/* Giant hero text — 3 stacked lines */}
           <div className="mb-8 w-full">
-            <h1 className="display-font font-black leading-[0.9] tracking-tight">
+            <h1 className="display-font font-black leading-tight tracking-tight mt-4">
               <span
                 className="block"
                 style={{
