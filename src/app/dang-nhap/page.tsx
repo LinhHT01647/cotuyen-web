@@ -92,7 +92,7 @@ export default function DangNhapPage() {
             className="heading-font font-medium italic text-sm"
             style={{ color: "rgba(240,237,224,0.55)" }}
           >
-            "Chiến đấu vì những người bạn yêu thương"
+            &quot;Chiến đấu vì những người bạn yêu thương&quot;
           </p>
         </div>
       </div>
