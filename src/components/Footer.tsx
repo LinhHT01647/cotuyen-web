@@ -17,20 +17,11 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="md:w-5/12">
             <Link href="/" className="flex items-center gap-2 mb-6 group">
-              <div
-                className="w-7 h-7 flex items-center justify-center relative overflow-hidden"
-                style={{
-                  background: "#DA0000",
-                  clipPath: "polygon(10% 0%, 100% 0%, 90% 50%, 100% 100%, 10% 100%, 0% 50%)",
-                }}
-              >
-                <span className="text-yellow-300 text-xs font-bold leading-none">★</span>
-              </div>
               <span
-                className="heading-font text-xl font-black tracking-wider"
-                style={{ color: "#F0EDE0" }}
+                className="heading-font text-2xl font-black tracking-widest"
+                style={{ color: "#DA0000" }}
               >
-                CỜ TUYỂN
+                CỜ TUYẾN
               </span>
             </Link>
             
@@ -154,7 +145,7 @@ export default function Footer() {
             className="text-xs heading-font font-semibold tracking-widest uppercase"
             style={{ color: "rgba(240,237,224,0.3) " }}
           >
-            THIẾT KẾ BỞI ĐỘI NGŨ CỜ TUYỂN
+            THIẾT KẾ BỞI ĐỘI NGŨ CỜ TUYẾN
           </div>
         </div>
 

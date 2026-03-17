@@ -166,7 +166,7 @@ export default function HomePage() {
 
 
 
-      {/* ── FEATURES — "TẠI SAO CỜ TUYỂN?" ── */}
+      {/* ── FEATURES — "TẠI SAO CỜ TUYẾN?" ── */}
       <section className="py-20 px-6 sm:px-10 lg:px-16" style={{ background: "#0A0404" }}>
         <div className="max-w-7xl mx-auto">
           {/* Header */}
@@ -179,7 +179,7 @@ export default function HomePage() {
               style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "#F0EDE0" }}
             >
               TẠI SAO{" "}
-              <span style={{ color: "#DA0000" }}>CỜ TUYỂN?</span>
+              <span style={{ color: "#DA0000" }}>CỜ TUYẾN?</span>
             </h2>
             <p
               className="max-w-md mx-auto text-sm leading-relaxed"

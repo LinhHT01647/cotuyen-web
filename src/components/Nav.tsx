@@ -29,21 +29,11 @@ export default function Nav() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            {/* Red flag-inspired icon */}
-            <div
-              className="w-8 h-8 flex items-center justify-center relative overflow-hidden"
-              style={{
-                background: "#DA0000",
-                clipPath: "polygon(10% 0%, 100% 0%, 90% 50%, 100% 100%, 10% 100%, 0% 50%)",
-              }}
-            >
-              <span className="text-yellow-300 text-sm font-bold leading-none">★</span>
-            </div>
             <span
-              className="heading-font text-xl font-black tracking-wider"
-              style={{ color: "#F0EDE0" }}
+              className="heading-font text-2xl font-black tracking-widest"
+              style={{ color: "#DA0000" }}
             >
-              CỜ TUYỂN
+              CỜ TUYẾN
             </span>
           </Link>
 

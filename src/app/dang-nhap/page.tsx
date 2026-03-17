@@ -56,7 +56,7 @@ export default function DangNhapPage() {
             className="heading-font text-lg font-black tracking-wider"
             style={{ color: "#F0EDE0" }}
           >
-            CỜ TUYỂN
+            CỜ TUYẾN
           </span>
         </Link>
 
@@ -86,7 +86,7 @@ export default function DangNhapPage() {
             className="display-font font-black mb-1"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)", color: "#F0EDE0" }}
           >
-            CỜ TUYỂN
+            CỜ TUYẾN
           </div>
           <p
             className="heading-font font-medium italic text-sm"
@@ -122,7 +122,7 @@ export default function DangNhapPage() {
               className="heading-font font-black tracking-wider"
               style={{ color: "#F0EDE0" }}
             >
-              CỜ TUYỂN
+              CỜ TUYẾN
             </span>
           </Link>
 
