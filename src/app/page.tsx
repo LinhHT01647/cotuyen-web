@@ -80,7 +80,7 @@ export default function HomePage() {
                   textShadow: "0 4px 30px rgba(0,0,0,0.6)",
                 }}
               >
-                CHIẾN ĐẤU
+                MƯU LƯỢC
               </span>
               <span
                 className="block"
@@ -90,7 +90,7 @@ export default function HomePage() {
                   textShadow: "0 0 60px rgba(218,0,0,0.6), 0 4px 30px rgba(0,0,0,0.6)",
                 }}
               >
-                ĐOÀN KẾT
+                CHIẾN THUẬT
               </span>
               <span
                 className="block"
@@ -100,7 +100,7 @@ export default function HomePage() {
                   textShadow: "0 4px 30px rgba(0,0,0,0.6)",
                 }}
               >
-                VINH QUANG
+                ĐỈNH CAO
               </span>
             </h1>
           </div>

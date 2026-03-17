@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
-  title: "Cờ Tuyển — Chiến Đấu, Đoàn Kết, Vinh Quang",
+  title: "Cờ Tuyển — Mưu Lược, Chiến Thuật, Đỉnh Cao",
   description:
     "Cờ Tuyển — Tựa game chiến thuật kết hợp tinh thần dân tộc Việt Nam. Tham gia cộng đồng, tranh tài giải đấu và khẳng định bản thân.",
   keywords: ["Cờ Tuyển", "game chiến thuật", "game Việt Nam", "board game", "online chess"],
