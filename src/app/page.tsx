@@ -125,7 +125,7 @@ export default function HomePage() {
                 clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))",
               }}
             >
-              ↓ TẢI VỀ MIỄN PHÍ
+              ↓ TẢI GAME & NHẬN QUÀ
             </Link>
             <Link
               href="/chien-dich"
@@ -455,8 +455,8 @@ export default function HomePage() {
             >
               <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                 <div>
-                  <h3 className="display-font font-black text-2xl mb-2 text-white">TẢI GAME MIỄN PHÍ</h3>
-                  <p className="text-sm text-white/50 mb-6">Sẵn sàng tham chiến trên mọi nền tảng.</p>
+                  <h3 className="display-font font-black text-2xl mb-2 text-white">NHẬN GIFTCODE TÂN BINH</h3>
+                  <p className="text-sm text-[#F5C518] mb-6">Đăng ký mới nhận ngay 500,000 Xu và Gói Vũ Khí Tối Thượng.</p>
                   <div className="flex gap-4">
                     {["WINDOWS", "MACOS", "MOBILE"].map((p) => (
                       <span
@@ -477,7 +477,7 @@ export default function HomePage() {
                     boxShadow: "0 0 25px rgba(218,0,0,0.4)",
                   }}
                 >
-                  ↓ TẢI VỀ
+                  ↓ NHẬN QUÀ NGAY
                 </Link>
               </div>
             </div>
@@ -589,7 +589,7 @@ export default function HomePage() {
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="md:w-3/5 text-center md:text-left">
             <h2 className="display-font font-black text-4xl sm:text-5xl text-white leading-tight mb-4" style={{ textShadow: "0 0 30px rgba(255,100,0,0.4)" }}>
-              NHẬN TÚI QUÀ <span className="text-[#DA0000] block sm:inline">TÂN BINH</span>
+              NHẬN TÚI QUÀ <span className="text-[#F5C518] block sm:inline" style={{ textShadow: "0 0 20px rgba(245,197,24,0.5)" }}>TÂN BINH</span>
             </h2>
             <p className="text-lg text-white/80 mb-8 max-w-lg mx-auto md:mx-0">
               Tạo tài khoản ngay hôm nay để nhận được Giftcode khởi nghiệp trị giá 500,000 Xu và Gói Vũ Khí Tối Thượng chỉ dành riêng cho tài khoản đăng ký mới.
