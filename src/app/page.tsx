@@ -14,8 +14,8 @@ export default function HomePage() {
         {/* Background image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/hero-vietnam.png"
-            alt="Chiến sĩ Việt Nam"
+            src="/images/hero-soldier.png"
+            alt="Chiến sĩ Điện Biên Phủ"
             fill
             className="object-cover object-center"
             priority
