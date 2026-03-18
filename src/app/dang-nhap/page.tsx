@@ -96,6 +96,9 @@ export default function DangNhapPage() {
         localStorage.setItem("accessToken", data.accessToken);
         if (data.userId) localStorage.setItem("userId", data.userId);
         
+        const storedName = isEmail ? email.split("@")[0] : email;
+        localStorage.setItem("username", storedName);
+        
         setSuccessMsg("Đăng nhập thành công! Đang chuyển hướng...");
         setTimeout(() => {
           router.push("/");

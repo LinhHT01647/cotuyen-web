@@ -17,11 +17,14 @@ export default function Nav() {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState("CHỈ HUY");
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
     if (token) {
       setIsLoggedIn(true);
+      const savedName = localStorage.getItem("username");
+      if (savedName) setUsername(savedName.toUpperCase());
     } else {
       setIsLoggedIn(false);
     }
@@ -30,6 +33,7 @@ export default function Nav() {
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("userId");
+    localStorage.removeItem("username");
     setIsLoggedIn(false);
     router.refresh();
   };
@@ -78,18 +82,36 @@ export default function Nav() {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-3 relative z-50">
             {isLoggedIn ? (
-              <button
-                onClick={handleLogout}
-                className="px-5 py-2 rounded heading-font font-bold text-sm tracking-wider text-white transition-all duration-200"
-                style={{
-                  background: "transparent",
-                  border: "1px solid rgba(218,0,0,0.5)",
-                }}
-              >
-                ĐĂNG XUẤT
-              </button>
+              <div className="relative group">
+                <button
+                  className="px-5 py-2 rounded heading-font font-bold text-sm tracking-wider text-white transition-all duration-200"
+                  style={{
+                    background: "rgba(218,0,0,0.15)",
+                    border: "1px solid rgba(218,0,0,0.5)",
+                  }}
+                >
+                  XIN CHÀO, {username}
+                </button>
+                <div 
+                  className="absolute right-0 top-[120%] w-52 rounded shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden"
+                  style={{ background: "#0A0404", border: "1px solid rgba(218,0,0,0.3)" }}
+                >
+                  <a 
+                    href="#" 
+                    className="block px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-white/5 border-b border-white/10 heading-font font-medium tracking-wider transition-colors"
+                  >
+                    HỒ SƠ CỦA TÔI
+                  </a>
+                  <button 
+                    onClick={handleLogout} 
+                    className="block w-full text-left px-4 py-3 text-sm text-red-500 hover:bg-white/5 heading-font font-medium tracking-wider transition-colors"
+                  >
+                    ĐĂNG XUẤT
+                  </button>
+                </div>
+              </div>
             ) : (
               <Link
                 href="/dang-nhap"
@@ -136,16 +158,28 @@ export default function Nav() {
             </Link>
           ))}
           {isLoggedIn ? (
-            <button
-              onClick={() => {
-                handleLogout();
-                setMenuOpen(false);
-              }}
-              className="block w-full mt-4 text-center py-3 rounded heading-font font-bold text-sm tracking-wider text-white"
-              style={{ border: "1px solid rgba(218,0,0,0.5)", background: "transparent" }}
-            >
-              ĐĂNG XUẤT
-            </button>
+            <div className="mt-4 border-t border-white/10 pt-4">
+              <span className="block px-2 text-xs heading-font font-bold text-gray-500 tracking-widest mb-3">
+                XIN CHÀO, {username}
+              </span>
+              <a 
+                href="#" 
+                className="block w-full text-left px-2 py-3 rounded heading-font font-bold text-sm tracking-wider text-gray-300 hover:text-white hover:bg-white/5 mb-2"
+                style={{ border: "1px solid rgba(255,255,255,0.1)", background: "transparent" }}
+              >
+                HỒ SƠ CỦA TÔI
+              </a>
+              <button
+                onClick={() => {
+                  handleLogout();
+                  setMenuOpen(false);
+                }}
+                className="block w-full text-center py-3 rounded heading-font font-bold text-sm tracking-wider text-white"
+                style={{ border: "1px solid rgba(218,0,0,0.5)", background: "transparent" }}
+              >
+                ĐĂNG XUẤT
+              </button>
+            </div>
           ) : (
             <Link
               href="/dang-nhap"
