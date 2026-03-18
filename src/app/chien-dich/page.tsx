@@ -95,22 +95,21 @@ export default function ChienDichPage() {
                 <span className="text-sm ml-1" style={{ color: "#6B7280" }}>4.9/5 từ 5,000+ đánh giá</span>
               </div>
               <h2 className="display-font text-3xl font-bold mb-4" style={{ color: "#F5EDE0" }}>
-                Game Chiến Thuật Đỉnh{" "}
+                Trí Tuệ Thiên Tài,{" "}
                 <span style={{
                   background: "linear-gradient(135deg, #DA0000, #FF4444)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
                 }}>
-                  Cao
+                  Hồn Việt
                 </span>
               </h2>
               <p className="leading-relaxed mb-4 text-sm" style={{ color: "#9CA3AF" }}>
-                Cờ Tuyến là tựa game chiến thuật sa bàn độc đáo được thiết kế cho những bộ óc mưu lược nhất. Mỗi trận đấu là một bài toán về chiến thuật quân sự và khả năng đọc vị đối thủ.
+                Mang đậm bản sắc và hào khí quân sự Việt Nam, Cờ Tuyến lấy cảm hứng từ những chiến dịch kỳ vĩ nhất lịch sử nhân loại cùng tư duy xuất chúng của các bộ óc quân sự thiên tài trên thế giới.
               </p>
               <p className="leading-relaxed mb-6 text-sm" style={{ color: "#9CA3AF" }}>
-                Từ bố cục chiến trận phức tạp đến nghệ thuật phối hợp binh chủng, Cờ Tuyến
-                mang đến trải nghiệm game độc đáo mà không tựa game nào có thể so sánh.
+                Mỗi trận đấu không chỉ là cuộc tranh tài về nghệ thuật bày binh bố trận, mà còn là nơi để vinh danh những người mang trong mình tố chất của một vĩ nhân chỉ huy thực thụ.
               </p>
               <Link
                 href="/dang-nhap"

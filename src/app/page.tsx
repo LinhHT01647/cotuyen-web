@@ -110,8 +110,8 @@ export default function HomePage() {
             className="mb-10 max-w-2xl mx-auto text-base leading-relaxed"
             style={{ color: "rgba(240,237,224,0.6)" }}
           >
-            Bản Lĩnh Đỉnh Cao - Tái hiện những trận chiến quy mô và khốc liệt nhất.
-            Gia nhập ngay Bộ Chỉ Huy và lập nên trang sử vàng trên đấu trường quốc tế.
+            Hào khí Đông A hội tụ tinh hoa chiến thuật quân sự thế giới.
+            Cầm quân bằng bộ óc thiên tài và tái hiện những chiến dịch oanh liệt nhất lịch sử nhân loại.
           </p>
 
           {/* CTA Buttons */}
