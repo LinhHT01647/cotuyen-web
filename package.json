@@ -26,6 +26,8 @@
     "eslint-config-next": "15.1.9",
     "tailwindcss": "^3.4.1",
     "postcss": "^8",
-    "autoprefixer": "^10.0.1"
+    "autoprefixer": "^10.0.1",
+    "lines-and-columns": "^2.0.3",
+    "sucrase": "^3.34.0"
   }
 }

@@ -7,9 +7,10 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Trang Chủ" },
-  { href: "/chien-dich", label: "Chiến Dịch" },
+  { href: "/chien-dich", label: "Sự Kiện" },
   { href: "/luat-choi", label: "Luật Chơi" },
   { href: "/cong-dong", label: "Cộng Đồng" },
+  { href: "/dang-nhap", label: "Đổi Quà" },
 ];
 
 export default function Nav() {
