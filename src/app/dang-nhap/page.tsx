@@ -44,13 +44,17 @@ export default function DangNhapPage() {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/register`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, password, displayName }),
+          body: JSON.stringify({ email, password, username: displayName }),
         });
         const data = await res.json().catch(() => ({}));
         if (!res.ok) {
           throw new Error(data.message || data.error || "Đăng ký thất bại");
         }
-        setSuccessMsg("Đăng ký thành công! Vui lòng đăng nhập.");
+        if (data.message) {
+           setSuccessMsg(data.message);
+        } else {
+           setSuccessMsg("Đăng ký thành công! Vui lòng đăng nhập.");
+        }
         setTab("login");
         setPassword("");
         setConfirmPassword("");
