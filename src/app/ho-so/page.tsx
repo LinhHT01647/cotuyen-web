@@ -89,11 +89,11 @@ export default function ProfilePage() {
                 <div className="mt-2 flex items-center gap-2 px-3 py-1 rounded bg-black/40 border border-white/5">
                   <BadgeInfo size={14} className="text-gray-400" />
                   {userId ? (
-                    <span className="text-xs text-gray-400 font-mono tracking-widest">
+                    <span className="text-xs text-gray-400 heading-font tracking-widest">
                       ID: {userId.substring(0, 8).toUpperCase()}
                     </span>
                   ) : (
-                    <span className="text-xs text-gray-500 font-mono tracking-widest">
+                    <span className="text-xs text-gray-500 heading-font tracking-widest">
                       ID: ---
                     </span>
                   )}
