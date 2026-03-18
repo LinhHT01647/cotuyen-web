@@ -62,13 +62,11 @@ export default function Nav() {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link href="/" className="flex items-center group flex-shrink-0">
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src="/wordmark.png"
                 alt="Co Tuyen"
-                width={90}
-                height={34}
-                className="object-contain"
-                priority
+                className="h-9 w-auto object-contain"
               />
             </Link>
 
