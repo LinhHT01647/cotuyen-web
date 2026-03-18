@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
+import CookieConsent from "@/components/CookieConsent";
 
 export const metadata: Metadata = {
   title: "Cờ Tuyến — Mưu Lược, Chiến Thuật, Đỉnh Cao",
@@ -21,6 +22,7 @@ export default function RootLayout({
       </head>
       <body className="bg-background text-text-primary antialiased">
         {children}
+        <CookieConsent />
       </body>
     </html>
   );
