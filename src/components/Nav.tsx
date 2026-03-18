@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -14,7 +14,25 @@ const navLinks = [
 
 export default function Nav() {
   const pathname = usePathname();
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+    if (token) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, [pathname]);
+
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("userId");
+    setIsLoggedIn(false);
+    router.refresh();
+  };
 
   return (
     <nav
@@ -61,16 +79,29 @@ export default function Nav() {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-3">
-            <Link
-              href="/dang-nhap"
-              className="px-5 py-2 rounded heading-font font-bold text-sm tracking-wider text-white transition-all duration-200"
-              style={{
-                background: "#DA0000",
-                boxShadow: "0 0 18px rgba(218,0,0,0.5)",
-              }}
-            >
-              ĐĂNG NHẬP
-            </Link>
+            {isLoggedIn ? (
+              <button
+                onClick={handleLogout}
+                className="px-5 py-2 rounded heading-font font-bold text-sm tracking-wider text-white transition-all duration-200"
+                style={{
+                  background: "transparent",
+                  border: "1px solid rgba(218,0,0,0.5)",
+                }}
+              >
+                ĐĂNG XUẤT
+              </button>
+            ) : (
+              <Link
+                href="/dang-nhap"
+                className="px-5 py-2 rounded heading-font font-bold text-sm tracking-wider text-white transition-all duration-200"
+                style={{
+                  background: "#DA0000",
+                  boxShadow: "0 0 18px rgba(218,0,0,0.5)",
+                }}
+              >
+                ĐĂNG NHẬP
+              </Link>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -104,14 +135,27 @@ export default function Nav() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/dang-nhap"
-            onClick={() => setMenuOpen(false)}
-            className="block mt-4 text-center py-3 rounded heading-font font-bold text-sm tracking-wider text-white"
-            style={{ background: "#DA0000" }}
-          >
-            ĐĂNG NHẬP
-          </Link>
+          {isLoggedIn ? (
+            <button
+              onClick={() => {
+                handleLogout();
+                setMenuOpen(false);
+              }}
+              className="block w-full mt-4 text-center py-3 rounded heading-font font-bold text-sm tracking-wider text-white"
+              style={{ border: "1px solid rgba(218,0,0,0.5)", background: "transparent" }}
+            >
+              ĐĂNG XUẤT
+            </button>
+          ) : (
+            <Link
+              href="/dang-nhap"
+              onClick={() => setMenuOpen(false)}
+              className="block mt-4 text-center py-3 rounded heading-font font-bold text-sm tracking-wider text-white"
+              style={{ background: "#DA0000" }}
+            >
+              ĐĂNG NHẬP
+            </Link>
+          )}
         </div>
       )}
     </nav>

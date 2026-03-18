@@ -3,12 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Eye, EyeOff } from "lucide-react";
 
 export default function DangNhapPage() {
   const [tab, setTab] = useState<"login" | "register">("login");
   const [showPass, setShowPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
+  const router = useRouter();
 
   // Form states
   const [email, setEmail] = useState("");
@@ -90,8 +92,14 @@ export default function DangNhapPage() {
         if (!res.ok) {
           throw new Error(data.message || data.error || `HTTP ${res.status}: ${responseText.slice(0, 50)}`);
         }
-        setSuccessMsg("Đăng nhập thành công!");
-        // Tiềm năng lưu Token vào LocalStorage, Cookies ở đây
+        
+        localStorage.setItem("accessToken", data.accessToken);
+        if (data.userId) localStorage.setItem("userId", data.userId);
+        
+        setSuccessMsg("Đăng nhập thành công! Đang chuyển hướng...");
+        setTimeout(() => {
+          router.push("/");
+        }, 1200);
       } catch (err: any) {
         setErrorMsg(`[Cảnh báo Log]: ${err.message}`);
       } finally {
