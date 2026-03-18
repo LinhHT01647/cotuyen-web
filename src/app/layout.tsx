@@ -4,8 +4,8 @@ import "@/styles/globals.css";
 export const metadata: Metadata = {
   title: "Cờ Tuyến — Mưu Lược, Chiến Thuật, Đỉnh Cao",
   description:
-    "Cờ Tuyến — Tựa game chiến thuật kết hợp tinh thần dân tộc Việt Nam. Tham gia cộng đồng, tranh tài giải đấu và khẳng định bản thân.",
-  keywords: ["Cờ Tuyến", "game chiến thuật", "game Việt Nam", "board game", "online chess"],
+    "Cờ Tuyến — Tựa game chiến thuật mô phỏng chiến trường đỉnh cao. Tham gia cộng đồng, tranh tài giải đấu và khẳng định bản thân.",
+  keywords: ["Cờ Tuyến", "game chiến thuật", "strategy game", "board game", "online chess"],
 };
 
 export default function RootLayout({

@@ -8,7 +8,7 @@ const features = [
   {
     icon: Swords,
     title: "Chiến Thuật Độc Đáo",
-    desc: "Hệ thống quân cờ lấy cảm hứng từ lịch sử quân sự Việt Nam. Mỗi quân có kỹ năng và vai trò riêng biệt.",
+    desc: "Hệ thống quân cờ mô phỏng nghệ thuật quân sự đỉnh cao. Mỗi quân có kỹ năng và vai trò riêng biệt.",
     tag: "GAMEPLAY",
   },
   {
@@ -26,7 +26,7 @@ const features = [
   {
     icon: Globe,
     title: "Cộng Đồng Toàn Cầu",
-    desc: "Đại diện Việt Nam trên đấu trường quốc tế. Mang tinh thần anh hùng dân tộc chinh phục thế giới.",
+    desc: "Tranh tài cùng hàng triệu kỳ thủ trên đấu trường quốc tế. Mang bản lĩnh chỉ huy chinh phục thế giới.",
     tag: "GLOBAL",
   },
 ];
@@ -47,7 +47,7 @@ export default function ChienDichPage() {
         <div className="absolute inset-0">
           <Image
             src="/images/hero-vietnam.png"
-            alt="Cờ Tuyến"
+            alt="Cờ Tuyến Chiến Thuật"
             fill
             className="object-cover object-center opacity-40"
           />
@@ -61,7 +61,7 @@ export default function ChienDichPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 w-full">
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-2xl">🇻🇳</span>
+            <span className="text-2xl">🌍</span>
             <span
               className="heading-font font-semibold tracking-widest text-xs uppercase"
               style={{ color: "#DA0000" }}
@@ -95,22 +95,21 @@ export default function ChienDichPage() {
                 <span className="text-sm ml-1" style={{ color: "#6B7280" }}>4.9/5 từ 5,000+ đánh giá</span>
               </div>
               <h2 className="display-font text-3xl font-bold mb-4" style={{ color: "#F5EDE0" }}>
-                Game Chiến Thuật Mang{" "}
+                Game Chiến Thuật Đỉnh{" "}
                 <span style={{
                   background: "linear-gradient(135deg, #DA0000, #FF4444)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
                 }}>
-                  Hồn Việt
+                  Cao
                 </span>
               </h2>
               <p className="leading-relaxed mb-4 text-sm" style={{ color: "#9CA3AF" }}>
-                Cờ Tuyến là tựa game chiến thuật độc đáo được xây dựng trên nền tảng lịch sử
-                và văn hóa Việt Nam. Mỗi trận đấu là một câu chuyện về lòng dũng cảm và tinh thần bất khuất.
+                Cờ Tuyến là tựa game chiến thuật sa bàn độc đáo được thiết kế cho những bộ óc mưu lược nhất. Mỗi trận đấu là một bài toán về chiến thuật quân sự và khả năng đọc vị đối thủ.
               </p>
               <p className="leading-relaxed mb-6 text-sm" style={{ color: "#9CA3AF" }}>
-                Từ bố cục chiến thuật phức tạp đến nghệ thuật phối hợp đội hình, Cờ Tuyến
+                Từ bố cục chiến trận phức tạp đến nghệ thuật phối hợp binh chủng, Cờ Tuyến
                 mang đến trải nghiệm game độc đáo mà không tựa game nào có thể so sánh.
               </p>
               <Link

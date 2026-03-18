@@ -15,7 +15,7 @@ export default function HomePage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero-soldier.png"
-            alt="Chiến sĩ Điện Biên Phủ"
+            alt="Người lính chỉ huy"
             fill
             className="object-cover object-center"
             priority
@@ -110,8 +110,8 @@ export default function HomePage() {
             className="mb-10 max-w-2xl mx-auto text-base leading-relaxed"
             style={{ color: "rgba(240,237,224,0.6)" }}
           >
-            Hào khí Đông A - Tái hiện những trận đánh oanh liệt trong lịch sử dân tộc.
-            Gia nhập ngay hàng ngũ chiến sĩ và lập nên trang sử vàng của đại Việt.
+            Bản Lĩnh Đỉnh Cao - Tái hiện những trận chiến quy mô và khốc liệt nhất.
+            Gia nhập ngay Bộ Chỉ Huy và lập nên trang sử vàng trên đấu trường quốc tế.
           </p>
 
           {/* CTA Buttons */}
@@ -542,7 +542,7 @@ export default function HomePage() {
               {
                 img: "/images/news-update.png",
                 tag: "BẢN CẬP NHẬT",
-                title: "Chiến Dịch Điện Biên Phủ Đã Mở Cửa",
+                title: "Chiến Dịch Sinh Tồn Đã Mở Cửa",
                 desc: "Khám phá bản đồ sa bàn mới và thử thách tài cầm quân với độ khó cực cao.",
                 date: "15 THG 03, 2026"
               },

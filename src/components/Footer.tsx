@@ -26,7 +26,7 @@ export default function Footer() {
             </Link>
             
             <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(240,237,224,0.45)" }}>
-              &quot;Chiến đấu vì vinh quang Tổ Quốc&quot; - Tựa game dàn trận quân sự hàng đầu, mang tinh thần hào hùng của dân tộc vào kỷ nguyên số.
+              &quot;Bản Lĩnh Người Chỉ Huy&quot; - Tựa game chiến thuật sa bàn hàng đầu thế giới, mang kỹ năng quân sự tuyệt đỉnh vào kỷ nguyên số.
             </p>
 
             {/* Social Icons */}
@@ -65,7 +65,7 @@ export default function Footer() {
               </h3>
               <ul className="space-y-4">
                 {[
-                  { label: "Chiến Dịch Lịch Sử", href: "/chien-dich" },
+                  { label: "Chiến Dịch Huyền Thoại", href: "/chien-dich" },
                   { label: "Hướng Dẫn Luật Chơi", href: "/luat-choi" },
                   { label: "Cộng Đồng Cờ Tuyến", href: "/cong-dong" },
                   { label: "Giải Đấu Thể Thao", href: "/cong-dong" },
