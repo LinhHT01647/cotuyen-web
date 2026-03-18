@@ -80,14 +80,20 @@ export default function DangNhapPage() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         });
-        const data = await res.json().catch(() => ({}));
+        
+        let data: any = {};
+        const responseText = await res.text();
+        try {
+           if (responseText) data = JSON.parse(responseText);
+        } catch (e) {}
+
         if (!res.ok) {
-          throw new Error(data.message || data.error || "Đăng nhập thất bại");
+          throw new Error(data.message || data.error || `HTTP ${res.status}: ${responseText.slice(0, 50)}`);
         }
         setSuccessMsg("Đăng nhập thành công!");
         // Tiềm năng lưu Token vào LocalStorage, Cookies ở đây
       } catch (err: any) {
-        setErrorMsg(err.message);
+        setErrorMsg(`[Cảnh báo Log]: ${err.message}`);
       } finally {
         setLoading(false);
       }
