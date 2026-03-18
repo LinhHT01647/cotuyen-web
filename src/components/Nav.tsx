@@ -65,8 +65,8 @@ export default function Nav() {
               <Image
                 src="/wordmark.png"
                 alt="Co Tuyen"
-                width={130}
-                height={48}
+                width={90}
+                height={34}
                 className="object-contain"
                 priority
               />
