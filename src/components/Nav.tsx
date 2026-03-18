@@ -17,7 +17,6 @@ const downloadLinks = [
   { icon: "🍎", label: "App Store", sub: "iOS", href: "#" },
   { icon: "🤖", label: "Google Play", sub: "Android", href: "#" },
   { icon: "📦", label: "APK Direct", sub: "Windows/Mac", href: "#" },
-  { icon: "💰", label: "Nạp Thẻ", sub: "Top-up", href: "#", yellow: true },
 ];
 
 export default function Nav() {
@@ -122,14 +121,14 @@ export default function Nav() {
                 {/* Dropdown panel */}
                 {downloadOpen && (
                   <div
-                    className="absolute right-0 top-[calc(100%+6px)] w-56 rounded-xl overflow-hidden shadow-2xl"
+                    className="absolute right-0 top-[calc(100%+6px)] w-52 rounded-xl overflow-hidden shadow-2xl"
                     style={{
                       background: "#0d0505",
                       border: "1px solid rgba(218,0,0,0.3)",
                       boxShadow: "0 10px 40px rgba(0,0,0,0.6), 0 0 20px rgba(218,0,0,0.1)",
                     }}
                   >
-                    {downloadLinks.map(({ icon, label, sub, href, yellow }) => (
+                    {downloadLinks.map(({ icon, label, sub, href }) => (
                       <Link
                         key={label}
                         href={href}
@@ -139,7 +138,7 @@ export default function Nav() {
                         <div>
                           <div
                             className="heading-font font-black text-sm"
-                            style={{ color: yellow ? "#FFDD00" : "#F0EDE0" }}
+                            style={{ color: "#F0EDE0" }}
                           >
                             {label}
                           </div>
@@ -152,6 +151,20 @@ export default function Nav() {
                   </div>
                 )}
               </div>
+
+              {/* ── NẠP THẺ (separate button) ── */}
+              <Link
+                href="#"
+                className="flex items-center gap-1.5 px-4 py-2 heading-font font-black text-sm tracking-wider transition-all duration-200 hover:opacity-90"
+                style={{
+                  background: "linear-gradient(135deg, #CC9900 0%, #FFDD00 100%)",
+                  color: "#000",
+                  boxShadow: "0 0 14px rgba(255,221,0,0.4)",
+                  clipPath: "polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))",
+                }}
+              >
+                💰 NẠP THẺ
+              </Link>
 
               {/* Account button */}
               {isLoggedIn ? (
@@ -235,25 +248,41 @@ export default function Nav() {
                 TẢI GAME NGAY
               </p>
               <div className="grid grid-cols-2 gap-2">
-                {downloadLinks.map(({ icon, label, sub, href, yellow }) => (
+                {downloadLinks.map(({ icon, label, sub, href }) => (
                   <Link
                     key={label}
                     href={href}
                     onClick={() => setMenuOpen(false)}
                     className="flex items-center gap-2 px-3 py-2.5 rounded-lg"
                     style={{
-                      background: yellow ? "rgba(255,221,0,0.1)" : "rgba(255,255,255,0.05)",
-                      border: `1px solid ${yellow ? "rgba(255,221,0,0.3)" : "rgba(255,255,255,0.08)"}`,
+                      background: "rgba(255,255,255,0.05)",
+                      border: "1px solid rgba(255,255,255,0.08)",
                     }}
                   >
                     <span className="text-lg">{icon}</span>
                     <div>
-                      <div className="heading-font font-bold text-xs" style={{ color: yellow ? "#FFDD00" : "#F0EDE0" }}>{label}</div>
+                      <div className="heading-font font-bold text-xs" style={{ color: "#F0EDE0" }}>{label}</div>
                       <div className="text-[9px]" style={{ color: "rgba(240,237,224,0.4)" }}>{sub}</div>
                     </div>
                   </Link>
                 ))}
               </div>
+              {/* Nạp Thẻ — separate highlight */}
+              <Link
+                href="#"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center gap-2 px-3 py-2.5 rounded-lg mt-2"
+                style={{
+                  background: "rgba(255,221,0,0.1)",
+                  border: "1px solid rgba(255,221,0,0.3)",
+                }}
+              >
+                <span className="text-lg">💰</span>
+                <div>
+                  <div className="heading-font font-bold text-xs" style={{ color: "#FFDD00" }}>Nạp Thẻ</div>
+                  <div className="text-[9px]" style={{ color: "rgba(240,237,224,0.4)" }}>Top-up</div>
+                </div>
+              </Link>
             </div>
 
             {isLoggedIn ? (
@@ -301,24 +330,35 @@ export default function Nav() {
         }}
       >
         <div className="flex items-center justify-around py-2 px-2">
-          {downloadLinks.map(({ icon, label, href, yellow }) => (
+          {downloadLinks.map(({ icon, label, href }) => (
             <Link
               key={label}
               href={href}
               className="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg transition-all active:scale-95"
-              style={{
-                background: yellow ? "rgba(255,221,0,0.12)" : "transparent",
-              }}
             >
               <span className="text-xl leading-none">{icon}</span>
               <span
                 className="heading-font font-bold text-[9px] tracking-wide"
-                style={{ color: yellow ? "#FFDD00" : "rgba(240,237,224,0.7)" }}
+                style={{ color: "rgba(240,237,224,0.7)" }}
               >
                 {label}
               </span>
             </Link>
           ))}
+          {/* NẠP THẺ — separate button in mobile bar */}
+          <Link
+            href="#"
+            className="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg transition-all active:scale-95"
+            style={{ background: "rgba(255,221,0,0.12)" }}
+          >
+            <span className="text-xl leading-none">💰</span>
+            <span
+              className="heading-font font-bold text-[9px] tracking-wide"
+              style={{ color: "#FFDD00" }}
+            >
+              NẠP THẺ
+            </span>
+          </Link>
         </div>
       </div>
     </>
