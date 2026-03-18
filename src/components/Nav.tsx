@@ -98,12 +98,12 @@ export default function Nav() {
                   className="absolute right-0 top-[120%] w-52 rounded shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden"
                   style={{ background: "#0A0404", border: "1px solid rgba(218,0,0,0.3)" }}
                 >
-                  <a 
-                    href="#" 
+                  <Link 
+                    href="/ho-so" 
                     className="block px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-white/5 border-b border-white/10 heading-font font-medium tracking-wider transition-colors"
                   >
                     HỒ SƠ CỦA TÔI
-                  </a>
+                  </Link>
                   <button 
                     onClick={handleLogout} 
                     className="block w-full text-left px-4 py-3 text-sm text-red-500 hover:bg-white/5 heading-font font-medium tracking-wider transition-colors"
@@ -162,13 +162,14 @@ export default function Nav() {
               <span className="block px-2 text-xs heading-font font-bold text-gray-500 tracking-widest mb-3">
                 XIN CHÀO, {username}
               </span>
-              <a 
-                href="#" 
-                className="block w-full text-left px-2 py-3 rounded heading-font font-bold text-sm tracking-wider text-gray-300 hover:text-white hover:bg-white/5 mb-2"
+              <Link 
+                href="/ho-so" 
+                onClick={() => setMenuOpen(false)}
+                className="block w-full text-left px-2 py-3 rounded heading-font font-bold text-sm tracking-wider text-gray-300 hover:text-white hover:bg-white/5 mb-2 transition-colors"
                 style={{ border: "1px solid rgba(255,255,255,0.1)", background: "transparent" }}
               >
                 HỒ SƠ CỦA TÔI
-              </a>
+              </Link>
               <button
                 onClick={() => {
                   handleLogout();
