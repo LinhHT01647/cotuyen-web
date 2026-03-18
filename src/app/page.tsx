@@ -110,7 +110,7 @@ export default function HomePage() {
             className="mb-10 max-w-2xl mx-auto text-base leading-relaxed"
             style={{ color: "rgba(240,237,224,0.6)" }}
           >
-            Hào khí Đông A hội tụ tinh hoa chiến thuật quân sự thế giới.
+            Lấy cảm hứng từ những vĩ nhân quân sự trên toàn thế giới để hướng tới mục tiêu tối thượng: Chiến đấu vì hòa bình.
             Cầm quân bằng bộ óc thiên tài và tái hiện những chiến dịch oanh liệt nhất lịch sử nhân loại.
           </p>
 

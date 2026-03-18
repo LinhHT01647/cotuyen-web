@@ -102,11 +102,11 @@ export default function ChienDichPage() {
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
                 }}>
-                  Hồn Việt
+                  Khát Vọng Hòa Bình
                 </span>
               </h2>
               <p className="leading-relaxed mb-4 text-sm" style={{ color: "#9CA3AF" }}>
-                Mang đậm bản sắc và hào khí quân sự Việt Nam, Cờ Tuyến lấy cảm hứng từ những chiến dịch kỳ vĩ nhất lịch sử nhân loại cùng tư duy xuất chúng của các bộ óc quân sự thiên tài trên thế giới.
+                Mang lý tưởng chiến đấu để kiến tạo nền hòa bình vĩnh cửu, Cờ Tuyến lấy cảm hứng từ những chiến dịch kỳ vĩ nhất lịch sử nhân loại cùng tư duy xuất chúng của các bộ óc quân sự thiên tài trên thế giới.
               </p>
               <p className="leading-relaxed mb-6 text-sm" style={{ color: "#9CA3AF" }}>
                 Mỗi trận đấu không chỉ là cuộc tranh tài về nghệ thuật bày binh bố trận, mà còn là nơi để vinh danh những người mang trong mình tố chất của một vĩ nhân chỉ huy thực thụ.
