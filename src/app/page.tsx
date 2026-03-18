@@ -403,11 +403,11 @@ export default function HomePage() {
             {/* Progress bar mock */}
             <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
                <div className="flex items-center gap-4">
-                 <span className="text-xs font-mono" style={{ color: "rgba(240,237,224,0.8)" }}>01:24</span>
+                 <span className="text-xs heading-font" style={{ color: "rgba(240,237,224,0.8)" }}>01:24</span>
                  <div className="flex-1 h-1 bg-white/20 rounded-full overflow-hidden">
                     <div className="h-full bg-[#DA0000] w-[35%]" />
                  </div>
-                 <span className="text-xs font-mono" style={{ color: "rgba(240,237,224,0.8)" }}>03:45</span>
+                 <span className="text-xs heading-font" style={{ color: "rgba(240,237,224,0.8)" }}>03:45</span>
                </div>
             </div>
           </div>
