@@ -41,7 +41,7 @@ export default function DangNhapPage() {
 
       setLoading(true);
       try {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://160.191.50.180/v1";
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || "/api";
         const res = await fetch(`${apiUrl}/auth/register`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -74,7 +74,7 @@ export default function DangNhapPage() {
       try {
         const isEmail = email.includes("@");
         const payload = isEmail ? { email, password } : { username: email, password };
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://160.191.50.180/v1";
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || "/api";
         const res = await fetch(`${apiUrl}/auth/login`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
