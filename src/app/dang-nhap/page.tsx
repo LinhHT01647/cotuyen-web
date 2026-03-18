@@ -71,10 +71,12 @@ export default function DangNhapPage() {
       }
       setLoading(true);
       try {
+        const isEmail = email.includes("@");
+        const payload = isEmail ? { email, password } : { username: email, password };
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, password }),
+          body: JSON.stringify(payload),
         });
         const data = await res.json().catch(() => ({}));
         if (!res.ok) {
@@ -304,7 +306,7 @@ export default function DangNhapPage() {
                   className="block text-xs heading-font font-semibold tracking-widest uppercase mb-1.5"
                   style={{ color: "rgba(240,237,224,0.5)" }}
                 >
-                  EMAIL TRUY CẬP
+                  EMAIL / TÊN CHIẾN SĨ
                 </label>
                 <div className="relative">
                   <span
@@ -314,10 +316,10 @@ export default function DangNhapPage() {
                     ✉
                   </span>
                   <input
-                    type="email"
+                    type="text"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="TenTruyCap@email.com"
+                    placeholder="TenTruyCap@email.com / Username"
                     className="w-full pl-10 pr-4 py-3 rounded-lg text-sm transition-all"
                     style={{
                       background: "rgba(255,255,255,0.05)",
