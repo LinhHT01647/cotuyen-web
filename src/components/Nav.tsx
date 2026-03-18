@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X, Download, ChevronDown } from "lucide-react";
@@ -61,12 +62,22 @@ export default function Nav() {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
-              <span
-                className="heading-font text-2xl font-black tracking-widest"
-                style={{ color: "#DA0000" }}
-              >
-                CỜ TUYẾN
-              </span>
+              <Image
+                src="/logo.png"
+                alt="Co Tuyen Logo"
+                width={40}
+                height={40}
+                className="object-contain"
+                priority
+              />
+              <Image
+                src="/wordmark.png"
+                alt="Co Tuyen"
+                width={110}
+                height={40}
+                className="object-contain hidden sm:block"
+                priority
+              />
             </Link>
 
             {/* Desktop Links */}

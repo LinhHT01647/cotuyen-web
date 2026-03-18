@@ -7,6 +7,12 @@ export const metadata: Metadata = {
   description:
     "Cờ Tuyến — Tựa game chiến thuật mô phỏng chiến trường đỉnh cao. Tham gia cộng đồng, tranh tài giải đấu và khẳng định bản thân.",
   keywords: ["Cờ Tuyến", "game chiến thuật", "strategy game", "board game", "online chess"],
+  icons: {
+    icon: [
+      { url: "/logo.png", type: "image/png" },
+    ],
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -23,6 +29,8 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap"
           rel="stylesheet"
         />
+        <link rel="icon" type="image/png" href="/logo.png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
       </head>
       <body className="bg-background text-text-primary antialiased">
         {children}
