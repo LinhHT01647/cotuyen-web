@@ -10,6 +10,82 @@ export default function DangNhapPage() {
   const [showPass, setShowPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
 
+  // Form states
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [displayName, setDisplayName] = useState("");
+
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrorMsg("");
+    setSuccessMsg("");
+
+    if (tab === "register") {
+      if (!email || !password || !displayName || !confirmPassword) {
+        setErrorMsg("Vui lòng điền đầy đủ thông tin.");
+        return;
+      }
+      if (password !== confirmPassword) {
+        setErrorMsg("Mật mã xác nhận không khớp.");
+        return;
+      }
+      if (password.length < 8 || !/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
+        setErrorMsg("Mật mã cần ít nhất 8 ký tự, 1 chữ hoa và 1 chữ số.");
+        return;
+      }
+
+      setLoading(true);
+      try {
+        const res = await fetch("http://localhost:8081/auth/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password, displayName }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          throw new Error(data.message || data.error || "Đăng ký thất bại");
+        }
+        setSuccessMsg("Đăng ký thành công! Vui lòng đăng nhập.");
+        setTab("login");
+        setPassword("");
+        setConfirmPassword("");
+      } catch (err: any) {
+        setErrorMsg(err.message);
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      // Login handle
+      if (!email || !password) {
+        setErrorMsg("Vui lòng điền email và mật mã.");
+        return;
+      }
+      setLoading(true);
+      try {
+        const res = await fetch("http://localhost:8081/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          throw new Error(data.message || data.error || "Đăng nhập thất bại");
+        }
+        setSuccessMsg("Đăng nhập thành công!");
+        // Tiềm năng lưu Token vào LocalStorage, Cookies ở đây
+      } catch (err: any) {
+        setErrorMsg(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+  };
+
   return (
     <main className="min-h-screen flex" style={{ background: "#0A0404" }}>
 
@@ -176,7 +252,17 @@ export default function DangNhapPage() {
             </div>
 
             {/* Form */}
-            <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {errorMsg && (
+                <div className="p-3 rounded bg-red-500/10 border border-red-500/50 text-red-500 text-sm">
+                  {errorMsg}
+                </div>
+              )}
+              {successMsg && (
+                <div className="p-3 rounded bg-green-500/10 border border-green-500/50 text-green-500 text-sm">
+                  {successMsg}
+                </div>
+              )}
               {tab === "register" && (
                 <div>
                   <label
@@ -187,6 +273,8 @@ export default function DangNhapPage() {
                   </label>
                   <input
                     type="text"
+                    value={displayName}
+                    onChange={(e) => setDisplayName(e.target.value)}
                     placeholder="Nguyễn Văn Hùng"
                     className="w-full px-4 py-3 rounded-lg text-sm transition-all"
                     style={{
@@ -223,6 +311,8 @@ export default function DangNhapPage() {
                   </span>
                   <input
                     type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="TenTruyCap@email.com"
                     className="w-full pl-10 pr-4 py-3 rounded-lg text-sm transition-all"
                     style={{
@@ -259,6 +349,8 @@ export default function DangNhapPage() {
                   </span>
                   <input
                     type={showPass ? "text" : "password"}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••"
                     className="w-full pl-10 pr-10 py-3 rounded-lg text-sm transition-all"
                     style={{
@@ -304,6 +396,8 @@ export default function DangNhapPage() {
                     </span>
                     <input
                       type={showConfirmPass ? "text" : "password"}
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
                       placeholder="••••••••"
                       className="w-full pl-10 pr-10 py-3 rounded-lg text-sm transition-all"
                       style={{
@@ -356,13 +450,17 @@ export default function DangNhapPage() {
               {/* Submit button */}
               <button
                 type="submit"
-                className="w-full py-4 heading-font font-black tracking-widest text-sm text-white transition-all duration-200 hover:opacity-90 flex items-center justify-center gap-2 mt-2"
-                style={{
+                disabled={loading}
+                className="w-full py-4 heading-font font-black tracking-widest text-sm text-white transition-all duration-200 flex items-center justify-center gap-2 mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                style={!loading ? {
                   background: "linear-gradient(135deg, #CC0000 0%, #FF2020 100%)",
                   boxShadow: "0 0 30px rgba(218,0,0,0.4), 0 4px 20px rgba(0,0,0,0.3)",
+                } : {
+                  background: "rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(255,255,255,0.1)",
                 }}
               >
-                {tab === "login" ? "ĐĂNG NHẬP NGAY" : "GIA NHẬP HÀNG NGŨ"} ⚔
+                {loading ? "ĐANG XỬ LÝ..." : (tab === "login" ? "ĐĂNG NHẬP NGAY" : "GIA NHẬP HÀNG NGŨ")} {loading ? "⏳" : "⚔"}
               </button>
             </form>
 
