@@ -97,7 +97,7 @@ export default function Footer() {
                   { label: "Hướng Dẫn Luật Chơi", href: "/luat-choi" },
                   { label: "Cộng Đồng Cờ Tuyến", href: "/cong-dong" },
                   { label: "Giải Đấu Thể Thao", href: "/cong-dong" },
-                  { label: "Đổi Giftcode", href: "/dang-nhap" },
+                  { label: "Đổi Giftcode", href: "/doi-qua" },
                 ].map((item) => (
                   <li key={item.label}>
                     <Link

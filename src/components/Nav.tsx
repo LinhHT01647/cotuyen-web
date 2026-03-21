@@ -11,7 +11,7 @@ const navLinks = [
   { href: "/chien-dich", label: "Sự Kiện" },
   { href: "/luat-choi", label: "Luật Chơi" },
   { href: "/cong-dong", label: "Cộng Đồng" },
-  { href: "/dang-nhap", label: "Đổi Quà" },
+  { href: "/doi-qua", label: "Đổi Quà" },
 ];
 
 const downloadLinks = [
