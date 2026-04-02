@@ -4,14 +4,13 @@ import { Suspense, useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { CheckCircle2, XCircle, Loader2, Shield } from "lucide-react";
 import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 type Status = "loading" | "success" | "error";
 
 function VerifyEmailContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const { useLocale } = require('next-intl');
   const locale = useLocale();
   const [status, setStatus] = useState<Status>("loading");
   const [username, setUsername] = useState("");

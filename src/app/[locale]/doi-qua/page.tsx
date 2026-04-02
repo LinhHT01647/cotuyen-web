@@ -1,5 +1,5 @@
 "use client";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 import { useEffect, useState } from "react";
 import { useRouter } from "@/i18n/routing";
@@ -9,7 +9,6 @@ import Footer from "@/components/Footer";
 export default function DoiQuaPage() {
   const t = useTranslations('DoiQua');
   const router = useRouter();
-  const { useLocale } = require('next-intl');
   const locale = useLocale();
   const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
   const [userId, setUserId] = useState("");
