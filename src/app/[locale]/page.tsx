@@ -11,7 +11,10 @@ import Image from "next/image";
 // #FFDD00  – Vietnamese flag yellow (highlights)
 // #F5C518  – warm golden yellow (stats, prizes)
 
+import { useTranslations } from "next-intl";
+
 export default function HomePage() {
+  const t = useTranslations('Index');
   return (
     <main className="min-h-screen" style={{ background: "#0A0404" }}>
       <Nav />
@@ -71,7 +74,7 @@ export default function HomePage() {
               className="heading-font font-semibold tracking-widest text-xs uppercase"
               style={{ color: "#FF5555" }}
             >
-              ⚔ 12,547 CHIẾN SĨ ĐANG TRỰC TUYẾN
+              {t('hero.online')}
             </span>
           </div>
 
@@ -86,7 +89,7 @@ export default function HomePage() {
                   textShadow: "0 4px 30px rgba(0,0,0,0.6)",
                 }}
               >
-                MƯU LƯỢC
+                {t('hero.title1')}
               </span>
               <span
                 className="block"
@@ -96,7 +99,7 @@ export default function HomePage() {
                   textShadow: "0 0 60px rgba(218,0,0,0.6), 0 4px 30px rgba(0,0,0,0.6)",
                 }}
               >
-                CHIẾN THUẬT
+                {t('hero.title2')}
               </span>
               <span
                 className="block"
@@ -106,7 +109,7 @@ export default function HomePage() {
                   textShadow: "0 0 40px rgba(255,221,0,0.4), 0 4px 30px rgba(0,0,0,0.6)",
                 }}
               >
-                ĐỈNH CAO
+                {t('hero.title3')}
               </span>
             </h1>
           </div>
@@ -116,8 +119,7 @@ export default function HomePage() {
             className="mb-10 max-w-2xl mx-auto text-base leading-relaxed"
             style={{ color: "rgba(240,237,224,0.6)" }}
           >
-            Lấy cảm hứng từ những vĩ nhân quân sự trên toàn thế giới để hướng tới mục tiêu tối thượng: Chiến đấu vì hòa bình.
-            Cầm quân bằng bộ óc thiên tài và tái hiện những chiến dịch oanh liệt nhất lịch sử nhân loại.
+            {t('hero.subtitle')}
           </p>
 
           {/* CTA Buttons */}
@@ -131,7 +133,7 @@ export default function HomePage() {
                 clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))",
               }}
             >
-              ↓ TẢI GAME &amp; NHẬN QUÀ
+              {t('hero.cta1')}
             </Link>
             <Link
               href="/chien-dich"
@@ -143,7 +145,7 @@ export default function HomePage() {
                 clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))",
               }}
             >
-              ▶ XEM TRAILER
+              {t('hero.cta2')}
             </Link>
           </div>
 
@@ -188,16 +190,16 @@ export default function HomePage() {
                 className="heading-font font-bold tracking-widest text-xs uppercase mb-2"
                 style={{ color: "#FFDD00" }}
               >
-                🇻🇳 CHÍNH THỨC RA MẮT
+                {t('download.tag')}
               </p>
               <h2
                 className="display-font font-black mb-3"
                 style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)", color: "#F0EDE0" }}
               >
-                TẢI GAME <span style={{ color: "#FFDD00" }}>MIỄN PHÍ</span>
+                {t('download.title1')} <span style={{ color: "#FFDD00" }}>{t('download.title2')}</span>
               </h2>
               <p className="text-sm max-w-md" style={{ color: "rgba(240,237,224,0.5)" }}>
-                Có mặt trên mọi nền tảng. Tạo tài khoản và nhận ngay Giftcode Tân Binh trị giá 500,000 Xu.
+                {t('download.subtitle')}
               </p>
             </div>
 
@@ -285,14 +287,14 @@ export default function HomePage() {
               className="display-font font-black mb-3"
               style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "#F0EDE0" }}
             >
-              TẠI SAO{" "}
-              <span style={{ color: "#DA0000" }}>CỜ TUYẾN?</span>
+              {t('features.title1')}{" "}
+              <span style={{ color: "#DA0000" }}>{t('features.title2')}</span>
             </h2>
             <p
               className="max-w-md mx-auto text-sm leading-relaxed"
               style={{ color: "rgba(240,237,224,0.45)" }}
             >
-              Trải nghiệm đỉnh cao chiến thuật quân sự hiện đại trên bàn cờ. Nơi tư duy và bản lĩnh quyết định chiến thắng.
+              {t('features.subtitle')}
             </p>
           </div>
 

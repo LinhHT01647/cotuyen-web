@@ -19,5 +19,27 @@
     "create": "CREATE NEW POST",
     "edit": "EDIT DOCUMENT",
     "back": "Back to list"
+  },
+  "Index": {
+    "hero": {
+      "online": "⚔ 12,547 COMMANDERS ONLINE",
+      "title1": "ULTIMATE",
+      "title2": "TACTICAL",
+      "title3": "WARFARE",
+      "subtitle": "Inspired by military geniuses worldwide with the ultimate goal: Fight for peace. Command with your genius mind and recreate the most epic campaigns in human history.",
+      "cta1": "↓ DOWNLOAD & GET GIFTS",
+      "cta2": "▶ WATCH TRAILER"
+    },
+    "download": {
+      "tag": "🚀 OFFICIALLY LAUNCHED",
+      "title1": "PLAY FOR",
+      "title2": "FREE",
+      "subtitle": "Available on all platforms. Create an account and receive a Rookie Giftcode worth 500,000 Coins."
+    },
+    "features": {
+      "title1": "WHY",
+      "title2": "COMMAND CHESS?",
+      "subtitle": "Experience the pinnacle of modern military tactics on a chessboard. Where strategy and courage determine the winner."
+    }
   }
 }

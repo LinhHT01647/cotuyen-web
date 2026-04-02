@@ -19,5 +19,27 @@
     "create": "TẠO BÀI VIẾT NỔI BẬT",
     "edit": "CHỈNH SỬA TÀI LIỆU (ADMIN)",
     "back": "Quay lại danh sách"
+  },
+  "Index": {
+    "hero": {
+      "online": "⚔ 12,547 CHIẾN SĨ ĐANG TRỰC TUYẾN",
+      "title1": "MƯU LƯỢC",
+      "title2": "CHIẾN THUẬT",
+      "title3": "ĐỈNH CAO",
+      "subtitle": "Lấy cảm hứng từ những vĩ nhân quân sự trên toàn thế giới để hướng tới mục tiêu tối thượng: Chiến đấu vì hòa bình. Cầm quân bằng bộ óc thiên tài và tái hiện những chiến dịch oanh liệt nhất lịch sử nhân loại.",
+      "cta1": "↓ TẢI GAME & NHẬN QUÀ",
+      "cta2": "▶ XEM TRAILER"
+    },
+    "download": {
+      "tag": "🇻🇳 CHÍNH THỨC RA MẮT",
+      "title1": "TẢI GAME",
+      "title2": "MIỄN PHÍ",
+      "subtitle": "Có mặt trên mọi nền tảng. Tạo tài khoản và nhận ngay Giftcode Tân Binh trị giá 500,000 Xu."
+    },
+    "features": {
+      "title1": "TẠI SAO",
+      "title2": "CỜ TUYẾN?",
+      "subtitle": "Trải nghiệm đỉnh cao chiến thuật quân sự hiện đại trên bàn cờ. Nơi tư duy và bản lĩnh quyết định chiến thắng."
+    }
   }
 }
