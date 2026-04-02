@@ -9,9 +9,9 @@ export const metadata: Metadata = {
   keywords: ["Cờ Tuyến", "game chiến thuật", "strategy game", "board game", "online chess"],
   icons: {
     icon: [
-      { url: "/logo.png", type: "image/png" },
+      { url: "/logo.png?v=2", type: "image/png" },
     ],
-    apple: "/logo.png",
+    apple: "/logo.png?v=2",
   },
 };
 
@@ -29,8 +29,8 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap"
           rel="stylesheet"
         />
-        <link rel="icon" type="image/png" href="/logo.png" />
-        <link rel="apple-touch-icon" href="/logo.png" />
+        <link rel="icon" type="image/png" href="/logo.png?v=2" />
+        <link rel="apple-touch-icon" href="/logo.png?v=2" />
       </head>
       <body className="bg-background text-text-primary antialiased">
         {children}
