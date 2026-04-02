@@ -1,7 +1,12 @@
+"use client";
+
 import { Link } from "@/i18n/routing";
 import { Facebook, MessageCircle, Globe, Star, Twitter } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations('Footer');
+
   return (
     <footer
       className="pt-16 pb-8"
@@ -27,7 +32,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(240,237,224,0.45)" }}>
-              &quot;Bản Lĩnh Người Chỉ Huy&quot; — Tựa game chiến thuật sa bàn hàng đầu, mang kỹ năng quân sự tuyệt đỉnh vào kỷ nguyên số.
+              {t('tagline')}
             </p>
 
             {/* Social Icons */}
@@ -83,25 +88,25 @@ export default function Footer() {
 
           {/* Nav Columns Container */}
           <div className="md:w-6/12 flex flex-col sm:flex-row justify-between gap-8 md:gap-4">
-            {/* Khám Phá Column */}
+            {/* Explore Column */}
             <div className="sm:w-1/3">
               <h3
                 className="heading-font font-bold mb-6 tracking-wider text-sm"
                 style={{ color: "#F0EDE0" }}
               >
-                Khám Phá
+                {t('col1')}
               </h3>
               <ul className="space-y-4">
                 {[
-                  { label: "Sự Kiện Nổi Bật", href: "/chien-dich" },
-                  { label: "Hướng Dẫn Luật Chơi", href: "/luat-choi" },
-                  { label: "Cộng Đồng Cờ Tuyến", href: "/cong-dong" },
-                  { label: "Giải Đấu Thể Thao", href: "/cong-dong" },
-                  { label: "Đổi Giftcode", href: "/doi-qua" },
+                  { label: t('l1'), href: "/chien-dich" },
+                  { label: t('l2'), href: "/luat-choi" },
+                  { label: t('l3'), href: "/cong-dong" },
+                  { label: t('l4'), href: "/cong-dong" },
+                  { label: t('l5'), href: "/doi-qua" },
                 ].map((item) => (
                   <li key={item.label}>
                     <Link
-                      href={item.href}
+                      href={item.href as any}
                       className="text-sm transition-colors hover:text-white"
                       style={{ color: "rgba(240,237,224,0.45)" }}
                     >
@@ -112,22 +117,16 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Tính Năng Column */}
+            {/* Features Column */}
             <div className="sm:w-1/3">
               <h3
                 className="heading-font font-bold mb-6 tracking-wider text-sm"
                 style={{ color: "#F0EDE0" }}
               >
-                Tính Năng
+                {t('col2')}
               </h3>
               <ul className="space-y-4">
-                {[
-                  "Chiến Thuật Sa Bàn",
-                  "Sương Mù Chiến Tranh",
-                  "Xếp Hạng Quốc Tế",
-                  "Kho Trang Bị",
-                  "Nạp Thẻ / Top-up",
-                ].map((item) => (
+                {[t('f1'), t('f2'), t('f3'), t('f4'), t('f5')].map((item) => (
                   <li key={item}>
                     <a
                       href="#"
@@ -141,21 +140,21 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Hỗ Trợ Column */}
+            {/* Support Column */}
             <div className="sm:w-1/3">
               <h3
                 className="heading-font font-bold mb-6 tracking-wider text-sm"
                 style={{ color: "#F0EDE0" }}
               >
-                Hỗ Trợ
+                {t('col3')}
               </h3>
               <ul className="space-y-4">
                 {[
-                  { label: "Trung Tâm Trợ Giúp", href: "#" },
-                  { label: "Điều Khoản Dịch Vụ", href: "#" },
-                  { label: "Chính Sách Bảo Mật", href: "#" },
-                  { label: "Liên Hệ Hợp Tác", href: "#" },
-                  { label: "Báo Lỗi / Bug Report", href: "#" },
+                  { label: t('s1'), href: "#" },
+                  { label: t('s2'), href: "#" },
+                  { label: t('s3'), href: "#" },
+                  { label: t('s4'), href: "#" },
+                  { label: t('s5'), href: "#" },
                 ].map((item) => (
                   <li key={item.label}>
                     <a
@@ -188,13 +187,13 @@ export default function Footer() {
               </div>
             </div>
             <span className="text-xs" style={{ color: "rgba(240,237,224,0.35)" }}>
-              © 2026 Cờ Tuyến Studio. All rights reserved.
+              {t('copyright')}
             </span>
           </div>
 
           {/* Legal links */}
           <div className="flex items-center gap-6">
-            {["Điều Khoản", "Bảo Mật", "Hỗ Trợ"].map((label) => (
+            {[t('terms'), t('privacy'), t('support')].map((label) => (
               <a
                 key={label}
                 href="#"
@@ -218,7 +217,7 @@ export default function Footer() {
             className="text-xs heading-font font-semibold tracking-widest uppercase"
             style={{ color: "rgba(240,237,224,0.3)" }}
           >
-            THIẾT KẾ BỞI ĐỘI NGŨ CỜ TUYẾN
+            {t('credits')}
           </div>
         </div>
 

@@ -22,7 +22,7 @@ export default function Nav() {
   const [downloadOpen, setDownloadOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState("CHỈ HUY");
+  const [username, setUsername] = useState("");
 
   const navLinks = [
     { href: "/", label: t('home') },
@@ -145,7 +145,7 @@ export default function Nav() {
                   }}
                 >
                   <Download size={14} />
-                  TẢI GAME
+                  {t('download')}
                   <ChevronDown
                     size={12}
                     className="transition-transform duration-200"
@@ -198,7 +198,7 @@ export default function Nav() {
                   clipPath: "polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))",
                 }}
               >
-                💰 NẠP THẺ
+                {t('topup')}
               </Link>
 
               {/* Account button */}
@@ -221,13 +221,13 @@ export default function Nav() {
                       href="/ho-so"
                       className="block px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-white/5 border-b border-white/10 heading-font font-medium tracking-wider transition-colors"
                     >
-                      HỒ SƠ CỦA TÔI
+                      {t('profile')}
                     </Link>
                     <button
                       onClick={handleLogout}
                       className="block w-full text-left px-4 py-3 text-sm text-red-500 hover:bg-white/5 heading-font font-medium tracking-wider transition-colors"
                     >
-                      ĐĂNG XUẤT
+                      {t('logout')}
                     </button>
                   </div>
                 </div>
@@ -307,7 +307,7 @@ export default function Nav() {
             {isLoggedIn ? (
               <div className="mt-4 border-t border-white/10 pt-4">
                 <span className="block px-2 text-xs heading-font font-bold text-gray-500 tracking-widest mb-3">
-                  XIN CHÀO, {username}
+                  {t('hello')}, {username || t('profile')}
                 </span>
                 <Link
                   href="/ho-so"
@@ -315,14 +315,14 @@ export default function Nav() {
                   className="block w-full text-left px-2 py-3 rounded heading-font font-bold text-sm tracking-wider text-gray-300 hover:text-white hover:bg-white/5 mb-2 transition-colors"
                   style={{ border: "1px solid rgba(255,255,255,0.1)", background: "transparent" }}
                 >
-                  HỒ SƠ CỦA TÔI
+                  {t('profile')}
                 </Link>
                 <button
                   onClick={() => { handleLogout(); setMenuOpen(false); }}
                   className="block w-full text-center py-3 rounded heading-font font-bold text-sm tracking-wider text-white"
                   style={{ border: "1px solid rgba(218,0,0,0.5)", background: "transparent" }}
                 >
-                  ĐĂNG XUẤT
+                  {t('logout')}
                 </button>
               </div>
             ) : (
@@ -364,7 +364,7 @@ export default function Nav() {
             style={{ background: "rgba(255,221,0,0.12)" }}
           >
             <span className="text-xl leading-none">💰</span>
-            <span className="heading-font font-bold text-[9px] tracking-wide text-[#FFDD00]">NẠP THẺ</span>
+            <span className="heading-font font-bold text-[9px] tracking-wide text-[#FFDD00]">{t('topup')}</span>
           </Link>
         </div>
       </div>

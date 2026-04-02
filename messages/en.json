@@ -9,7 +9,12 @@
     "language": "Language",
     "vietnamese": "Tiếng Việt",
     "english": "English",
-    "chinese": "中文"
+    "chinese": "中文",
+    "download": "DOWNLOAD",
+    "topup": "💰 TOP-UP",
+    "profile": "MY PROFILE",
+    "logout": "LOG OUT",
+    "hello": "HELLO"
   },
   "News": {
     "title": "News & Events",
@@ -291,5 +296,31 @@
     "cta_title": "Ready to enter the Sandbox?",
     "cta_sub": "Create a free account and try your first match.",
     "cta_btn": "JOIN BATTLE NOW →"
+  },
+  "Footer": {
+    "tagline": "\"The Commander's Mettle\" — A premier strategic military sandbox game, bringing supreme military skills into the digital age.",
+    "col1": "Explore",
+    "col2": "Features",
+    "col3": "Support",
+    "l1": "Featured Events",
+    "l2": "Rules Guide",
+    "l3": "Community",
+    "l4": "Esports Tournaments",
+    "l5": "Redeem Giftcode",
+    "f1": "Sandbox Strategy",
+    "f2": "Fog of War",
+    "f3": "Global Rankings",
+    "f4": "Equipment Vault",
+    "f5": "Top-up",
+    "s1": "Help Center",
+    "s2": "Terms of Service",
+    "s3": "Privacy Policy",
+    "s4": "Partnership Inquiries",
+    "s5": "Bug Report",
+    "copyright": "© 2026 Command Chess Studio. All rights reserved.",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "support": "Support",
+    "credits": "DESIGNED BY COMMAND CHESS TEAM"
   }
 }

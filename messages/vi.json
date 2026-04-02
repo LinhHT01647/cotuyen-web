@@ -3,13 +3,18 @@
     "home": "Trang Chủ",
     "campaigns": "Chiến Dịch",
     "community": "Cộng Đồng",
-    "inventory": "Đổi Quà",
+    "inventory": "Kho Đồ",
     "rules": "Luật Chơi",
-    "login": "Đăng Nhập / Kết Nối",
+    "login": "Đăng Nhập",
     "language": "Ngôn ngữ",
     "vietnamese": "Tiếng Việt",
     "english": "English",
-    "chinese": "中文"
+    "chinese": "中文",
+    "download": "TẢI GAME",
+    "topup": "💰 NẠP THẺ",
+    "profile": "HỒ SƠ CỦA TÔI",
+    "logout": "ĐĂNG XUẤT",
+    "hello": "XIN CHÀO"
   },
   "News": {
     "title": "Tin Tức & Sự Kiện",
@@ -291,5 +296,31 @@
     "cta_title": "Sẵn Sàng Bước Vào Sa Bàn?",
     "cta_sub": "Tạo tài khoản miễn phí và thử ngay trận đầu tiên của bạn.",
     "cta_btn": "THAM CHIẾN NGAY →"
+  },
+  "Footer": {
+    "tagline": "\"Bản Lĩnh Người Chỉ Huy\" — Tựa game chiến thuật sa bàn hàng đầu, mang kỹ năng quân sự tuyệt đỉnh vào kỷ nguyên số.",
+    "col1": "Khám Phá",
+    "col2": "Tính Năng",
+    "col3": "Hỗ Trợ",
+    "l1": "Sự Kiện Nổi Bật",
+    "l2": "Hướng Dẫn Luật Chơi",
+    "l3": "Cộng Đồng Cờ Tuyến",
+    "l4": "Giải Đấu Thể Thao",
+    "l5": "Đổi Giftcode",
+    "f1": "Chiến Thuật Sa Bàn",
+    "f2": "Sương Mù Chiến Tranh",
+    "f3": "Xếp Hạng Quốc Tế",
+    "f4": "Kho Trang Bị",
+    "f5": "Nạp Thẻ / Top-up",
+    "s1": "Trung Tâm Trợ Giúp",
+    "s2": "Điều Khoản Dịch Vụ",
+    "s3": "Chính Sách Bảo Mật",
+    "s4": "Liên Hệ Hợp Tác",
+    "s5": "Báo Lỗi / Bug Report",
+    "copyright": "© 2026 Cờ Tuyến Studio. All rights reserved.",
+    "terms": "Điều Khoản",
+    "privacy": "Bảo Mật",
+    "support": "Hỗ Trợ",
+    "credits": "THIẾT KẾ BỞI ĐỘI NGŨ CỜ TUYẾN"
   }
 }
