@@ -37,9 +37,259 @@
       "subtitle": "Available on all platforms. Create an account and receive a Rookie Giftcode worth 500,000 Coins."
     },
     "features": {
-      "title1": "WHY",
-      "title2": "COMMAND CHESS?",
-      "subtitle": "Experience the pinnacle of modern military tactics on a chessboard. Where strategy and courage determine the winner."
+      "tabs": [
+        "BOARD",
+        "RANKING",
+        "TOURNAMENTS",
+        "INVENTORY"
+      ],
+      "cta": "WATCH FULL TRAILER 🔥"
+    },
+    "stats": {
+      "items": [
+        {
+          "val": "5M+",
+          "label": "PLAYERS"
+        },
+        {
+          "val": "120+",
+          "label": "COUNTRIES"
+        },
+        {
+          "val": "24/7",
+          "label": "OPEN TOURNAMENTS"
+        },
+        {
+          "val": "98%",
+          "label": "GOOD REVIEWS"
+        }
+      ]
+    },
+    "events": {
+      "tag": "📅 ONGOING",
+      "title": "FEATURED EVENTS",
+      "tabs": [
+        "Ongoing",
+        "Upcoming",
+        "Ended"
+      ],
+      "reward": "REWARD",
+      "ongoing": "ONGOING",
+      "upcoming": "UPCOMING",
+      "view_all": "View all events",
+      "mock_title1": "Command Chess Season 1 Tournament",
+      "mock_prize1": "$20,000",
+      "mock_title2": "Rookie Massive Rewards",
+      "mock_prize2": "500K Coins + Weapons",
+      "mock_title3": "Tactical Rankings",
+      "mock_prize3": "Grand Marshal Title"
+    },
+    "news": {
+      "tag": "LATEST NEWS",
+      "title": "BATTLEFIELD BULLETIN",
+      "view_all": "View all",
+      "tabs": [
+        "All",
+        "News",
+        "Features",
+        "Guides",
+        "Updates"
+      ],
+      "update": "UPDATE",
+      "month": "MAR",
+      "headline": "Survival Campaign is Open — New Map & Extreme Difficulty",
+      "headline_sub": "Explore the new sandbox map and challenge your commanding skills with extreme difficulty, giving you an unprecedented tactical experience.",
+      "mock": [
+        {
+          "tag": "EVENT",
+          "title": "Command Chess Season 1 Tournament Officially Begins"
+        },
+        {
+          "tag": "FEATURE",
+          "title": "Revealing Commander Powers — Changing the Game"
+        },
+        {
+          "tag": "GUIDE",
+          "title": "Secrets to Building a 5-Star Squad from the Grand Marshal"
+        },
+        {
+          "tag": "UPDATE",
+          "title": "Patch 1.4 — Force Balance & Critical Bug Fixes"
+        }
+      ]
+    },
+    "giftcode": {
+      "title1": "REDEEM",
+      "title2": "GIFTCODE",
+      "subtitle": "Enter the gift code to immediately receive items, Coins and exclusive rewards. Giftcodes are valid for a limited time.",
+      "placeholder": "Enter your Giftcode...",
+      "cta": "REDEEM NOW 🎁",
+      "note": "* You must log in to redeem giftcodes. Each code can only be used once."
+    },
+    "tournament": {
+      "tag": "BIGGEST EVENT OF THE YEAR",
+      "title1": "EPIC",
+      "title2": "TOURNAMENT",
+      "prize_label": "TOTAL PRIZE VALUE",
+      "cta1": "▶ WATCH LIVE",
+      "cta2": "REGISTER QUICK",
+      "gift_title": "GET ROOKIE GIFTCODE",
+      "gift_sub": "Sign up now to get 500,000 Coins and the Ultimate Weapon Pack.",
+      "gift_cta": "↓ GET GIFTS NOW",
+      "social_title": "JOIN THE COMMUNITY",
+      "social_sub": "Connect with millions of players, share tactics and get exclusive daily gifts.",
+      "social_cta": "JOIN NOW"
+    },
+    "cta": {
+      "title1": "GET ROOKIE",
+      "title2": "GIFT PACK",
+      "subtitle": "Create an account today to receive a startup Giftcode worth 500,000 Coins and the Ultimate Weapon Pack exclusively for new accounts.",
+      "button": "CREATE ACCOUNT & GET GIFTS →",
+      "note": "*Limited solely to players registering before 30/04/2026."
     }
+  },
+  "Login": {
+    "login": "LOGIN",
+    "register": "SIGN UP",
+    "err_missing": "Please fill in all details.",
+    "err_match": "Passwords do not match.",
+    "err_length": "Password needs 8+ chars, 1 uppercase, 1 number.",
+    "err_email": "Please provide email and password.",
+    "success_reg": "Registration successful! Please login.",
+    "success_log": "Login successful! Redirecting...",
+    "name": "SOLDIER NAME",
+    "email": "EMAIL / USERNAME",
+    "pass": "MILITARY PASSWORD",
+    "confirm": "CONFIRM PASSWORD",
+    "remember": "Remember me",
+    "forgot": "Forgot password?",
+    "btn_login": "LOGIN NOW",
+    "btn_reg": "JOIN THE RANKS",
+    "or": "─── OR ───",
+    "processing": "PROCESSING...",
+    "no_acc": "No account yet? ",
+    "has_acc": "Already have an account? ",
+    "reg_now": "Sign up now",
+    "log_now": "Login",
+    "tos": "By logging in, you agree to the",
+    "tos_link": "Terms of Service"
+  },
+  "DoiQua": {
+    "err_missing": "Please enter Giftcode.",
+    "err_fail": "Failed to redeem giftcode.",
+    "success": "Successfully redeemed! The reward has been sent to your account.",
+    "title1": "REDEEM",
+    "title2": "GIFTCODE",
+    "subtitle": "Enter the gift code to immediately receive items, Coins and exclusive rewards. Giftcodes are valid for a limited time.",
+    "label": "GIFTCODE",
+    "placeholder": "EX: COMMAND2026NEW",
+    "processing": "PROCESSING... ⏳",
+    "cta": "REDEEM NOW 🎁",
+    "note": "* Each Giftcode can only be used once.",
+    "opt1": "Coins & Gold",
+    "opt2": "Weapons",
+    "opt3": "Titles"
+  },
+  "Verify": {
+    "loading": "Verifying...",
+    "loading_sub": "Please wait a moment, this process is automatic.",
+    "success": "Verification successful",
+    "success_sub": "Your email has been verified. You can login now.",
+    "failed": "Verification failed",
+    "failed_sub": "Invalid or expired link. Please try again.",
+    "cta": "Go to Login"
+  },
+  "Community": {
+    "title1": "GATHERING PLACE OF",
+    "title2": "CHAMPIONS",
+    "cta1": "JOIN DISCORD",
+    "cta2": "FOLLOW FACEBOOK",
+    "stat1": "Members",
+    "stat2": "Active Now",
+    "stat3": "Tournaments/Week",
+    "events": "COMMUNITY EVENTS",
+    "post1": "Weekend Friendly Tournament",
+    "post2": "Tactics share: 5-star formation",
+    "post3": "Vote for new season map",
+    "minago": "mins ago",
+    "hrsago": "hours ago",
+    "rank": "HALL OF FAME",
+    "player": "Player",
+    "score": "Score",
+    "lvl": "Lvl",
+    "view_all": "View full leaderboard"
+  },
+  "Rules": {
+    "hero_sub": "Beginner's Guide",
+    "title1": "HOW TO PLAY",
+    "title2": "COMMAND CHESS",
+    "desc": "Command Chess is a turn-based military strategy game for <strong style=\"color: #F0EDE0\">2 players</strong>. You command an army on a sandbox with rivers, mountains, and seas. Goal: <strong style=\"color: #DA0000\">capture the opponent's Commander</strong> to win.",
+    "stat1": "Piece types",
+    "stat2": "Players",
+    "stat3": "Playstyle",
+    "stat4": "Mystery element",
+    "stat_v3": "Turn-based",
+    "stat_v4": "Hidden",
+    "how_title": "Basic Rules",
+    "s1": "Setup Pieces",
+    "d1": "Each places 12 pieces in 3 rows: 10 face down (unknown to opponent), only Heli and 2 Ships are face up.",
+    "s2": "Take Turns",
+    "d2": "Players alternate turns, moving 1 piece per turn. Can move to empty tiles or attack enemy pieces.",
+    "s3": "Victory",
+    "d3": "Whoever captures the opponent's Commander wins immediately. Attack while protecting yours.",
+    "ter_title": "Terrain on Sandbox",
+    "t1_l": "River & Sea",
+    "t1_d": "Ground troops can walk or stand on rivers like land. Warships and Transports only move on water.",
+    "t2_l": "Mountain",
+    "t2_d": "Blocks Artillery vision. Helicopters can't land on it. Infantry on mountains move further.",
+    "t3_l": "Hidden Pieces",
+    "t3_d": "Most pieces are face down — creating a fog of war. Identity is revealed when they move or attack.",
+    "t4_l": "Objective",
+    "t4_d": "Capture the opponent's Commander → Win immediately. Defending your Commander is top priority.",
+    "pieces_title": "Types of Pieces",
+    "pieces_sub": "6 types you place + 2 ships available on map. Most start face down.",
+    "p1_n": "Commander",
+    "p1_c": "1 piece",
+    "p1_m": "Moves anywhere in 8 directions, no jumping. Can only kill enemies in adjacent tiles. Most important piece — if captured, you lose.",
+    "p2_n": "Infantry",
+    "p2_c": "4 pieces",
+    "p2_m": "Before crossing river: max 2 steps forward, attacks diagonally. After crossing: can move forward, side, or diagonally forward 1 step. No going backwards.",
+    "p3_n": "Spec Ops",
+    "p3_c": "2 pieces",
+    "p3_m": "Alone: jumps in L-shape like Knight in chess, can jump over pieces. Near allies: moves exactly 1 step forward.",
+    "p4_n": "Armor",
+    "p4_c": "2 pieces",
+    "p4_m": "Moves anywhere in 4 straight directions, no jumping. Cannot cross rivers.",
+    "p5_n": "Artillery",
+    "p5_c": "2 pieces",
+    "p5_m": "Moves exactly 2 steps. Attacks by firing over 1 piece (fuse) to hit the first enemy behind it. Mountains block sight unless standing on one.",
+    "p6_n": "Helicopter",
+    "p6_c": "1 piece (Face up)",
+    "p6_m": "Flies up to 4 tiles straight, goes over any terrain but cannot land on water/mountains. Cannot attack. Can transport 1 piece in 3 turns.",
+    "p7_n": "Warship",
+    "p7_c": "1 ship (Map)",
+    "p7_m": "Moves anywhere in 4 straight directions on water. Can bombard adjacent land tiles to kill enemies.",
+    "p8_n": "Transport",
+    "p8_c": "1 ship (Map)",
+    "p8_m": "Moves up to 4 tiles on water. Cannot attack. Can transport 1 ground troop across river in 3 turns.",
+    "p1_tag": "CRITICAL",
+    "note_title": "💡 About Face-down Pieces",
+    "note_desc": "Unrevealed pieces can move up to <strong style=\"color: #F0EDE0\">2 tiles</strong> in any direction. No jumping, no special skills. When moved or attacked with, it flips face up.",
+    "win_title": "Win & Lose",
+    "w1": "Capture Enemy Commander",
+    "w1_r": "WIN Instantly",
+    "w2": "Your Commander Captured",
+    "w2_r": "LOSE Instantly",
+    "w3": "Surrender",
+    "w3_r": "LOSE Instantly",
+    "w4": "Run out of time",
+    "w4_r": "LOSE",
+    "w5": "Disconnected too long",
+    "w5_r": "Forfeit",
+    "w6": "Both disconnected",
+    "w6_r": "Cancelled",
+    "cta_title": "Ready to enter the Sandbox?",
+    "cta_sub": "Create a free account and try your first match.",
+    "cta_btn": "JOIN BATTLE NOW →"
   }
 }

@@ -4,6 +4,7 @@ import { Suspense, useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { CheckCircle2, XCircle, Loader2, Shield } from "lucide-react";
 import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 type Status = "loading" | "success" | "error";
 
@@ -168,6 +169,7 @@ function VerifyEmailContent() {
 }
 
 export default function VerifyEmailPage() {
+  const t = useTranslations('Verify');
   return (
     <main
       className="min-h-screen flex flex-col items-center justify-center px-4"

@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 "use client";
 
 import { useEffect, useState } from "react";
@@ -6,6 +7,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 export default function DoiQuaPage() {
+  const t = useTranslations('DoiQua');
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
   const [userId, setUserId] = useState("");
@@ -27,7 +29,7 @@ export default function DoiQuaPage() {
   const handleRedeem = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!giftcode.trim()) {
-      setMessage({ type: "error", text: "Vui lòng nhập Giftcode." });
+      setMessage({ type: "error", text: t('err_missing') });
       return;
     }
     setLoading(true);
@@ -44,9 +46,9 @@ export default function DoiQuaPage() {
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        throw new Error(data.message || data.error || "Đổi giftcode thất bại.");
+        throw new Error(data.message || data.error || t('err_fail'));
       }
-      setMessage({ type: "success", text: data.message || "Đổi giftcode thành công! Phần thưởng đã được gửi vào tài khoản." });
+      setMessage({ type: "success", text: data.message || t('success') });
       setGiftcode("");
     } catch (err: any) {
       setMessage({ type: "error", text: err.message });
@@ -77,11 +79,10 @@ export default function DoiQuaPage() {
               className="display-font font-black mb-3"
               style={{ fontSize: "clamp(2rem, 5vw, 3rem)", color: "#F0EDE0" }}
             >
-              ĐỔI <span style={{ color: "#FFDD00" }}>GIFTCODE</span>
+              {t('title1')} <span style={{ color: "#FFDD00" }}>{t('title2')}</span>
             </h1>
             <p className="text-sm max-w-md mx-auto" style={{ color: "rgba(240,237,224,0.5)" }}>
-              Nhập code quà tặng để nhận ngay vật phẩm, Xu và các phần thưởng độc quyền.
-              Giftcode có hiệu lực trong thời gian giới hạn.
+              {t('subtitle')}
             </p>
           </div>
 
@@ -114,13 +115,13 @@ export default function DoiQuaPage() {
                 className="block text-xs heading-font font-semibold tracking-widest uppercase mb-2"
                 style={{ color: "rgba(240,237,224,0.5)" }}
               >
-                MÃ GIFTCODE
+                {t('label')}
               </label>
               <input
                 type="text"
                 value={giftcode}
                 onChange={(e) => setGiftcode(e.target.value.toUpperCase())}
-                placeholder="VD: COTUYEN2026NEW"
+                placeholder=t('placeholder')
                 className="w-full px-5 py-4 text-sm heading-font tracking-widest outline-none rounded-sm transition-all"
                 style={{
                   background: "rgba(255,255,255,0.05)",
@@ -160,23 +161,23 @@ export default function DoiQuaPage() {
                     }
               }
             >
-              {loading ? "ĐANG XỬ LÝ... ⏳" : "ĐỔI NGAY 🎁"}
+              {loading ? t('processing') : t('cta')}
             </button>
 
             <p
               className="text-center text-xs mt-5 heading-font tracking-widest"
               style={{ color: "rgba(240,237,224,0.25)" }}
             >
-              * Mỗi Giftcode chỉ sử dụng được 1 lần duy nhất.
+              {t('note')}
             </p>
           </form>
 
           {/* Info boxes */}
           <div className="grid grid-cols-3 gap-3 mt-6">
             {[
-              { icon: "🪙", label: "Xu & Vàng" },
-              { icon: "⚔️", label: "Vũ Khí" },
-              { icon: "🎖️", label: "Danh Hiệu" },
+              { icon: "🪙", label: t('opt1') },
+              { icon: "⚔️", label: t('opt2') },
+              { icon: "🎖️", label: t('opt3') },
             ].map(({ icon, label }) => (
               <div
                 key={label}

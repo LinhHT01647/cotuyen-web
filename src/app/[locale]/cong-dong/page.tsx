@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 "use client";
 
 import Nav from "@/components/Nav";
@@ -82,6 +83,7 @@ function Countdown() {
 }
 
 export default function CongDongPage() {
+  const t = useTranslations('Community');
   return (
     <main className="min-h-screen" style={{ background: "#0A0404" }}>
       <Nav />

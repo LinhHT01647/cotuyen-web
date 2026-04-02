@@ -37,9 +37,259 @@
       "subtitle": "Có mặt trên mọi nền tảng. Tạo tài khoản và nhận ngay Giftcode Tân Binh trị giá 500,000 Xu."
     },
     "features": {
-      "title1": "TẠI SAO",
-      "title2": "CỜ TUYẾN?",
-      "subtitle": "Trải nghiệm đỉnh cao chiến thuật quân sự hiện đại trên bàn cờ. Nơi tư duy và bản lĩnh quyết định chiến thắng."
+      "tabs": [
+        "BÀN CỜ",
+        "XẾP HẠNG",
+        "GIẢI ĐẤU",
+        "KHO ĐỒ"
+      ],
+      "cta": "XEM TRAILER ĐẦY ĐỦ 🔥"
+    },
+    "stats": {
+      "items": [
+        {
+          "val": "5M+",
+          "label": "NGƯỜI CHƠI"
+        },
+        {
+          "val": "120+",
+          "label": "QUỐC GIA"
+        },
+        {
+          "val": "24/7",
+          "label": "GIẢI ĐẤU MỞ"
+        },
+        {
+          "val": "98%",
+          "label": "ĐÁNH GIÁ TỐT"
+        }
+      ]
+    },
+    "events": {
+      "tag": "📅 ĐANG DIỄN RA",
+      "title": "SỰ KIỆN NỔI BẬT",
+      "tabs": [
+        "Đang diễn ra",
+        "Sắp tới",
+        "Đã kết thúc"
+      ],
+      "reward": "PHẦN THƯỞNG",
+      "ongoing": "ĐANG DIỄN RA",
+      "upcoming": "SẮP TỚI",
+      "view_all": "Xem tất cả sự kiện",
+      "mock_title1": "Giải Đấu Cờ Tuyến Mùa 1",
+      "mock_prize1": "500,000,000đ",
+      "mock_title2": "Tân Binh Nhận Quà Khủng",
+      "mock_prize2": "500K Xu + Vũ Khí",
+      "mock_title3": "Bảng Xếp Hạng Chiến Thuật",
+      "mock_prize3": "Danh hiệu Đại Nguyên Soái"
+    },
+    "news": {
+      "tag": "TIN TỨC MỚI NHẤT",
+      "title": "BẢN TIN CHIẾN TRƯỜNG",
+      "view_all": "Xem tất cả",
+      "tabs": [
+        "Tất cả",
+        "Tin tức",
+        "Tính năng",
+        "Hướng dẫn",
+        "Cập nhật"
+      ],
+      "update": "BẢN CẬP NHẬT",
+      "month": "THG",
+      "headline": "Chiến Dịch Sinh Tồn Đã Mở Cửa — Map Mới & Chế Độ Khó Cực Hạn",
+      "headline_sub": "Khám phá bản đồ sa bàn mới và thử thách tài cầm quân với độ khó cực cao, mang đến trải nghiệm chiến thuật chưa từng có.",
+      "mock": [
+        {
+          "tag": "SỰ KIỆN",
+          "title": "Giải Đấu Cờ Tuyến Mùa 1 Chính Thức Khởi Tranh"
+        },
+        {
+          "tag": "TÍNH NĂNG",
+          "title": "Hé Lộ Sức Mạnh Tướng Chỉ Huy — Thay Đổi Cục Diện"
+        },
+        {
+          "tag": "HƯỚNG DẪN",
+          "title": "Bí Kíp Xây Dựng Đội Hình 5 Sao Từ Đại Nguyên Soái"
+        },
+        {
+          "tag": "CẬP NHẬT",
+          "title": "Patch 1.4 — Cân Bằng Lực Lượng & Sửa Lỗi Quan Trọng"
+        }
+      ]
+    },
+    "giftcode": {
+      "title1": "ĐỔI",
+      "title2": "GIFTCODE",
+      "subtitle": "Nhập code quà tặng để nhận ngay vật phẩm, Xu và các phần thưởng độc quyền. Giftcode có hiệu lực trong thời gian giới hạn.",
+      "placeholder": "Nhập Giftcode của bạn...",
+      "cta": "ĐỔI NGAY 🎁",
+      "note": "* Cần đăng nhập để đổi giftcode. Mỗi code chỉ dùng được 1 lần."
+    },
+    "tournament": {
+      "tag": "SỰ KIỆN LỚN NHẤT NĂM",
+      "title1": "GIẢI ĐẤU",
+      "title2": "HÀO HÙNG",
+      "prize_label": "TỔNG GIÁ TRỊ GIẢI THƯỞNG",
+      "cta1": "▶ XEM TRỰC TIẾP",
+      "cta2": "ĐĂNG KÝ THI ĐẤU",
+      "gift_title": "NHẬN GIFTCODE TÂN BINH",
+      "gift_sub": "Đăng ký mới nhận ngay 500,000 Xu và Gói Vũ Khí Tối Thượng.",
+      "gift_cta": "↓ NHẬN QUÀ NGAY",
+      "social_title": "GIA NHẬP CỘNG ĐỒNG",
+      "social_sub": "Kết nối với hàng triệu kỳ thủ, chia sẻ chiến thuật và nhận quà độc quyền mỗi ngày.",
+      "social_cta": "THAM GIA NGAY"
+    },
+    "cta": {
+      "title1": "NHẬN TÚI QUÀ",
+      "title2": "TÂN BINH",
+      "subtitle": "Tạo tài khoản ngay hôm nay để nhận được Giftcode khởi nghiệp trị giá 500,000 Xu và Gói Vũ Khí Tối Thượng chỉ dành riêng cho tài khoản đăng ký mới.",
+      "button": "TẠO TÀI KHOẢN & NHẬN QUÀ →",
+      "note": "*Chỉ mở giới hạn cho người chơi đăng ký trước ngày 30/04/2026."
     }
+  },
+  "Login": {
+    "login": "ĐĂNG NHẬP",
+    "register": "ĐĂNG KÝ",
+    "err_missing": "Vui lòng điền đầy đủ thông tin.",
+    "err_match": "Mật mã xác nhận không khớp.",
+    "err_length": "Mật mã cần ít nhất 8 ký tự, 1 chữ hoa và 1 chữ số.",
+    "err_email": "Vui lòng điền email và mật mã.",
+    "success_reg": "Đăng ký thành công! Vui lòng đăng nhập.",
+    "success_log": "Đăng nhập thành công! Đang chuyển hướng...",
+    "name": "TÊN CHIẾN SĨ",
+    "email": "EMAIL / TÊN CHIẾN SĨ",
+    "pass": "MẬT MÃ QUÂN SỰ",
+    "confirm": "XÁC NHẬN MẬT MÃ",
+    "remember": "Nhớ đăng nhập",
+    "forgot": "Quên mật mã?",
+    "btn_login": "ĐĂNG NHẬP NGAY",
+    "btn_reg": "GIA NHẬP HÀNG NGŨ",
+    "or": "─── HOẶC ───",
+    "processing": "ĐANG XỬ LÝ...",
+    "no_acc": "Chưa có tài khoản? ",
+    "has_acc": "Đã có tài khoản? ",
+    "reg_now": "Đăng ký ngay",
+    "log_now": "Đăng nhập",
+    "tos": "Bằng cách đăng nhập, bạn đồng ý với",
+    "tos_link": "Điều khoản dịch vụ"
+  },
+  "DoiQua": {
+    "err_missing": "Vui lòng nhập Giftcode.",
+    "err_fail": "Đổi giftcode thất bại.",
+    "success": "Đổi giftcode thành công! Phần thưởng đã được gửi vào tài khoản.",
+    "title1": "ĐỔI",
+    "title2": "GIFTCODE",
+    "subtitle": "Nhập code quà tặng để nhận ngay vật phẩm, Xu và các phần thưởng độc quyền. Giftcode có hiệu lực trong thời gian giới hạn.",
+    "label": "MÃ GIFTCODE",
+    "placeholder": "VD: COTUYEN2026NEW",
+    "processing": "ĐANG XỬ LÝ... ⏳",
+    "cta": "ĐỔI NGAY 🎁",
+    "note": "* Mỗi Giftcode chỉ sử dụng được 1 lần duy nhất.",
+    "opt1": "Xu & Vàng",
+    "opt2": "Vũ Khí",
+    "opt3": "Danh Hiệu"
+  },
+  "Verify": {
+    "loading": "Đang xác thực...",
+    "loading_sub": "Vui lòng đợi trong giây lát, tiến trình này diễn ra tự động.",
+    "success": "Xác thực thành công",
+    "success_sub": "Email của bạn đã được xác thực hoàn tất. Bạn có thể đăng nhập ngay bây giờ.",
+    "failed": "Xác thực thất bại",
+    "failed_sub": "Đường dẫn không hợp lệ hoặc đã hết hạn vui lòng thử lại.",
+    "cta": "Tới trang Đăng nhập"
+  },
+  "Community": {
+    "title1": "NƠI HỘI TỤ CỦA NHỮNG",
+    "title2": "NHÀ VÔ ĐỊCH",
+    "cta1": "THAM GIA DISCORD",
+    "cta2": "THEO DÕI FACEBOOK",
+    "stat1": "Thành viên",
+    "stat2": "Đang hoạt động",
+    "stat3": "Giải đấu/Tuần",
+    "events": "SỰ KIỆN CỘNG ĐỒNG",
+    "post1": "Giải đấu giao hữu cuối tuần",
+    "post2": "Chia sẻ chiến thuật: Đội hình 5 sao",
+    "post3": "Bình chọn map thi đấu mùa giải mới",
+    "minago": "phút trước",
+    "hrsago": "giờ trước",
+    "rank": "BẢNG VÀNG THÀNH TÍCH",
+    "player": "Người chơi",
+    "score": "Điểm",
+    "lvl": "Cấp",
+    "view_all": "Xem toàn bộ bảng xếp hạng"
+  },
+  "Rules": {
+    "hero_sub": "Hướng Dẫn Cho Người Mới",
+    "title1": "LUẬT CHƠI",
+    "title2": "CỜ TUYẾN",
+    "desc": "Cờ Tuyến là game chiến thuật quân sự cho <strong style=\"color: #F0EDE0\">2 người chơi</strong>, chơi theo lượt. Bạn chỉ huy một đội quân trên sa bàn có sông, núi, và biển. Mục tiêu: <strong style=\"color: #DA0000\">bắt quân Chỉ Huy của đối thủ</strong> để chiến thắng.",
+    "stat1": "Loại quân",
+    "stat2": "Người chơi",
+    "stat3": "Kiểu chơi",
+    "stat4": "Yếu tố bí ẩn",
+    "stat_v3": "Theo lượt",
+    "stat_v4": "Úp mặt",
+    "how_title": "Cách Chơi Cơ Bản",
+    "s1": "Sắp Xếp Quân",
+    "d1": "Mỗi người đặt 12 quân vào 3 hàng phía mình: 10 quân được úp mặt xuống (đối thủ không biết loại gì), chỉ có Trực Thăng và 2 Tàu là hiện mặt ngay từ đầu.",
+    "s2": "Luân Phiên Đi",
+    "d2": "Hai người thay nhau đi, mỗi lượt di chuyển đúng 1 quân. Có thể di chuyển đến ô trống, hoặc tấn công vào ô có quân địch để tiêu diệt.",
+    "s3": "Chiến Thắng",
+    "d3": "Người nào bắt được quân Chỉ Huy của đối thủ thì thắng ngay lập tức. Hãy vừa tấn công vừa bảo vệ quân Chỉ Huy của mình.",
+    "ter_title": "Địa Hình Trên Sa Bàn",
+    "t1_l": "Sông & Biển",
+    "t1_d": "Quân bộ có thể đi qua sông hoặc đứng trên sông như đất bình thường. Riêng Tàu Chiến và Tàu Chở thì chỉ di chuyển được trên mặt nước.",
+    "t2_l": "Núi",
+    "t2_d": "Núi cản tầm bắn của Pháo — Pháo không bắn xuyên qua núi được. Trực Thăng không thể hạ cánh trên núi. Bộ Binh đứng trên núi sẽ di chuyển được xa hơn bình thường.",
+    "t3_l": "Quân Úp Mặt",
+    "t3_d": "Hầu hết quân được đặt úp mặt xuống — đối thủ không biết bạn đang có loại quân gì cho đến khi quân đó di chuyển hoặc tấn công. Đây là yếu tố bí ẩn tạo nên sương mù chiến tranh.",
+    "t4_l": "Mục Tiêu",
+    "t4_d": "Bắt được quân Chỉ Huy của đối phương → Thắng ngay lập tức. Bảo vệ Chỉ Huy của bạn là ưu tiên số một.",
+    "pieces_title": "Các Loại Quân Cờ",
+    "pieces_sub": "6 loại quân do bạn tự đặt + 2 tàu có sẵn trên bản đồ. Hầu hết được úp mặt xuống khi bắt đầu.",
+    "p1_n": "Chỉ Huy",
+    "p1_c": "1 quân",
+    "p1_m": "Có thể di chuyển xa bao nhiêu tùy thích theo 8 hướng (kể cả chéo), nhưng không nhảy qua quân khác. Quan trọng: chỉ được tiêu diệt quân địch khi đứng sát bên cạnh (1 ô gần nhất). Đây là quân quan trọng nhất — nếu bị bắt, bạn thua ngay.",
+    "p2_n": "Bộ Binh",
+    "p2_c": "4 quân",
+    "p2_m": "Khi chưa vượt sông: chỉ tiến thẳng tối đa 2 bước, tiêu diệt địch bằng cách đánh chéo về phía trước. Sau khi vượt sông: linh hoạt hơn — có thể đi thẳng, đi ngang hoặc chéo về phía trước, mỗi lần 1 bước. Không bao giờ được đi lùi.",
+    "p3_n": "Đặc Nhiệm",
+    "p3_c": "2 quân",
+    "p3_m": "Có 2 chế độ tùy tình huống: khi đứng một mình (không có đồng đội kề bên) — nhảy theo hình chữ L như Mã trong cờ vua, có thể vượt qua quân khác; khi có đồng đội gần — chỉ đi thẳng 1 bước về phía trước.",
+    "p4_n": "Thiết Giáp",
+    "p4_c": "2 quân",
+    "p4_m": "Di chuyển xa bao nhiêu tùy thích theo 4 hướng thẳng (lên, xuống, trái, phải), không nhảy qua quân khác. Lưu ý: Thiết Giáp KHÔNG thể vượt qua sông — đây là điểm yếu lớn nhất của loại quân này.",
+    "p5_n": "Pháo",
+    "p5_c": "2 quân",
+    "p5_m": "Di chuyển: đúng 2 bước theo 8 hướng. Bắn: chọn một hướng và bắn — viên đạn bay qua đúng 1 quân bất kỳ (gọi là 'ngòi') rồi tiêu diệt quân địch đầu tiên ở phía sau. Núi cản tầm bắn, nhưng nếu Pháo đang đứng trên núi thì bắn được qua núi.",
+    "p6_n": "Trực Thăng",
+    "p6_c": "1 quân (hiện mặt ngay từ đầu)",
+    "p6_m": "Bay tối đa 4 ô theo 4 hướng thẳng, có thể bay qua mọi địa hình (sông, núi) nhưng không đáp xuống sông hoặc núi. Không tấn công trực tiếp. Có thể vận chuyển 1 quân trong 3 lượt: lượt 1 - quân lên trực thăng; lượt 2 - trực thăng bay đến nơi cần; lượt 3 - thả quân xuống.",
+    "p7_n": "Tàu Chiến",
+    "p7_c": "1 tàu (có sẵn trên bản đồ)",
+    "p7_m": "Di chuyển xa bao nhiêu tùy thích theo 4 hướng thẳng, chỉ trên mặt nước. Khả năng đặc biệt: thay vì di chuyển, có thể bắn vào điểm đất kề bên bờ nước để tiêu diệt quân địch đứng đó.",
+    "p8_n": "Tàu Chở",
+    "p8_c": "1 tàu (có sẵn trên bản đồ)",
+    "p8_m": "Di chuyển tối đa 4 ô trên mặt nước, theo 4 hướng thẳng. Không tấn công. Có thể chở 1 quân bộ qua sông trong 3 lượt: lên tàu → tàu di chuyển → thả quân lên bờ.",
+    "p1_tag": "QUAN TRỌNG",
+    "note_title": "💡 Về quân úp mặt",
+    "note_desc": "Quân chưa bị lật có thể di chuyển tối đa <strong style=\"color: #F0EDE0\">2 ô</strong> theo mọi hướng (thẳng và chéo), không được nhảy qua quân khác, và chưa dùng được kỹ năng đặc biệt. Khi bạn di chuyển hoặc tấn công bằng quân úp, nó sẽ tự động lật mặt lên để lộ danh tính.",
+    "win_title": "Thắng & Thua",
+    "w1": "Bắt quân Chỉ Huy của đối thủ",
+    "w1_r": "THẮNG ngay",
+    "w2": "Quân Chỉ Huy của bạn bị bắt",
+    "w2_r": "THUA ngay",
+    "w3": "Nhấn đầu hàng",
+    "w3_r": "THUA ngay",
+    "w4": "Hết thời gian suy nghĩ",
+    "w4_r": "THUA",
+    "w5": "Mất kết nối quá lâu",
+    "w5_r": "Xử thua",
+    "w6": "Cả hai mất kết nối",
+    "w6_r": "Hủy trận",
+    "cta_title": "Sẵn Sàng Bước Vào Sa Bàn?",
+    "cta_sub": "Tạo tài khoản miễn phí và thử ngay trận đầu tiên của bạn.",
+    "cta_btn": "THAM CHIẾN NGAY →"
   }
 }

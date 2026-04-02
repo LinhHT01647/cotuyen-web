@@ -5,7 +5,9 @@ import { useState } from "react";
 import { Link, useRouter } from "@/i18n/routing";
 import { Eye, EyeOff } from "lucide-react";
 
+import { useTranslations } from "next-intl";
 export default function DangNhapPage() {
+  const t = useTranslations('Login');
   const [tab, setTab] = useState<"login" | "register">("login");
   const [showPass, setShowPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
@@ -30,15 +32,15 @@ export default function DangNhapPage() {
 
     if (tab === "register") {
       if (!email || !password || !displayName || !confirmPassword) {
-        setErrorMsg("Vui lòng điền đầy đủ thông tin.");
+        setErrorMsg(t('err_missing'));
         return;
       }
       if (password !== confirmPassword) {
-        setErrorMsg("Mật mã xác nhận không khớp.");
+        setErrorMsg(t('err_match'));
         return;
       }
       if (password.length < 8 || !/[A-Z]/.test(password) || !/[0-9]/.test(password)) {
-        setErrorMsg("Mật mã cần ít nhất 8 ký tự, 1 chữ hoa và 1 chữ số.");
+        setErrorMsg(t('err_length'));
         return;
       }
 
@@ -60,7 +62,7 @@ export default function DangNhapPage() {
         if (data.message) {
            setSuccessMsg(data.message);
         } else {
-           setSuccessMsg("Đăng ký thành công! Vui lòng đăng nhập.");
+           setSuccessMsg(t('success_reg'));
         }
         setTab("login");
         setPassword("");
@@ -73,7 +75,7 @@ export default function DangNhapPage() {
     } else {
       // Login handle
       if (!email || !password) {
-        setErrorMsg("Vui lòng điền email và mật mã.");
+        setErrorMsg(t('err_email'));
         return;
       }
       setLoading(true);
@@ -107,7 +109,7 @@ export default function DangNhapPage() {
         const storedName = isEmail ? email.split("@")[0] : email;
         localStorage.setItem("username", storedName);
         
-        setSuccessMsg("Đăng nhập thành công! Đang chuyển hướng...");
+        setSuccessMsg(t('success_log'));
         setTimeout(() => {
           router.push("/");
         }, 1200);
@@ -279,7 +281,7 @@ export default function DangNhapPage() {
                         }
                   }
                 >
-                  {t === "login" ? "ĐĂNG NHẬP" : "ĐĂNG KÝ"}
+                  {t === "login" ? t('login') : t('register')}
                 </button>
               ))}
             </div>
@@ -302,7 +304,7 @@ export default function DangNhapPage() {
                     className="block text-xs heading-font font-semibold tracking-widest uppercase mb-1.5"
                     style={{ color: "rgba(240,237,224,0.5)" }}
                   >
-                    TÊN CHIẾN SĨ
+                    {t('name')}
                   </label>
                   <input
                     type="text"
@@ -333,7 +335,7 @@ export default function DangNhapPage() {
                   className="block text-xs heading-font font-semibold tracking-widest uppercase mb-1.5"
                   style={{ color: "rgba(240,237,224,0.5)" }}
                 >
-                  EMAIL / TÊN CHIẾN SĨ
+                  EMAIL / {t('name')}
                 </label>
                 <div className="relative">
                   <span
@@ -371,7 +373,7 @@ export default function DangNhapPage() {
                   className="block text-xs heading-font font-semibold tracking-widest uppercase mb-1.5"
                   style={{ color: "rgba(240,237,224,0.5)" }}
                 >
-                  MẬT MÃ QUÂN SỰ
+                  {t('pass')}
                 </label>
                 <div className="relative">
                   <span
@@ -418,7 +420,7 @@ export default function DangNhapPage() {
                     className="block text-xs heading-font font-semibold tracking-widest uppercase mb-1.5"
                     style={{ color: "rgba(240,237,224,0.5)" }}
                   >
-                    XÁC NHẬN MẬT MÃ
+                    {t('confirm')}
                   </label>
                   <div className="relative">
                     <span
@@ -468,14 +470,14 @@ export default function DangNhapPage() {
                       type="checkbox"
                       className="w-3.5 h-3.5 rounded accent-red-600"
                     />
-                    Nhớ đăng nhập
+                    {t('remember')}
                   </label>
                   <a
                     href="#"
                     className="heading-font font-semibold transition-colors"
                     style={{ color: "#DA0000" }}
                   >
-                    Quên mật mã?
+                    {t('forgot')}
                   </a>
                 </div>
               )}
@@ -493,7 +495,7 @@ export default function DangNhapPage() {
                   border: "1px solid rgba(255,255,255,0.1)",
                 }}
               >
-                {loading ? "ĐANG XỬ LÝ..." : (tab === "login" ? "ĐĂNG NHẬP NGAY" : "GIA NHẬP HÀNG NGŨ")} {loading ? "⏳" : "⚔"}
+                {loading ? t('processing') : (tab === "login" ? t('btn_login') : t('btn_reg'))} {loading ? "⏳" : "⚔"}
               </button>
             </form>
 
@@ -501,7 +503,7 @@ export default function DangNhapPage() {
             <div className="flex items-center gap-4 my-6">
               <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.07)" }} />
               <span className="text-xs heading-font" style={{ color: "rgba(240,237,224,0.25)" }}>
-                ─── HOẶC ───
+                {t('or')}
               </span>
               <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.07)" }} />
             </div>
@@ -532,13 +534,13 @@ export default function DangNhapPage() {
               className="text-center text-xs mt-6"
               style={{ color: "rgba(240,237,224,0.3)" }}
             >
-              {tab === "login" ? "Chưa có tài khoản? " : "Đã có tài khoản? "}
+              {tab === "login" ? t('no_acc') : t('has_acc')}
               <button
                 onClick={() => setTab(tab === "login" ? "register" : "login")}
                 className="font-semibold heading-font transition-colors"
                 style={{ color: "#DA0000" }}
               >
-                {tab === "login" ? "Đăng ký ngay" : "Đăng nhập"}
+                {tab === "login" ? t('reg_now') : t('log_now')}
               </button>
             </p>
 
@@ -546,9 +548,9 @@ export default function DangNhapPage() {
               className="text-center text-xs mt-3"
               style={{ color: "rgba(240,237,224,0.2)" }}
             >
-              Bằng cách đăng nhập, bạn đồng ý với{" "}
+              {t('tos')}{" "}
               <a href="#" style={{ color: "rgba(218,0,0,0.6)" }}>
-                Điều khoản dịch vụ
+                {t('tos_link')}
               </a>{" "}
               của Cờ Tuyến Studio.
             </p>

@@ -363,7 +363,7 @@ export default function HomePage() {
 
           {/* Tab bar */}
           <div className="flex gap-1 mb-8 overflow-x-auto">
-            {["BÀN CỜ", "XẾP HẠNG", "GIẢI ĐẤU", "KHO ĐỒ"].map((tab, i) => (
+            {t.raw('features.tabs').map((tab, i) => (
               <button
                 key={tab}
                 className="flex-shrink-0 px-6 py-2.5 heading-font font-bold text-sm tracking-wider transition-all"
@@ -423,7 +423,7 @@ export default function HomePage() {
                 boxShadow: "0 0 25px rgba(218,0,0,0.4)",
               }}
             >
-              XEM TRAILER ĐẦY ĐỦ 🔥
+              {t('features.cta')}
             </Link>
           </div>
 
@@ -439,12 +439,7 @@ export default function HomePage() {
         }}
       >
         <div className="max-w-5xl mx-auto flex flex-wrap justify-between items-center gap-12">
-          {[
-            { val: "5M+", label: "NGƯỜI CHƠI" },
-            { val: "120+", label: "QUỐC GIA" },
-            { val: "24/7", label: "GIẢI ĐẤU MỞ" },
-            { val: "98%", label: "ĐÁNH GIÁ TỐT" },
-          ].map(({ val, label }) => (
+          {t.raw('stats.items').map(({ val, label }) => (
             <div key={label} className="text-center sm:text-left">
               <div
                 className="display-font text-3xl sm:text-4xl font-black italic"
@@ -478,12 +473,12 @@ export default function HomePage() {
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <span className="w-8 h-px" style={{ background: "#FFDD00" }}></span>
-                <span className="heading-font font-bold tracking-widest text-sm uppercase" style={{ color: "#FFDD00" }}>📅 ĐANG DIỄN RA</span>
+                <span className="heading-font font-bold tracking-widest text-sm uppercase" style={{ color: "#FFDD00" }}>{t('events.tag')}</span>
               </div>
-              <h2 className="display-font font-black text-3xl sm:text-4xl" style={{ color: "#F0EDE0" }}>SỰ KIỆN NỔI BẬT</h2>
+              <h2 className="display-font font-black text-3xl sm:text-4xl" style={{ color: "#F0EDE0" }}>{t('events.title')}</h2>
             </div>
             <div className="flex gap-2">
-              {["Đang diễn ra", "Sắp tới", "Đã kết thúc"].map((tab, i) => (
+              {t.raw('events.tabs').map((tab, i) => (
                 <button
                   key={tab}
                   className="px-4 py-1.5 heading-font font-bold text-xs tracking-wide rounded-full transition-all"
@@ -505,26 +500,26 @@ export default function HomePage() {
               {
                 tag: "⚔ GIẢI ĐẤU",
                 tagColor: "#DA0000",
-                title: "Giải Đấu Cờ Tuyến Mùa 1",
-                prize: "500,000,000đ",
+                title: t('events.mock_title1'),
+                prize: t('events.mock_prize1'),
                 time: "01/03 – 30/04/2026",
-                status: "ĐANG DIỄN RA",
+                status: t('events.ongoing'),
               },
               {
                 tag: "🎁 SỰ KIỆN",
                 tagColor: "#FFDD00",
-                title: "Tân Binh Nhận Quà Khủng",
-                prize: "500K Xu + Vũ Khí",
+                title: t('events.mock_title2'),
+                prize: t('events.mock_prize2'),
                 time: "01/03 – 31/03/2026",
-                status: "ĐANG DIỄN RA",
+                status: t('events.ongoing'),
               },
               {
                 tag: "🏆 RANKING",
                 tagColor: "#FF8C00",
-                title: "Bảng Xếp Hạng Chiến Thuật",
-                prize: "Danh hiệu Đại Nguyên Soái",
+                title: t('events.mock_title3'),
+                prize: t('events.mock_prize3'),
                 time: "01/04 – 30/04/2026",
-                status: "SẮP TỚI",
+                status: t('events.upcoming'),
               },
             ].map((ev, i) => (
               <div
@@ -545,7 +540,7 @@ export default function HomePage() {
                   {ev.title}
                 </h3>
                 <div>
-                  <p className="text-xs mb-1" style={{ color: "rgba(240,237,224,0.4)" }}>PHẦN THƯỞNG</p>
+                  <p className="text-xs mb-1" style={{ color: "rgba(240,237,224,0.4)" }}>{t('events.reward')}</p>
                   <p className="heading-font font-black text-base" style={{ color: "#FFDD00" }}>{ev.prize}</p>
                 </div>
                 <div className="flex items-center justify-between mt-auto pt-3" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
@@ -553,9 +548,9 @@ export default function HomePage() {
                   <span
                     className="px-2 py-0.5 heading-font font-bold text-[10px] rounded-full"
                     style={{
-                      background: ev.status === "ĐANG DIỄN RA" ? "rgba(218,0,0,0.2)" : "rgba(255,140,0,0.2)",
-                      color: ev.status === "ĐANG DIỄN RA" ? "#FF5555" : "#FF8C00",
-                      border: `1px solid ${ev.status === "ĐANG DIỄN RA" ? "rgba(218,0,0,0.4)" : "rgba(255,140,0,0.4)"}`,
+                      background: ev.status === t('events.ongoing') ? "rgba(218,0,0,0.2)" : "rgba(255,140,0,0.2)",
+                      color: ev.status === t('events.ongoing') ? "#FF5555" : "#FF8C00",
+                      border: `1px solid ${ev.status === t('events.ongoing') ? "rgba(218,0,0,0.4)" : "rgba(255,140,0,0.4)"}`,
                     }}
                   >
                     {ev.status}
@@ -571,7 +566,7 @@ export default function HomePage() {
               className="heading-font font-bold text-sm tracking-widest uppercase flex items-center gap-2 justify-center"
               style={{ color: "#DA0000" }}
             >
-              Xem tất cả sự kiện <span className="text-xl">→</span>
+              {t('events.view_all')} <span className="text-xl">→</span>
             </Link>
           </div>
         </div>
@@ -586,9 +581,9 @@ export default function HomePage() {
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <span className="w-8 h-px bg-[#DA0000]"></span>
-                <span className="heading-font font-bold text-[#DA0000] tracking-widest text-sm uppercase">TIN TỨC MỚI NHẤT</span>
+                <span className="heading-font font-bold text-[#DA0000] tracking-widest text-sm uppercase">{t('news.tag')}</span>
               </div>
-              <h2 className="display-font font-black text-3xl sm:text-4xl text-[#F0EDE0]">BẢN TIN CHIẾN TRƯỜNG</h2>
+              <h2 className="display-font font-black text-3xl sm:text-4xl text-[#F0EDE0]">{t('news.title')}</h2>
             </div>
             <Link href="/cong-dong" className="heading-font font-bold text-sm text-[#DA0000] hover:text-white transition-colors tracking-widest uppercase flex items-center gap-2">
               Xem tất cả <span className="text-xl leading-none">→</span>
@@ -597,7 +592,7 @@ export default function HomePage() {
 
           {/* News category tabs */}
           <div className="flex gap-2 mb-10 overflow-x-auto pb-1">
-            {["Tất cả", "Tin tức", "Tính năng", "Hướng dẫn", "Cập nhật"].map((tab, i) => (
+            {t.raw('news.tabs').map((tab, i) => (
               <button
                 key={tab}
                 className="flex-shrink-0 px-5 py-2 heading-font font-bold text-xs tracking-wide rounded-full transition-all"
@@ -623,13 +618,13 @@ export default function HomePage() {
             <div className="lg:col-span-3 group cursor-pointer rounded-xl overflow-hidden bg-[#120a0a] border border-[#DA0000]/10 hover:border-[#DA0000]/40 transition-all duration-300 transform hover:-translate-y-1">
               <div className="relative h-64 sm:h-80 overflow-hidden">
                 <Image src="/images/news-update.png" fill alt="Chiến Dịch Sinh Tồn" className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute top-4 left-4 bg-[#DA0000] px-3 py-1 rounded-sm heading-font font-bold text-xs text-white tracking-widest">BẢN CẬP NHẬT</div>
+                <div className="absolute top-4 left-4 bg-[#DA0000] px-3 py-1 rounded-sm heading-font font-bold text-xs text-white tracking-widest">{t('news.update')}</div>
                 <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black to-transparent" />
               </div>
               <div className="p-6">
-                <span className="heading-font text-[10px] text-white/40 tracking-widest mb-3 block">15 THG 03, 2026</span>
-                <h3 className="heading-font font-bold text-xl text-[#F0EDE0] mb-3 group-hover:text-[#DA0000] transition-colors">Chiến Dịch Sinh Tồn Đã Mở Cửa — Map Mới & Chế Độ Khó Cực Hạn</h3>
-                <p className="text-sm text-white/50">Khám phá bản đồ sa bàn mới và thử thách tài cầm quân với độ khó cực cao, mang đến trải nghiệm chiến thuật chưa từng có.</p>
+                <span className="heading-font text-[10px] text-white/40 tracking-widest mb-3 block">15 {t('news.month')} 03, 2026</span>
+                <h3 className="heading-font font-bold text-xl text-[#F0EDE0] mb-3 group-hover:text-[#DA0000] transition-colors">{t('news.headline')}</h3>
+                <p className="text-sm text-white/50">{t('news.headline_sub')}</p>
               </div>
             </div>
 
@@ -637,28 +632,28 @@ export default function HomePage() {
             <div className="lg:col-span-2 flex flex-col gap-0">
               {[
                 {
-                  tag: "SỰ KIỆN",
+                  tag: t('events.tag').replace('📅 ', ''),
                   tagColor: "#FFDD00",
-                  title: "Giải Đấu Cờ Tuyến Mùa 1 Chính Thức Khởi Tranh",
-                  date: "12 THG 03, 2026",
+                  title: t('news.mock[0].title'),
+                  date: "12 {t('news.month')} 03, 2026",
                 },
                 {
-                  tag: "TÍNH NĂNG",
+                  tag: t('news.mock[1].tag'),
                   tagColor: "#DA0000",
-                  title: "Hé Lộ Sức Mạnh Tướng Chỉ Huy — Thay Đổi Cục Diện",
-                  date: "08 THG 03, 2026",
+                  title: t('news.mock[1].title'),
+                  date: "08 {t('news.month')} 03, 2026",
                 },
                 {
-                  tag: "HƯỚNG DẪN",
+                  tag: t('news.mock[2].tag'),
                   tagColor: "#60A5FA",
-                  title: "Bí Kíp Xây Dựng Đội Hình 5 Sao Từ Đại Nguyên Soái",
-                  date: "05 THG 03, 2026",
+                  title: t('news.mock[2].title'),
+                  date: "05 {t('news.month')} 03, 2026",
                 },
                 {
-                  tag: "CẬP NHẬT",
+                  tag: t('news.mock[3].tag'),
                   tagColor: "#34D399",
-                  title: "Patch 1.4 — Cân Bằng Lực Lượng & Sửa Lỗi Quan Trọng",
-                  date: "01 THG 03, 2026",
+                  title: t('news.mock[3].title'),
+                  date: "01 {t('news.month')} 03, 2026",
                 },
               ].map((article, i) => (
                 <div
@@ -703,17 +698,17 @@ export default function HomePage() {
             className="display-font font-black mb-3"
             style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)", color: "#F0EDE0" }}
           >
-            ĐỔI <span style={{ color: "#FFDD00" }}>GIFTCODE</span>
+            {t('giftcode.title1')} <span style={{ color: "#FFDD00" }}>{t('giftcode.title2')}</span>
           </h2>
           <p className="text-sm mb-8 max-w-lg mx-auto" style={{ color: "rgba(240,237,224,0.5)" }}>
-            Nhập code quà tặng để nhận ngay vật phẩm, Xu và các phần thưởng độc quyền. Giftcode có hiệu lực trong thời gian giới hạn.
+            {t('giftcode.subtitle')}
           </p>
 
           {/* Giftcode form */}
           <div className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto mb-6">
             <input
               type="text"
-              placeholder="Nhập Giftcode của bạn..."
+              placeholder=t('giftcode.placeholder')
               className="flex-1 px-5 py-4 rounded-sm text-sm heading-font tracking-wider outline-none"
               style={{
                 background: "rgba(255,255,255,0.05)",
@@ -731,12 +726,12 @@ export default function HomePage() {
                 boxShadow: "0 0 25px rgba(255,221,0,0.3)",
               }}
             >
-              ĐỔI NGAY 🎁
+              {t('giftcode.cta')}
             </button>
           </div>
 
           <p className="heading-font text-xs tracking-widest" style={{ color: "rgba(240,237,224,0.3)" }}>
-            * Cần đăng nhập để đổi giftcode. Mỗi code chỉ dùng được 1 lần.
+            {t('giftcode.note')}
           </p>
         </div>
       </section>
@@ -772,13 +767,13 @@ export default function HomePage() {
               className="relative z-10 heading-font font-bold tracking-widest text-xs uppercase mb-3"
               style={{ color: "#DA0000" }}
             >
-              SỰ KIỆN LỚN NHẤT NĂM
+              {t('tournament.tag')}
             </p>
             <h2
               className="relative z-10 display-font font-black mb-8 leading-[1.1]"
               style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", color: "#F0EDE0" }}
             >
-              GIẢI ĐẤU<br />HÀO HÙNG
+              {t('tournament.title1')}<br />{t('tournament.title2')}
             </h2>
             <div
               className="relative z-10 inline-block rounded-xl px-10 py-5 mb-10 w-full max-w-sm"
@@ -791,7 +786,7 @@ export default function HomePage() {
                 className="heading-font font-medium text-xs tracking-widest mb-1"
                 style={{ color: "rgba(240,237,224,0.45)" }}
               >
-                TỔNG GIÁ TRỊ GIẢI THƯỞNG
+                {t('tournament.prize_label')}
               </p>
               <p
                 className="display-font font-black"
@@ -813,7 +808,7 @@ export default function HomePage() {
                   boxShadow: "0 0 25px rgba(218,0,0,0.5)",
                 }}
               >
-                ▶ XEM TRỰC TIẾP
+                {t('tournament.cta1')}
               </Link>
               <Link
                 href="/dang-nhap"
@@ -824,7 +819,7 @@ export default function HomePage() {
                   background: "rgba(10,4,4,0.5)"
                 }}
               >
-                ĐĂNG KÝ THI ĐẤU
+                {t('tournament.cta2')}
               </Link>
             </div>
           </div>
@@ -842,8 +837,8 @@ export default function HomePage() {
             >
               <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                 <div>
-                  <h3 className="display-font font-black text-2xl mb-2 text-white">NHẬN GIFTCODE TÂN BINH</h3>
-                  <p className="text-sm mb-6" style={{ color: "#FFDD00" }}>Đăng ký mới nhận ngay 500,000 Xu và Gói Vũ Khí Tối Thượng.</p>
+                  <h3 className="display-font font-black text-2xl mb-2 text-white">{t('tournament.gift_title')}</h3>
+                  <p className="text-sm mb-6" style={{ color: "#FFDD00" }}>{t('tournament.gift_sub')}</p>
                   <div className="flex gap-4">
                     {["WINDOWS", "MACOS", "MOBILE"].map((p) => (
                       <span
@@ -864,7 +859,7 @@ export default function HomePage() {
                     boxShadow: "0 0 25px rgba(218,0,0,0.4)",
                   }}
                 >
-                  ↓ NHẬN QUÀ NGAY
+                  {t('tournament.gift_cta')}
                 </Link>
               </div>
             </div>
@@ -879,8 +874,8 @@ export default function HomePage() {
             >
               <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex-1">
-                  <h3 className="display-font font-black text-2xl mb-2 text-white">GIA NHẬP CỘNG ĐỒNG</h3>
-                  <p className="text-sm text-white/50 mb-4">Kết nối với hàng triệu kỳ thủ, chia sẻ chiến thuật và nhận quà độc quyền mỗi ngày.</p>
+                  <h3 className="display-font font-black text-2xl mb-2 text-white">{t('tournament.social_title')}</h3>
+                  <p className="text-sm text-white/50 mb-4">{t('tournament.social_sub')}</p>
                   <div className="flex gap-4">
                     {[
                       { label: "Discord", bg: "#5865F2" },
@@ -905,7 +900,7 @@ export default function HomePage() {
                     color: "rgba(240,237,224,0.8)",
                   }}
                 >
-                  THAM GIA NGAY
+                  {t('tournament.social_cta')}
                 </Link>
               </div>
             </div>
@@ -930,7 +925,7 @@ export default function HomePage() {
               NHẬN TÚI QUÀ <span className="block sm:inline" style={{ color: "#FFDD00", textShadow: "0 0 20px rgba(255,221,0,0.5)" }}>TÂN BINH</span>
             </h2>
             <p className="text-lg text-white/80 mb-8 max-w-lg mx-auto md:mx-0">
-              Tạo tài khoản ngay hôm nay để nhận được Giftcode khởi nghiệp trị giá 500,000 Xu và Gói Vũ Khí Tối Thượng chỉ dành riêng cho tài khoản đăng ký mới.
+              {t('cta.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
               <Link
@@ -938,10 +933,10 @@ export default function HomePage() {
                 className="inline-flex items-center gap-3 px-8 py-4 heading-font text-sm font-black tracking-widest text-white hover:opacity-90 transition-opacity rounded-sm"
                 style={{ background: "linear-gradient(135deg, #CC0000 0%, #FF2020 100%)", boxShadow: "0 0 30px rgba(218,0,0,0.5)" }}
               >
-                TẠO TÀI KHOẢN &amp; NHẬN QUÀ →
+                {t('cta.button')}
               </Link>
             </div>
-            <p className="heading-font text-xs text-white/40 tracking-widest mt-6">*Chỉ mở giới hạn cho người chơi đăng ký trước ngày 30/04/2026.</p>
+            <p className="heading-font text-xs text-white/40 tracking-widest mt-6">{t('cta.note')}</p>
           </div>
         </div>
       </section>
