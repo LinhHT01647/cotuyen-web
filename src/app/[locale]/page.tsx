@@ -630,32 +630,11 @@ export default function HomePage() {
 
             {/* Right article list */}
             <div className="lg:col-span-2 flex flex-col gap-0">
-              {[
-                {
-                  tag: t('events.tag').replace('📅 ', ''),
-                  tagColor: "#FFDD00",
-                  title: t('news.mock[0].title'),
-                  date: "12 {t('news.month')} 03, 2026",
-                },
-                {
-                  tag: t('news.mock[1].tag'),
-                  tagColor: "#DA0000",
-                  title: t('news.mock[1].title'),
-                  date: "08 {t('news.month')} 03, 2026",
-                },
-                {
-                  tag: t('news.mock[2].tag'),
-                  tagColor: "#60A5FA",
-                  title: t('news.mock[2].title'),
-                  date: "05 {t('news.month')} 03, 2026",
-                },
-                {
-                  tag: t('news.mock[3].tag'),
-                  tagColor: "#34D399",
-                  title: t('news.mock[3].title'),
-                  date: "01 {t('news.month')} 03, 2026",
-                },
-              ].map((article, i) => (
+              {(t.raw('news.mock') as {tag: string, title: string}[]).map((mock, i) => {
+                const tagColors = ["#FFDD00", "#DA0000", "#60A5FA", "#34D399"];
+                const dates = [`12 ${t('news.month')} 03, 2026`, `08 ${t('news.month')} 03, 2026`, `05 ${t('news.month')} 03, 2026`, `01 ${t('news.month')} 03, 2026`];
+                const article = { tag: i === 0 ? t('events.tag').replace('📅 ', '') : mock.tag, tagColor: tagColors[i], title: mock.title, date: dates[i] };
+                return (
                 <div
                   key={i}
                   className="flex gap-4 py-4 cursor-pointer hover:bg-white/3 transition-colors px-2 rounded-lg group"
@@ -674,7 +653,8 @@ export default function HomePage() {
                     <span className="text-[11px] text-white/35 heading-font tracking-wider">{article.date}</span>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
