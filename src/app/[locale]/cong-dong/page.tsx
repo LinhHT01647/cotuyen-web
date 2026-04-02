@@ -2,7 +2,7 @@
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { Trophy, MessageCircle, Facebook, Youtube, Clock, Users, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";

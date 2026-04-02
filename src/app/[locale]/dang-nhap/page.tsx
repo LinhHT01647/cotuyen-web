@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { Link, useRouter } from "@/i18n/routing";
 import { Eye, EyeOff } from "lucide-react";
 
 export default function DangNhapPage() {
@@ -11,6 +10,8 @@ export default function DangNhapPage() {
   const [showPass, setShowPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
   const router = useRouter();
+  const { useLocale } = require('next-intl');
+  const locale = useLocale();
 
   // Form states
   const [email, setEmail] = useState("");
@@ -46,7 +47,10 @@ export default function DangNhapPage() {
         const apiUrl = "/api";
         const res = await fetch(`${apiUrl}/auth/register`, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: { 
+            "Content-Type": "application/json",
+            "Accept-Language": locale
+          },
           body: JSON.stringify({ email, password, username: displayName }),
         });
         const data = await res.json().catch(() => ({}));
@@ -79,7 +83,10 @@ export default function DangNhapPage() {
         const apiUrl = "/api";
         const res = await fetch(`${apiUrl}/auth/login`, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: { 
+            "Content-Type": "application/json",
+            "Accept-Language": locale
+          },
           body: JSON.stringify(payload),
         });
         

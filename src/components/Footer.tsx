@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { Facebook, MessageCircle, Globe, Star, Twitter } from "lucide-react";
 
 export default function Footer() {

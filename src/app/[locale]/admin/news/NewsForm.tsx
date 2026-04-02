@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
+import { useLocale } from "next-intl";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
@@ -10,6 +11,7 @@ export default function NewsForm({ initialData, isEdit }: { initialData?: any, i
   const [isAdmin, setIsAdmin] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const locale = useLocale();
 
   const [formData, setFormData] = useState({
     title: initialData?.title || "",
@@ -42,7 +44,8 @@ export default function NewsForm({ initialData, isEdit }: { initialData?: any, i
         method,
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${localStorage.getItem("accessToken")}`
+          "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
+          "Accept-Language": locale
         },
         body: JSON.stringify(formData)
       });

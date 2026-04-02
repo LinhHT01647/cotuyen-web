@@ -3,9 +3,10 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { useEffect, useState } from "react";
 import { ChevronRight, Eye, Calendar, PlusCircle } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
 
 // Dummy data fallback
 const dummyNews = [
@@ -33,6 +34,8 @@ export default function ChienDichPage() {
   const [news, setNews] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
+  const t = useTranslations('News');
+  const locale = useLocale();
 
   useEffect(() => {
     // Check role from localStorage
@@ -41,7 +44,11 @@ export default function ChienDichPage() {
 
     const fetchNews = async () => {
       try {
-        const res = await fetch("/api/news?page=1&limit=10");
+        const res = await fetch("/api/news?page=1&limit=10", {
+          headers: {
+            'Accept-Language': locale
+          }
+        });
         if (res.ok) {
           const data = await res.json();
           setNews(data.data || []);
@@ -57,7 +64,7 @@ export default function ChienDichPage() {
     };
 
     fetchNews();
-  }, []);
+  }, [locale]);
 
   return (
     <main className="min-h-screen" style={{ background: "#0A0404" }}>
@@ -68,7 +75,7 @@ export default function ChienDichPage() {
         <div className="absolute inset-0">
           <Image
             src="/images/hero-vietnam.png"
-            alt="Sự kiện"
+            alt="Hero Banner"
             fill
             className="object-cover object-center opacity-30"
           />
@@ -84,18 +91,18 @@ export default function ChienDichPage() {
                 className="heading-font font-semibold tracking-widest text-xs uppercase"
                 style={{ color: "#DA0000" }}
               >
-                CỘNG ĐỒNG
+                {t('title')}
               </span>
             </div>
             <h1 className="display-font text-4xl sm:text-5xl font-bold" style={{ color: "#F5EDE0" }}>
-              Tin Tức &{" "}
+              {t('title').split(' ')[0]}{" "}
               <span style={{
                 background: "linear-gradient(135deg, #FFDD00, #F5C518)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
               }}>
-                Sự Kiện
+                {t('title').split(' ').slice(1).join(' ')}
               </span>
             </h1>
           </div>
@@ -103,14 +110,14 @@ export default function ChienDichPage() {
           {isAdmin && (
             <Link 
               href="/admin/news/create"
-              className="flex items-center gap-2 px-5 py-2.5 rounded-lg heading-font font-bold text-sm tracking-wide text-white transition-all hover:scale-105"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-lg heading-font font-bold text-sm tracking-wide text-white transition-all hover:scale-105 hidden sm:flex"
               style={{
                 background: "linear-gradient(135deg, #DA0000 0%, #FF2020 100%)",
                 boxShadow: "0 0 20px rgba(218,0,0,0.5)",
               }}
             >
               <PlusCircle size={18} />
-              TẠO BÀI VIẾT NỔI BẬT
+              {t('create')}
             </Link>
           )}
         </div>
@@ -121,11 +128,11 @@ export default function ChienDichPage() {
         <div className="max-w-7xl mx-auto">
           {loading ? (
              <div className="text-center py-20 text-red-500 animate-pulse heading-font font-bold">
-               ĐANG KẾT NỐI VỚI TIỀN TUYẾN...
+               {t('loading')}
              </div>
           ) : news.length === 0 ? (
              <div className="text-center py-20" style={{ color: "rgba(240,237,224,0.4)" }}>
-               Chưa có sự kiện nào đang diễn ra.
+               {t('empty')}
              </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -151,7 +158,7 @@ export default function ChienDichPage() {
                     <div className="absolute top-4 left-4 px-3 py-1 rounded text-[10px] heading-font font-black tracking-widest uppercase shadow-lg"
                       style={item.type === 'event' ? { background: '#DA0000', color: '#FFF' } : { background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', color: '#F0EDE0', border: '1px solid rgba(255,255,255,0.2)' }}
                     >
-                      {item.type === 'event' ? 'SỰ KIỆN' : 'TIN MỚI'}
+                      {item.type === 'event' ? 'EVENT' : 'NEWS'}
                     </div>
                   </div>
                   
@@ -166,7 +173,7 @@ export default function ChienDichPage() {
                     <div className="mt-auto flex items-center justify-between text-xs" style={{ color: "rgba(240,237,224,0.3)" }}>
                       <div className="flex items-center gap-1.5">
                         <Calendar size={14} />
-                        {new Date(item.createdAt).toLocaleDateString('vi-VN')}
+                        {new Date(item.createdAt).toLocaleDateString(locale)}
                       </div>
                       <div className="flex items-center gap-1.5 font-bold" style={{ color: "#F5C518" }}>
                         <Eye size={14} />

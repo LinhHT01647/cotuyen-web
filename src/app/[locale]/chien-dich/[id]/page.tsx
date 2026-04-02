@@ -3,10 +3,11 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { useEffect, useState } from "react";
-import { usePathname, useParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import { Eye, Calendar, AlertTriangle, ArrowLeft, Edit3 } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
 
 // Dummy data fallback aligning with assumed API
 const dummyArticleDetail = {
@@ -37,6 +38,8 @@ export default function NewsDetailPage() {
   const [article, setArticle] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
+  const t = useTranslations('News');
+  const locale = useLocale();
   
   useEffect(() => {
     if (!params?.id) return;
@@ -45,13 +48,15 @@ export default function NewsDetailPage() {
 
     const fetchArticle = async () => {
       try {
-        // Backend API is expected to track view count automatically on this GET request
-        const res = await fetch(`/api/news/${params.id}`);
+        const res = await fetch(`/api/news/${params.id}`, {
+          headers: {
+            'Accept-Language': locale
+          }
+        });
         if (res.ok) {
           const data = await res.json();
           setArticle(data);
         } else {
-          // Fallback to dummy data
           setArticle(dummyArticleDetail);
         }
       } catch (err) {
@@ -62,7 +67,7 @@ export default function NewsDetailPage() {
     };
 
     fetchArticle();
-  }, [params?.id]);
+  }, [params?.id, locale]);
 
   return (
     <main className="min-h-screen flex flex-col" style={{ background: "#0A0404" }}>
@@ -71,19 +76,17 @@ export default function NewsDetailPage() {
       {loading ? (
         <div className="flex-1 flex items-center justify-center pt-20">
            <div className="text-center text-red-500 animate-pulse heading-font font-bold">
-             ĐANG TẢI NỘI DUNG TỪ TIỀN TUYẾN...
+             {t('loading')}
            </div>
         </div>
       ) : !article ? (
         <div className="flex-1 flex flex-col items-center justify-center pt-20 text-center" style={{ color: "rgba(240,237,224,0.6)" }}>
           <AlertTriangle size={48} className="mb-4 text-red-500" />
-          <h2 className="heading-font font-bold text-2xl mb-2 text-white">LỖI KẾT NỐI</h2>
-          <p>Không tìm thấy báo cáo chiến sự này hoặc mục tiêu đã bị tiêu diệt.</p>
-          <Link href="/chien-dich" className="mt-6 text-red-500 hover:underline">← Quay lại danh sách</Link>
+          <h2 className="heading-font font-bold text-2xl mb-2 text-white">404 LỖI / ERROR</h2>
+          <Link href="/chien-dich" className="mt-6 text-red-500 hover:underline">← {t('back')}</Link>
         </div>
       ) : (
         <div className="flex-1 w-full pb-20">
-          {/* Article Cover */}
           <div className="relative w-full h-[40vh] sm:h-[55vh] max-h-[600px] mt-16 sm:mt-0">
             <Image
               src={article.coverImage || "/images/hero-vietnam.png"}
@@ -92,23 +95,21 @@ export default function NewsDetailPage() {
               className="object-cover object-center"
               priority
             />
-            {/* Gradient Mask */}
             <div className="absolute inset-0" style={{
               background: "linear-gradient(to top, rgba(10,4,4,1) 0%, rgba(10,4,4,0.7) 40%, transparent 100%)"
             }} />
           </div>
 
-          {/* Article Header */}
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-32 sm:-mt-48 relative z-10">
             <Link href="/chien-dich" className="inline-flex items-center gap-1 text-sm font-medium hover:text-white transition-colors mb-4" style={{ color: "rgba(240,237,224,0.5)" }}>
-              <ArrowLeft size={16} /> Quay lại danh sách
+              <ArrowLeft size={16} /> {t('back')}
             </Link>
             
             <div className="flex flex-wrap items-center gap-3 mb-4">
               <span className="px-3 py-1 rounded text-xs heading-font font-black tracking-widest uppercase shadow-lg"
                 style={article.type === 'event' ? { background: '#DA0000', color: '#FFF' } : { background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', color: '#F0EDE0', border: '1px solid rgba(255,255,255,0.2)' }}
               >
-                {article.type === 'event' ? 'SỰ KIỆN' : 'TIN MỚI'}
+                {article.type === 'event' ? 'EVENT' : 'NEWS'}
               </span>
               
               {isAdmin && (
@@ -118,7 +119,7 @@ export default function NewsDetailPage() {
                   style={{ color: "#F5C518", border: "1px solid #F5C518" }}
                 >
                   <Edit3 size={12} />
-                  CHỈNH SỬA TÀI LIỆU (ADMIN)
+                  {t('edit')}
                 </Link>
               )}
             </div>
@@ -134,16 +135,15 @@ export default function NewsDetailPage() {
             <div className="flex flex-wrap items-center gap-6 py-4 border-y" style={{ borderColor: "rgba(255,255,255,0.08)", color: "rgba(240,237,224,0.4)" }}>
               <div className="flex items-center gap-2">
                 <Calendar size={18} />
-                <span>{new Date(article.createdAt).toLocaleString('vi-VN')}</span>
+                <span>{new Date(article.createdAt).toLocaleString(locale)}</span>
               </div>
               <div className="flex items-center gap-2 font-bold" style={{ color: "#DA0000" }}>
                 <Eye size={18} />
-                <span className="tracking-wide text-[#F5C518]">👁 {(article.views || 0).toLocaleString()} lượt đọc</span>
+                <span className="tracking-wide text-[#F5C518]">{(article.views || 0).toLocaleString()} {t('views')}</span>
               </div>
             </div>
           </div>
 
-          {/* Article Content */}
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 content-body">
             <div 
               className="prose prose-invert prose-red max-w-none prose-lg" 

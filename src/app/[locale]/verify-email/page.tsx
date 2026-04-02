@@ -3,7 +3,7 @@
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { CheckCircle2, XCircle, Loader2, Shield } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 type Status = "loading" | "success" | "error";
 
