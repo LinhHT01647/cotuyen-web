@@ -95,6 +95,7 @@ export default function DangNhapPage() {
         
         localStorage.setItem("accessToken", data.accessToken);
         if (data.userId) localStorage.setItem("userId", data.userId);
+        if (data.role) localStorage.setItem("role", data.role);
         
         const storedName = isEmail ? email.split("@")[0] : email;
         localStorage.setItem("username", storedName);

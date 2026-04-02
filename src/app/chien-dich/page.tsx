@@ -1,249 +1,183 @@
+"use client";
+
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
-import { Shield, Swords, Users, Globe, ChevronRight, Star } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ChevronRight, Eye, Calendar, PlusCircle } from "lucide-react";
 
-const features = [
+// Dummy data fallback
+const dummyNews = [
   {
-    icon: Swords,
-    title: "Chiến Thuật Độc Đáo",
-    desc: "Hệ thống quân cờ mô phỏng nghệ thuật quân sự đỉnh cao. Mỗi quân có kỹ năng và vai trò riêng biệt.",
-    tag: "GAMEPLAY",
+    id: "1",
+    title: "Ra mắt giải đấu Mùa 1: Tâm Điểm Trận Chiến",
+    subtitle: "Cùng tham gia giải đấu thể thao điện tử chuyên nghiệp đầu tiên của Cờ Tuyến với tổng giải thưởng lên đến 500 triệu đồng.",
+    coverImage: "/images/hero-vietnam.png",
+    type: "event",
+    views: 15420,
+    createdAt: "2026-04-02T10:00:00Z"
   },
   {
-    icon: Shield,
-    title: "Phòng Thủ Kiên Cố",
-    desc: "Xây dựng phòng tuyến vững chắc, lập kế hoạch phòng thủ và phản công thần tốc.",
-    tag: "STRATEGY",
-  },
-  {
-    icon: Users,
-    title: "Đồng Đội Oai Hùng",
-    desc: "Kết hợp đội hình, phối hợp chiến thuật với đồng đội. Sức mạnh đến từ đoàn kết.",
-    tag: "TEAMPLAY",
-  },
-  {
-    icon: Globe,
-    title: "Cộng Đồng Toàn Cầu",
-    desc: "Tranh tài cùng hàng triệu kỳ thủ trên đấu trường quốc tế. Mang bản lĩnh chỉ huy chinh phục thế giới.",
-    tag: "GLOBAL",
-  },
-];
-
-const milestones = [
-  { year: "2023", event: "Thành Lập Dự Án" },
-  { year: "2024", event: "Beta Testing & Cộng Đồng 10k+" },
-  { year: "2025", event: "Giải Đấu Quốc Tế Đầu Tiên" },
+    id: "2",
+    title: "Cập nhật bản đồ Sương Mù & Thay đổi chiến thuật",
+    subtitle: "Chi tiết các thay đổi nhằm cân bằng sức mạnh phòng thủ và khả năng cơ động của các thiết giáp trên chiến trường.",
+    coverImage: "/images/mother-farewell.png",
+    type: "news",
+    views: 8320,
+    createdAt: "2026-03-28T15:30:00Z"
+  }
 ];
 
 export default function ChienDichPage() {
+  const [news, setNews] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    // Check role from localStorage
+    const role = localStorage.getItem("role");
+    if (role === "admin") setIsAdmin(true);
+
+    const fetchNews = async () => {
+      try {
+        const res = await fetch("/api/news?page=1&limit=10");
+        if (res.ok) {
+          const data = await res.json();
+          setNews(data.data || []);
+        } else {
+          // Fallback to dummy data mapping assumed API structure
+          setNews(dummyNews);
+        }
+      } catch (err) {
+        setNews(dummyNews);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchNews();
+  }, []);
+
   return (
     <main className="min-h-screen" style={{ background: "#0A0404" }}>
       <Nav />
 
       {/* Hero Banner */}
-      <section className="relative h-80 sm:h-96 flex items-end overflow-hidden">
+      <section className="relative h-64 sm:h-80 flex items-end overflow-hidden pt-16">
         <div className="absolute inset-0">
           <Image
             src="/images/hero-vietnam.png"
-            alt="Cờ Tuyến Chiến Thuật"
+            alt="Sự kiện"
             fill
-            className="object-cover object-center opacity-40"
+            className="object-cover object-center opacity-30"
           />
           <div className="absolute inset-0" style={{
-            background: "linear-gradient(to top, rgba(10,10,15,1) 0%, rgba(10,10,15,0.5) 60%, rgba(10,10,15,0.2) 100%)"
-          }} />
-          {/* Red glow */}
-          <div className="absolute inset-0" style={{
-            background: "radial-gradient(ellipse 60% 80% at 70% 50%, rgba(218,0,0,0.1) 0%, transparent 70%)"
+            background: "linear-gradient(to top, rgba(10,4,4,1) 0%, rgba(10,4,4,0.4) 100%)"
           }} />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 w-full">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="text-2xl">🌍</span>
-            <span
-              className="heading-font font-semibold tracking-widest text-xs uppercase"
-              style={{ color: "#DA0000" }}
-            >
-              KHÁM PHÁ
-            </span>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 w-full flex justify-between items-end">
+          <div>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-2xl">📰</span>
+              <span
+                className="heading-font font-semibold tracking-widest text-xs uppercase"
+                style={{ color: "#DA0000" }}
+              >
+                CỘNG ĐỒNG
+              </span>
+            </div>
+            <h1 className="display-font text-4xl sm:text-5xl font-bold" style={{ color: "#F5EDE0" }}>
+              Tin Tức &{" "}
+              <span style={{
+                background: "linear-gradient(135deg, #FFDD00, #F5C518)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}>
+                Sự Kiện
+              </span>
+            </h1>
           </div>
-          <h1 className="display-font text-4xl sm:text-5xl font-bold" style={{ color: "#F5EDE0" }}>
-            Tại Sao{" "}
-            <span style={{
-              background: "linear-gradient(135deg, #DA0000, #FF6B6B)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}>
-              Cờ Tuyến?
-            </span>
-          </h1>
+          
+          {isAdmin && (
+            <Link 
+              href="/admin/news/create"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-lg heading-font font-bold text-sm tracking-wide text-white transition-all hover:scale-105"
+              style={{
+                background: "linear-gradient(135deg, #DA0000 0%, #FF2020 100%)",
+                boxShadow: "0 0 20px rgba(218,0,0,0.5)",
+              }}
+            >
+              <PlusCircle size={18} />
+              TẠO BÀI VIẾT NỔI BẬT
+            </Link>
+          )}
         </div>
       </section>
 
-      {/* Introduction */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      {/* News List Section */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="flex items-center gap-1.5 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-current" style={{ color: "#F5C518" }} />
-                ))}
-                <span className="text-sm ml-1" style={{ color: "#6B7280" }}>4.9/5 từ 5,000+ đánh giá</span>
-              </div>
-              <h2 className="display-font text-3xl font-bold mb-4" style={{ color: "#F5EDE0" }}>
-                Trí Tuệ Thiên Tài,{" "}
-                <span style={{
-                  background: "linear-gradient(135deg, #DA0000, #FF4444)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}>
-                  Khát Vọng Hòa Bình
-                </span>
-              </h2>
-              <p className="leading-relaxed mb-4 text-sm" style={{ color: "#9CA3AF" }}>
-                Mang lý tưởng chiến đấu để kiến tạo nền hòa bình vĩnh cửu, Cờ Tuyến lấy cảm hứng từ những chiến dịch kỳ vĩ nhất lịch sử nhân loại cùng tư duy xuất chúng của các bộ óc quân sự thiên tài trên thế giới.
-              </p>
-              <p className="leading-relaxed mb-6 text-sm" style={{ color: "#9CA3AF" }}>
-                Mỗi trận đấu không chỉ là cuộc tranh tài về nghệ thuật bày binh bố trận, mà còn là nơi để vinh danh những người mang trong mình tố chất của một vĩ nhân chỉ huy thực thụ.
-              </p>
-              <Link
-                href="/dang-nhap"
-                className="group inline-flex items-center gap-2 px-6 py-3 rounded heading-font font-bold text-sm tracking-wide text-white hover:opacity-90 transition-opacity"
-                style={{
-                  background: "linear-gradient(135deg, #DA0000 0%, #FF2020 100%)",
-                  boxShadow: "0 0 20px rgba(218,0,0,0.4)",
-                }}
-              >
-                THAM GIA NGAY
-                <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
-
-            {/* Stats card */}
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { val: "50,000+", label: "Người Chơi Đăng Ký" },
-                { val: "200+", label: "Giải Đấu Đã Tổ Chức" },
-                { val: "500M₫", label: "Tổng Giải Thưởng" },
-                { val: "98%", label: "Tỷ Lệ Hài Lòng" },
-              ].map(({ val, label }) => (
-                <div
-                  key={label}
-                  className="rounded-xl p-5 text-center"
+          {loading ? (
+             <div className="text-center py-20 text-red-500 animate-pulse heading-font font-bold">
+               ĐANG KẾT NỐI VỚI TIỀN TUYẾN...
+             </div>
+          ) : news.length === 0 ? (
+             <div className="text-center py-20" style={{ color: "rgba(240,237,224,0.4)" }}>
+               Chưa có sự kiện nào đang diễn ra.
+             </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {news.map((item) => (
+                <Link
+                  key={item.id}
+                  href={`/chien-dich/${item.id}`}
+                  className="group rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1"
                   style={{
                     background: "rgba(18,10,10,0.8)",
-                    border: "1px solid rgba(218,0,0,0.2)",
+                    border: "1px solid rgba(218,0,0,0.18)",
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.3)"
                   }}
                 >
-                  <div className="display-font text-2xl font-bold mb-1" style={{ color: "#DA0000" }}>{val}</div>
-                  <div className="text-xs leading-snug" style={{ color: "#9CA3AF" }}>{label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Grid */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8" style={{ background: "rgba(18,10,10,0.4)" }}>
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="display-font text-3xl font-bold" style={{ color: "#F5EDE0" }}>
-              Điều Tạo Nên{" "}
-              <span style={{
-                background: "linear-gradient(135deg, #DA0000, #FF6B6B)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}>
-                Khác Biệt
-              </span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {features.map(({ icon: Icon, title, desc, tag }) => (
-              <div
-                key={title}
-                className="rounded-xl p-6 feature-card transition-all duration-300"
-                style={{
-                  background: "rgba(18,10,10,0.8)",
-                  border: "1px solid rgba(218,0,0,0.18)",
-                  backdropFilter: "blur(8px)",
-                }}
-              >
-                <div className="flex items-start gap-4">
-                  <div
-                    className="flex-shrink-0 w-11 h-11 rounded-lg flex items-center justify-center"
-                    style={{
-                      background: "rgba(218,0,0,0.12)",
-                      border: "1px solid rgba(218,0,0,0.25)",
-                    }}
-                  >
-                    <Icon className="w-5 h-5" style={{ color: "#DA0000" }} />
-                  </div>
-                  <div>
-                    <span
-                      className="text-[10px] heading-font font-bold tracking-widest uppercase block mb-1"
-                      style={{ color: "rgba(218,0,0,0.6)" }}
+                  <div className="relative h-56 w-full overflow-hidden">
+                    <Image
+                      src={item.coverImage || "/images/hero-vietnam.png"}
+                      alt={item.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    {/* Badge type */}
+                    <div className="absolute top-4 left-4 px-3 py-1 rounded text-[10px] heading-font font-black tracking-widest uppercase shadow-lg"
+                      style={item.type === 'event' ? { background: '#DA0000', color: '#FFF' } : { background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', color: '#F0EDE0', border: '1px solid rgba(255,255,255,0.2)' }}
                     >
-                      {tag}
-                    </span>
-                    <h3 className="heading-font text-lg font-bold mb-1.5 tracking-wide" style={{ color: "#F5EDE0" }}>
-                      {title}
+                      {item.type === 'event' ? 'SỰ KIỆN' : 'TIN MỚI'}
+                    </div>
+                  </div>
+                  
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="heading-font text-lg font-bold mb-2 tracking-wide leading-snug line-clamp-2" style={{ color: "#F5EDE0" }}>
+                      {item.title}
                     </h3>
-                    <p className="text-sm leading-relaxed" style={{ color: "#9CA3AF" }}>{desc}</p>
+                    <p className="text-sm line-clamp-3 mb-6" style={{ color: "rgba(240,237,224,0.5)" }}>
+                      {item.subtitle}
+                    </p>
+                    
+                    <div className="mt-auto flex items-center justify-between text-xs" style={{ color: "rgba(240,237,224,0.3)" }}>
+                      <div className="flex items-center gap-1.5">
+                        <Calendar size={14} />
+                        {new Date(item.createdAt).toLocaleDateString('vi-VN')}
+                      </div>
+                      <div className="flex items-center gap-1.5 font-bold" style={{ color: "#F5C518" }}>
+                        <Eye size={14} />
+                        {(item.views || 0).toLocaleString()}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="display-font text-3xl font-bold" style={{ color: "#F5EDE0" }}>
-              Hành Trình{" "}
-              <span style={{
-                background: "linear-gradient(135deg, #DA0000, #FF4444)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}>
-                Phát Triển
-              </span>
-            </h2>
-          </div>
-          <div className="relative">
-            <div className="absolute left-4 top-0 bottom-0 w-0.5" style={{ background: "rgba(218,0,0,0.25)" }} />
-            <div className="space-y-8">
-              {milestones.map(({ year, event }) => (
-                <div key={year} className="flex gap-6 pl-10 relative">
-                  <div
-                    className="absolute left-0 w-8 h-8 rounded-full flex items-center justify-center"
-                    style={{
-                      background: "rgba(218,0,0,0.15)",
-                      border: "2px solid #DA0000",
-                    }}
-                  >
-                    <div className="w-2 h-2 rounded-full" style={{ background: "#DA0000" }} />
-                  </div>
-                  <div>
-                    <div className="heading-font font-bold text-lg" style={{ color: "#DA0000" }}>{year}</div>
-                    <div className="font-medium" style={{ color: "#F5EDE0" }}>{event}</div>
-                  </div>
-                </div>
+                </Link>
               ))}
             </div>
-          </div>
+          )}
         </div>
       </section>
 
