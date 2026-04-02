@@ -30,13 +30,19 @@ export default function EditNewsPage() {
   const params = useParams<{ id: string }>();
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const { useLocale } = require('next-intl');
+  const locale = useLocale();
 
   useEffect(() => {
     // Fetch original article to edit
     const fetchData = async () => {
       try {
         if (!params?.id) return;
-        const res = await fetch(`/api/news/${params.id}`);
+        const res = await fetch(`/api/news/${params.id}`, {
+          headers: {
+            "Accept-Language": locale
+          }
+        });
         if (res.ok) {
           const json = await res.json();
           setData(json);

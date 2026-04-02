@@ -11,6 +11,8 @@ type Status = "loading" | "success" | "error";
 function VerifyEmailContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const { useLocale } = require('next-intl');
+  const locale = useLocale();
   const [status, setStatus] = useState<Status>("loading");
   const [username, setUsername] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
@@ -25,7 +27,11 @@ function VerifyEmailContent() {
 
     const verify = async () => {
       try {
-        const res = await fetch(`/api/auth/verify-email?token=${token}`);
+        const res = await fetch(`/api/auth/verify-email?token=${token}`, {
+          headers: {
+            "Accept-Language": locale
+          }
+        });
         const text = await res.text();
         let data: any = {};
         try {

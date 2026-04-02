@@ -9,6 +9,8 @@ import Footer from "@/components/Footer";
 export default function DoiQuaPage() {
   const t = useTranslations('DoiQua');
   const router = useRouter();
+  const { useLocale } = require('next-intl');
+  const locale = useLocale();
   const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
   const [userId, setUserId] = useState("");
   const [giftcode, setGiftcode] = useState("");
@@ -41,6 +43,7 @@ export default function DoiQuaPage() {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
+          "Accept-Language": locale,
         },
         body: JSON.stringify({ code: giftcode.trim(), userId }),
       });
