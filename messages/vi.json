@@ -151,7 +151,17 @@
       "subtitle": "Tạo tài khoản ngay hôm nay để nhận được Giftcode khởi nghiệp trị giá 500,000 Xu và Gói Vũ Khí Tối Thượng chỉ dành riêng cho tài khoản đăng ký mới.",
       "button": "TẠO TÀI KHOẢN & NHẬN QUÀ →",
       "note": "*Chỉ mở giới hạn cho người chơi đăng ký trước ngày 30/04/2026."
-    }
+    },
+    "topup_sub": "TIẾP NĂNG LƯỢNG",
+    "topup_label": "Nạp Thẻ",
+    "feature_card1_title": "CHIẾN LƯỢC SÂU",
+    "feature_card1_desc": "Hệ thống đơn vị quân sự đa dạng với hàng ngàn cách phối hợp đội hình đỉnh cao.",
+    "feature_card2_title": "SƯƠNG MÙ CHIẾN TRANH",
+    "feature_card2_desc": "Thách thức tầm nhìn chiến thuật, buộc người chơi phải phán đoán và trinh sát kỹ lưỡng.",
+    "feature_card3_title": "ESPORTS CẠNH TRANH",
+    "feature_card3_desc": "Đấu trường xếp hạng rực rỡ với hệ thống giải đấu chuyên nghiệp và phần thưởng giá trị.",
+    "news_view_all": "Xem tất cả",
+    "prize_value": "500,000,000đ"
   },
   "Login": {
     "login": "ĐĂNG NHẬP",

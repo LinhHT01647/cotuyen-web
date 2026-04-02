@@ -265,8 +265,8 @@ export default function HomePage() {
               >
                 <span className="text-3xl">💰</span>
                 <div className="text-left">
-                  <div className="text-[10px] heading-font tracking-widest" style={{ color: "rgba(255,221,0,0.7)" }}>TIẾP NĂNG LƯỢNG</div>
-                  <div className="heading-font font-black text-base tracking-wide" style={{ color: "#FFDD00" }}>Nạp Thẻ</div>
+                  <div className="text-[10px] heading-font tracking-widest" style={{ color: "rgba(255,221,0,0.7)" }}>{t('topup_sub')}</div>
+                  <div className="heading-font font-black text-base tracking-wide" style={{ color: "#FFDD00" }}>{t('topup_label')}</div>
                 </div>
               </Link>
             </div>
@@ -302,22 +302,16 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-14">
             {[
               {
-                icon: "🗺",
-                tag: "",
-                title: "CHIẾN LƯỢC SÂU",
-                desc: "Hệ thống đơn vị quân sự đa dạng với hàng ngàn cách phối hợp đội hình đỉnh cao.",
+                icon: "🗺", tag: "",
+                title: t('feature_card1_title'), desc: t('feature_card1_desc'),
               },
               {
-                icon: "🌫",
-                tag: "NEW",
-                title: "SƯƠNG MÙ CHIẾN TRANH",
-                desc: "Thách thức tầm nhìn chiến thuật, buộc người chơi phải phán đoán và trinh sát kỹ lưỡng.",
+                icon: "🌫", tag: "NEW",
+                title: t('feature_card2_title'), desc: t('feature_card2_desc'),
               },
               {
-                icon: "🏆",
-                tag: "+ LIVE",
-                title: "ESPORTS CẠNH TRANH",
-                desc: "Đấu trường xếp hạng rực rỡ với hệ thống giải đấu chuyên nghiệp và phần thưởng giá trị.",
+                icon: "🏆", tag: "+ LIVE",
+                title: t('feature_card3_title'), desc: t('feature_card3_desc'),
               },
             ].map(({ icon, tag, title, desc }) => (
               <div
@@ -586,7 +580,7 @@ export default function HomePage() {
               <h2 className="display-font font-black text-3xl sm:text-4xl text-[#F0EDE0]">{t('news.title')}</h2>
             </div>
             <Link href="/cong-dong" className="heading-font font-bold text-sm text-[#DA0000] hover:text-white transition-colors tracking-widest uppercase flex items-center gap-2">
-              Xem tất cả <span className="text-xl leading-none">→</span>
+              {t('news_view_all')} <span className="text-xl leading-none">→</span>
             </Link>
           </div>
 
@@ -776,7 +770,7 @@ export default function HomePage() {
                   textShadow: "0 0 30px rgba(255,221,0,0.4)",
                 }}
               >
-                500,000,000đ
+                {t('prize_value')}
               </p>
             </div>
             <div className="relative z-10 flex flex-wrap justify-center gap-4 w-full">
@@ -902,7 +896,7 @@ export default function HomePage() {
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="md:w-3/5 text-center md:text-left">
             <h2 className="display-font font-black text-4xl sm:text-5xl text-white leading-tight mb-4" style={{ textShadow: "0 0 30px rgba(255,100,0,0.4)" }}>
-              NHẬN TÚI QUÀ <span className="block sm:inline" style={{ color: "#FFDD00", textShadow: "0 0 20px rgba(255,221,0,0.5)" }}>TÂN BINH</span>
+              {t('cta.title1')} <span className="block sm:inline" style={{ color: "#FFDD00", textShadow: "0 0 20px rgba(255,221,0,0.5)" }}>{t('cta.title2')}</span>
             </h2>
             <p className="text-lg text-white/80 mb-8 max-w-lg mx-auto md:mx-0">
               {t('cta.subtitle')}

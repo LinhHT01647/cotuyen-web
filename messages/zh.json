@@ -151,7 +151,17 @@
       "subtitle": "今天就创建一个帐户，获得价值 500,000 金币的启动礼品码和专属于新帐户的终极武器包。",
       "button": "创建帐户并获取礼物 →",
       "note": "*仅限于 2026 年 4 月 30 日之前注册的玩家。"
-    }
+    },
+    "topup_sub": "充值",
+    "topup_label": "充值",
+    "feature_card1_title": "深度策略",
+    "feature_card1_desc": "多样化的军事单位系统，拥有数千种顶级阵容搭配方式。",
+    "feature_card2_title": "战争迷雾",
+    "feature_card2_desc": "挑战战术视野，迫使玩家仔细判断和侦察。",
+    "feature_card3_title": "竞技电竞",
+    "feature_card3_desc": "精彩的排名竞技场，配备专业的锦标赛系统和丰厚奖励。",
+    "news_view_all": "查看全部",
+    "prize_value": "¥140,000"
   },
   "Login": {
     "login": "登录",

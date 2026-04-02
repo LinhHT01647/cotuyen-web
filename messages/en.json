@@ -151,7 +151,17 @@
       "subtitle": "Create an account today to receive a startup Giftcode worth 500,000 Coins and the Ultimate Weapon Pack exclusively for new accounts.",
       "button": "CREATE ACCOUNT & GET GIFTS →",
       "note": "*Limited solely to players registering before 30/04/2026."
-    }
+    },
+    "topup_sub": "POWER UP",
+    "topup_label": "Top-Up",
+    "feature_card1_title": "DEEP STRATEGY",
+    "feature_card1_desc": "Diverse military unit system with thousands of squad formation combinations.",
+    "feature_card2_title": "FOG OF WAR",
+    "feature_card2_desc": "Challenge your tactical vision, forcing players to judge and scout carefully.",
+    "feature_card3_title": "COMPETITIVE ESPORTS",
+    "feature_card3_desc": "Brilliant ranking arena with professional tournament system and valuable rewards.",
+    "news_view_all": "View all",
+    "prize_value": "$20,000"
   },
   "Login": {
     "login": "LOGIN",
