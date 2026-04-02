@@ -363,7 +363,7 @@ export default function HomePage() {
 
           {/* Tab bar */}
           <div className="flex gap-1 mb-8 overflow-x-auto">
-            {t.raw('features.tabs').map((tab, i) => (
+            {(t.raw('features.tabs') as string[]).map((tab, i) => (
               <button
                 key={tab}
                 className="flex-shrink-0 px-6 py-2.5 heading-font font-bold text-sm tracking-wider transition-all"
@@ -439,7 +439,7 @@ export default function HomePage() {
         }}
       >
         <div className="max-w-5xl mx-auto flex flex-wrap justify-between items-center gap-12">
-          {t.raw('stats.items').map(({ val, label }) => (
+          {(t.raw('stats.items') as {val: string, label: string}[]).map(({ val, label }) => (
             <div key={label} className="text-center sm:text-left">
               <div
                 className="display-font text-3xl sm:text-4xl font-black italic"
@@ -478,7 +478,7 @@ export default function HomePage() {
               <h2 className="display-font font-black text-3xl sm:text-4xl" style={{ color: "#F0EDE0" }}>{t('events.title')}</h2>
             </div>
             <div className="flex gap-2">
-              {t.raw('events.tabs').map((tab, i) => (
+              {(t.raw('events.tabs') as string[]).map((tab, i) => (
                 <button
                   key={tab}
                   className="px-4 py-1.5 heading-font font-bold text-xs tracking-wide rounded-full transition-all"
@@ -592,7 +592,7 @@ export default function HomePage() {
 
           {/* News category tabs */}
           <div className="flex gap-2 mb-10 overflow-x-auto pb-1">
-            {t.raw('news.tabs').map((tab, i) => (
+            {(t.raw('news.tabs') as string[]).map((tab, i) => (
               <button
                 key={tab}
                 className="flex-shrink-0 px-5 py-2 heading-font font-bold text-xs tracking-wide rounded-full transition-all"
@@ -708,7 +708,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto mb-6">
             <input
               type="text"
-              placeholder=t('giftcode.placeholder')
+              placeholder={t('giftcode.placeholder')}
               className="flex-1 px-5 py-4 rounded-sm text-sm heading-font tracking-wider outline-none"
               style={{
                 background: "rgba(255,255,255,0.05)",

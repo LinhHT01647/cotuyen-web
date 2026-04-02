@@ -1,5 +1,5 @@
-import { useTranslations } from "next-intl";
 "use client";
+import { useTranslations } from "next-intl";
 
 import { useEffect, useState } from "react";
 import { useRouter } from "@/i18n/routing";
@@ -121,7 +121,7 @@ export default function DoiQuaPage() {
                 type="text"
                 value={giftcode}
                 onChange={(e) => setGiftcode(e.target.value.toUpperCase())}
-                placeholder=t('placeholder')
+                placeholder={t('placeholder')}
                 className="w-full px-5 py-4 text-sm heading-font tracking-widest outline-none rounded-sm transition-all"
                 style={{
                   background: "rgba(255,255,255,0.05)",

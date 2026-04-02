@@ -1,11 +1,11 @@
 "use client";
+import { useTranslations } from "next-intl";
 
 import Image from "next/image";
 import { useState } from "react";
 import { Link, useRouter } from "@/i18n/routing";
 import { Eye, EyeOff } from "lucide-react";
 
-import { useTranslations } from "next-intl";
 export default function DangNhapPage() {
   const t = useTranslations('Login');
   const [tab, setTab] = useState<"login" | "register">("login");
@@ -263,26 +263,30 @@ export default function DangNhapPage() {
               className="flex rounded-lg mb-8 p-1 gap-1"
               style={{ background: "rgba(255,255,255,0.04)" }}
             >
-              {(["login", "register"] as const).map((t) => (
-                <button
-                  key={t}
-                  onClick={() => setTab(t)}
-                  className="flex-1 py-2.5 text-sm heading-font font-bold tracking-widest rounded transition-all"
-                  style={
-                    tab === t
-                      ? {
-                          background: "#DA0000",
-                          color: "#fff",
-                          boxShadow: "0 0 15px rgba(218,0,0,0.3)",
-                        }
-                      : {
-                          color: "rgba(240,237,224,0.35)",
-                          background: "transparent",
-                        }
-                  }
-                >
-                  {t === "login" ? t('login') : t('register')}
-                </button>
+              {["login", "register"].map((tabItem) => (
+              <button
+                key={tabItem}
+                type="button"
+                onClick={() => {
+                  setTab(tabItem as "login" | "register");
+                  setErrorMsg("");
+                }}
+                className="flex-1 py-2.5 text-sm heading-font font-bold tracking-widest rounded transition-all"
+                style={
+                  tab === tabItem
+                    ? {
+                        background: "#DA0000",
+                        color: "#fff",
+                        boxShadow: "0 0 15px rgba(218,0,0,0.3)",
+                      }
+                    : {
+                        color: "rgba(240,237,224,0.35)",
+                        background: "transparent",
+                      }
+                }
+              >
+                {tabItem === "login" ? t('login') : t('register')}
+              </button>
               ))}
             </div>
 
