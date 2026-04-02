@@ -1,0 +1,23 @@
+{
+  "Nav": {
+    "home": "Trang Chủ",
+    "campaigns": "Chiến Dịch",
+    "community": "Cộng Đồng",
+    "inventory": "Đổi Quà",
+    "rules": "Luật Chơi",
+    "login": "Đăng Nhập / Kết Nối",
+    "language": "Ngôn ngữ",
+    "vietnamese": "Tiếng Việt",
+    "english": "English",
+    "chinese": "中文"
+  },
+  "News": {
+    "title": "Tin Tức & Sự Kiện",
+    "loading": "ĐANG KẾT NỐI VỚI TIỀN TUYẾN...",
+    "empty": "Chưa có sự kiện nào đang diễn ra.",
+    "views": "lượt đọc",
+    "create": "TẠO BÀI VIẾT NỔI BẬT",
+    "edit": "CHỈNH SỬA TÀI LIỆU (ADMIN)",
+    "back": "Quay lại danh sách"
+  }
+}

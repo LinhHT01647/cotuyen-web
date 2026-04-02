@@ -1,0 +1,83 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - img "Người Mẹ Tiễn Con" [ref=e4]
+      - link "★ CỜ TUYẾN" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e9]: ★
+        - generic [ref=e10]: CỜ TUYẾN
+      - generic [ref=e11]:
+        - generic [ref=e14]: ⚔ 12,547 CHIẾN SĨ ĐANG TRỰC TUYẾN
+        - generic [ref=e15]: CỜ TUYẾN
+        - paragraph [ref=e16]: "\"Chiến đấu vì những người bạn yêu thương\""
+    - generic [ref=e17]:
+      - generic [ref=e18]:
+        - link "← Quay về trang chủ" [ref=e19] [cursor=pointer]:
+          - /url: /
+        - link "TRỢ GIÚP" [ref=e20] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - button "ĐĂNG NHẬP" [ref=e24] [cursor=pointer]
+          - button "ĐĂNG KÝ" [ref=e25] [cursor=pointer]
+        - generic [ref=e26]:
+          - generic [ref=e27]:
+            - generic [ref=e28]: EMAIL / TÊN CHIẾN SĨ
+            - generic [ref=e29]:
+              - generic [ref=e30]: ✉
+              - textbox "TenTruyCap@email.com / Username" [ref=e31]
+          - generic [ref=e32]:
+            - generic [ref=e33]: MẬT MÃ QUÂN SỰ
+            - generic [ref=e34]:
+              - generic [ref=e35]: 🔒
+              - textbox "••••••••" [ref=e36]
+              - button [ref=e37] [cursor=pointer]:
+                - img [ref=e38]
+          - generic [ref=e41]:
+            - generic [ref=e42] [cursor=pointer]:
+              - checkbox "Nhớ đăng nhập" [ref=e43]
+              - text: Nhớ đăng nhập
+            - link "Quên mật mã?" [ref=e44] [cursor=pointer]:
+              - /url: "#"
+          - button "ĐĂNG NHẬP NGAY ⚔" [ref=e45] [cursor=pointer]
+        - generic [ref=e48]: ─── HOẶC ───
+        - generic [ref=e50]:
+          - button "G" [ref=e51] [cursor=pointer]
+          - button "Apple" [ref=e52] [cursor=pointer]
+          - button "f" [ref=e53] [cursor=pointer]
+        - paragraph [ref=e54]:
+          - text: Chưa có tài khoản?
+          - button "Đăng ký ngay" [ref=e55] [cursor=pointer]
+        - paragraph [ref=e56]:
+          - text: Bằng cách đăng nhập, bạn đồng ý với
+          - link "Điều khoản dịch vụ" [ref=e57] [cursor=pointer]:
+            - /url: "#"
+          - text: của Cờ Tuyến Studio.
+  - status [ref=e58]:
+    - generic [ref=e59]:
+      - img [ref=e61]
+      - generic [ref=e63]:
+        - text: Static route
+        - button "Hide static indicator" [ref=e64] [cursor=pointer]:
+          - img [ref=e65]
+  - alert [ref=e68]
+  - generic "Cookie consent banner" [ref=e69]:
+    - generic [ref=e70]:
+      - generic [ref=e71]:
+        - img [ref=e73]
+        - generic [ref=e75]:
+          - heading "CHÍNH SÁCH QUYỀN RIÊNG TƯ" [level=3] [ref=e76]
+          - paragraph [ref=e77]:
+            - text: Cờ Tuyến Studio sử dụng cookies để nâng cấp trải nghiệm người dùng, phân tích lưu lượng truy cập và tối ưu hoá hệ thống máy chủ. Bằng cách nhấn "Chấp nhận", bạn đồng ý với
+            - link "Chính sách Cookie" [ref=e78] [cursor=pointer]:
+              - /url: "#"
+            - text: của chúng tôi.
+      - generic [ref=e79]:
+        - button "TỪ CHỐI" [ref=e80] [cursor=pointer]
+        - button "CHẤP NHẬN" [ref=e81] [cursor=pointer]
+        - button "Close" [ref=e82] [cursor=pointer]:
+          - img [ref=e83]
+```

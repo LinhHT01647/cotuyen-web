@@ -1,18 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, X, Download, ChevronDown } from "lucide-react";
-
-const navLinks = [
-  { href: "/", label: "Trang Chủ" },
-  { href: "/chien-dich", label: "Sự Kiện" },
-  { href: "/luat-choi", label: "Luật Chơi" },
-  { href: "/cong-dong", label: "Cộng Đồng" },
-  { href: "/doi-qua", label: "Đổi Quà" },
-];
+import { Menu, X, Download, ChevronDown, Globe } from "lucide-react";
+import { Link, usePathname, useRouter } from "@/i18n/routing";
+import { useTranslations, useLocale } from "next-intl";
 
 const downloadLinks = [
   { icon: "🍎", label: "App Store", sub: "iOS", href: "#" },
@@ -21,12 +13,24 @@ const downloadLinks = [
 ];
 
 export default function Nav() {
+  const t = useTranslations('Nav');
+  const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
+  
   const [menuOpen, setMenuOpen] = useState(false);
   const [downloadOpen, setDownloadOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("CHỈ HUY");
+
+  const navLinks = [
+    { href: "/", label: t('home') },
+    { href: "/chien-dich", label: t('campaigns') },
+    { href: "/luat-choi", label: t('rules') },
+    { href: "/cong-dong", label: t('community') },
+    { href: "/doi-qua", label: t('inventory') },
+  ];
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
@@ -43,8 +47,13 @@ export default function Nav() {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("userId");
     localStorage.removeItem("username");
+    localStorage.removeItem("role");
     setIsLoggedIn(false);
     router.refresh();
+  };
+
+  const changeLanguage = (newLocale: string) => {
+    router.replace(pathname, { locale: newLocale });
   };
 
   return (
@@ -75,7 +84,8 @@ export default function Nav() {
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  // TypeScript may complain if strict mode routes aren't matched, so we cast to any if needed, but next-intl usually accepts strings.
+                  href={link.href as any}
                   className="text-sm heading-font font-medium tracking-wide transition-all duration-200 relative whitespace-nowrap"
                   style={{
                     color: pathname === link.href ? "#fff" : "rgba(255,255,255,0.65)",
@@ -92,8 +102,32 @@ export default function Nav() {
               ))}
             </div>
 
-            {/* RIGHT SIDE — Download + Account */}
+            {/* RIGHT SIDE — Download + Account + Language */}
             <div className="hidden md:flex items-center gap-3 relative z-50">
+              
+              {/* ── LANGUAGE SWITCHER ── */}
+              <div
+                className="relative"
+                onMouseEnter={() => setLangOpen(true)}
+                onMouseLeave={() => setLangOpen(false)}
+              >
+                <button
+                  className="flex items-center gap-1.5 px-2 py-2 heading-font font-bold text-xs tracking-wider transition-all duration-200 hover:text-white"
+                  style={{ color: "rgba(255,255,255,0.7)" }}
+                >
+                  <Globe size={14} />
+                  {locale.toUpperCase()}
+                </button>
+                {langOpen && (
+                  <div className="absolute right-0 top-[100%] w-32 pt-2">
+                    <div className="rounded overflow-hidden shadow-2xl" style={{ background: "#0d0505", border: "1px solid rgba(255,255,255,0.1)" }}>
+                      <button onClick={() => changeLanguage('vi')} className="block w-full text-left px-4 py-2.5 text-xs heading-font font-medium hover:bg-white/10 text-white border-b border-white/5">{t('vietnamese')}</button>
+                      <button onClick={() => changeLanguage('en')} className="block w-full text-left px-4 py-2.5 text-xs heading-font font-medium hover:bg-white/10 text-white border-b border-white/5">{t('english')}</button>
+                      <button onClick={() => changeLanguage('zh')} className="block w-full text-left px-4 py-2.5 text-xs heading-font font-medium hover:bg-white/10 text-white">{t('chinese')}</button>
+                    </div>
+                  </div>
+                )}
+              </div>
 
               {/* ── DOWNLOAD DROPDOWN ── */}
               <div
@@ -132,7 +166,7 @@ export default function Nav() {
                     {downloadLinks.map(({ icon, label, sub, href }) => (
                       <Link
                         key={label}
-                        href={href}
+                        href={href as any}
                         className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors border-b border-white/5 last:border-0"
                       >
                         <span className="text-xl w-7 text-center flex-shrink-0">{icon}</span>
@@ -206,7 +240,7 @@ export default function Nav() {
                     border: "1px solid rgba(218,0,0,0.4)",
                   }}
                 >
-                  ĐĂNG NHẬP
+                  {t('login')}
                 </Link>
               )}
             </div>
@@ -228,10 +262,17 @@ export default function Nav() {
             className="md:hidden px-4 pb-5 pt-2"
             style={{ background: "rgba(8,4,4,0.98)" }}
           >
+            {/* Language Switcher Mobile */}
+            <div className="flex gap-2 px-2 py-2 mb-2 border-b border-white/10">
+              <button onClick={() => { changeLanguage('vi'); setMenuOpen(false); }} className={`px-3 py-1 rounded text-xs ${locale === 'vi' ? 'bg-red-600 text-white' : 'bg-white/10 text-white/50'}`}>VI</button>
+              <button onClick={() => { changeLanguage('en'); setMenuOpen(false); }} className={`px-3 py-1 rounded text-xs ${locale === 'en' ? 'bg-red-600 text-white' : 'bg-white/10 text-white/50'}`}>EN</button>
+              <button onClick={() => { changeLanguage('zh'); setMenuOpen(false); }} className={`px-3 py-1 rounded text-xs ${locale === 'zh' ? 'bg-red-600 text-white' : 'bg-white/10 text-white/50'}`}>ZH</button>
+            </div>
+
             {navLinks.map((link) => (
               <Link
                 key={link.href}
-                href={link.href}
+                href={link.href as any}
                 onClick={() => setMenuOpen(false)}
                 className="block px-2 py-3 heading-font font-medium tracking-wide text-sm border-b"
                 style={{
@@ -243,22 +284,15 @@ export default function Nav() {
               </Link>
             ))}
 
-            {/* Mobile Download Links */}
             <div className="mt-4 mb-2">
-              <p className="text-[10px] heading-font font-bold tracking-widest mb-3 px-2" style={{ color: "rgba(240,237,224,0.35)" }}>
-                TẢI GAME NGAY
-              </p>
               <div className="grid grid-cols-2 gap-2">
                 {downloadLinks.map(({ icon, label, sub, href }) => (
                   <Link
                     key={label}
-                    href={href}
+                    href={href as any}
                     onClick={() => setMenuOpen(false)}
                     className="flex items-center gap-2 px-3 py-2.5 rounded-lg"
-                    style={{
-                      background: "rgba(255,255,255,0.05)",
-                      border: "1px solid rgba(255,255,255,0.08)",
-                    }}
+                    style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}
                   >
                     <span className="text-lg">{icon}</span>
                     <div>
@@ -268,22 +302,6 @@ export default function Nav() {
                   </Link>
                 ))}
               </div>
-              {/* Nạp Thẻ — separate highlight */}
-              <Link
-                href="#"
-                onClick={() => setMenuOpen(false)}
-                className="flex items-center gap-2 px-3 py-2.5 rounded-lg mt-2"
-                style={{
-                  background: "rgba(255,221,0,0.1)",
-                  border: "1px solid rgba(255,221,0,0.3)",
-                }}
-              >
-                <span className="text-lg">💰</span>
-                <div>
-                  <div className="heading-font font-bold text-xs" style={{ color: "#FFDD00" }}>Nạp Thẻ</div>
-                  <div className="text-[9px]" style={{ color: "rgba(240,237,224,0.4)" }}>Top-up</div>
-                </div>
-              </Link>
             </div>
 
             {isLoggedIn ? (
@@ -314,14 +332,13 @@ export default function Nav() {
                 className="block mt-4 text-center py-3 rounded heading-font font-bold text-sm tracking-wider text-white"
                 style={{ background: "#DA0000" }}
               >
-                ĐĂNG NHẬP
+                {t('login')}
               </Link>
             )}
           </div>
         )}
       </nav>
 
-      {/* ── FLOATING DOWNLOAD BAR (mobile bottom) ── */}
       <div
         className="fixed bottom-0 left-0 right-0 z-40 md:hidden"
         style={{
@@ -334,31 +351,20 @@ export default function Nav() {
           {downloadLinks.map(({ icon, label, href }) => (
             <Link
               key={label}
-              href={href}
+              href={href as any}
               className="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg transition-all active:scale-95"
             >
               <span className="text-xl leading-none">{icon}</span>
-              <span
-                className="heading-font font-bold text-[9px] tracking-wide"
-                style={{ color: "rgba(240,237,224,0.7)" }}
-              >
-                {label}
-              </span>
+              <span className="heading-font font-bold text-[9px] tracking-wide text-white/70">{label}</span>
             </Link>
           ))}
-          {/* NẠP THẺ — separate button in mobile bar */}
           <Link
             href="#"
             className="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg transition-all active:scale-95"
             style={{ background: "rgba(255,221,0,0.12)" }}
           >
             <span className="text-xl leading-none">💰</span>
-            <span
-              className="heading-font font-bold text-[9px] tracking-wide"
-              style={{ color: "#FFDD00" }}
-            >
-              NẠP THẺ
-            </span>
+            <span className="heading-font font-bold text-[9px] tracking-wide text-[#FFDD00]">NẠP THẺ</span>
           </Link>
         </div>
       </div>

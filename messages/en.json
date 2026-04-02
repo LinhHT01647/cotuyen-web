@@ -1,0 +1,23 @@
+{
+  "Nav": {
+    "home": "Home",
+    "campaigns": "News & Events",
+    "community": "Community",
+    "inventory": "Inventory",
+    "rules": "Rules",
+    "login": "Login / Connect",
+    "language": "Language",
+    "vietnamese": "Tiếng Việt",
+    "english": "English",
+    "chinese": "中文"
+  },
+  "News": {
+    "title": "News & Events",
+    "loading": "CONNECTING TO FRONT LINES...",
+    "empty": "No active events right now.",
+    "views": "views",
+    "create": "CREATE NEW POST",
+    "edit": "EDIT DOCUMENT",
+    "back": "Back to list"
+  }
+}

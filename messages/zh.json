@@ -1,0 +1,23 @@
+{
+  "Nav": {
+    "home": "首页",
+    "campaigns": "新闻与事件",
+    "community": "社区",
+    "inventory": "兑换",
+    "rules": "规则",
+    "login": "登录 / 连接",
+    "language": "语言",
+    "vietnamese": "Tiếng Việt",
+    "english": "English",
+    "chinese": "中文"
+  },
+  "News": {
+    "title": "新闻与事件",
+    "loading": "正在连接前线...",
+    "empty": "目前没有活动。",
+    "views": "次阅览",
+    "create": "创建新帖子",
+    "edit": "编辑文件 (管理员)",
+    "back": "返回列表"
+  }
+}

@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import CookieConsent from "@/components/CookieConsent";
+import {NextIntlClientProvider} from 'next-intl';
+import {getMessages} from 'next-intl/server';
+import {notFound} from 'next/navigation';
+import {routing} from '@/i18n/routing';
 
 export const metadata: Metadata = {
   title: "Cờ Tuyến — Mưu Lược, Chiến Thuật, Đỉnh Cao",
@@ -15,13 +19,23 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{locale: string}>;
 }>) {
+  const {locale} = await params;
+  
+  if (!routing.locales.includes(locale as any)) {
+    notFound();
+  }
+
+  const messages = await getMessages();
+
   return (
-    <html lang="vi">
+    <html lang={locale}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -33,8 +47,10 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/logo.png?v=2" />
       </head>
       <body className="bg-background text-text-primary antialiased">
-        {children}
-        <CookieConsent />
+        <NextIntlClientProvider messages={messages}>
+          {children}
+          <CookieConsent />
+        </NextIntlClientProvider>
       </body>
     </html>
   );
