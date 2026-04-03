@@ -245,6 +245,33 @@ Authorization: Bearer <token>
 }
 ```
 
+### 2.3 Quản Lý Đội Hình Đặt Quân (Formations)
+
+**Các tính năng:**
+- Người chơi có thể cấu hình sẵn các đội hình để đưa ngay vào game (Tối đa 3 cho mỗi account).
+
+**Lấy danh sách đội hình:**
+```
+GET /v1/me/formations
+Authorization: Bearer <token>
+```
+**Response 200:** Trả về danh sách (Array) các object `{"id": "...", "name": "...", "pieces": [...]}`
+
+**Lưu đội hình mới / Ghi đè:**
+```
+POST /v1/me/formations
+Authorization: Bearer <token>
+```
+**Request Body:** `{"id": "optional", "name": "Đội Hình 1", "pieces": [{"type": "INFANTRY", "r": 1, "c": 1}]}`
+**Response 200:** Trả về object đội hình vừa được lưu.
+**Response 400 (Vượt limit 3):** `{"code": "MAX_FORMATIONS_REACHED"}`
+
+**Xoá đội hình:**
+```
+DELETE /v1/me/formations/:id
+Authorization: Bearer <token>
+```
+
 ---
 
 ## 3. HỆ THỐNG GIFTCODE
