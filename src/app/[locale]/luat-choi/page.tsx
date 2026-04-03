@@ -32,7 +32,7 @@ export default function LuatChoiPage() {
       <Nav />
       <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image src="/images/hero-vietnam.png" alt="Luật Chơi" fill className="object-cover object-center opacity-15" />
+          <Image src="/images/hero-vietnam.png" alt={t('alt_rules')} fill className="object-cover object-center opacity-15" />
           <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(10,4,4,0.6) 0%, rgba(10,4,4,0.97) 100%)" }} />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto text-center">

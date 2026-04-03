@@ -48,13 +48,15 @@ _tests/e2e/store_test.go     ← Store endpoints tham khảo
 3. **API endpoint mới** → Đọc `_requirements/functional/<FEATURE>.md` + kiểm tra `openapi.yaml` trước
 4. **FR-AUTH-07** → Mọi `/admin/*` route PHẢI protected bằng `role=admin`
 
-## Cấu Trúc
+## Cấu Trúc Hiện Tại (i18n + AI Web)
 
 ```
-src/app/                    ← Next.js App Router pages
-src/app/admin/              ← Admin dashboard (role=admin only)
-src/app/leaderboard/        ← Public leaderboard
-src/components/             ← Shared components
+src/middleware.ts           ← Xử lý redirect i18n & phát hiện AI User-Agent stealth
+src/app/[locale]/           ← App Router đa ngôn ngữ (vi, en, zh)
+src/app/[locale]/ai/        ← Stealth routing zone chỉ trả về text cho AI Crawler
+src/app/[locale]/admin/     ← Admin dashboard (role=admin only)
+src/components/             ← Shared UI components
+messages/                   ← Chứa file json đa ngôn ngữ: vi.json, en.json, zh.json
 ```
 
 ## Commands

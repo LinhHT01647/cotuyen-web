@@ -82,7 +82,7 @@ export default function NewsDetailPage() {
       ) : !article ? (
         <div className="flex-1 flex flex-col items-center justify-center pt-20 text-center" style={{ color: "rgba(240,237,224,0.6)" }}>
           <AlertTriangle size={48} className="mb-4 text-red-500" />
-          <h2 className="heading-font font-bold text-2xl mb-2 text-white">404 LỖI / ERROR</h2>
+          <h2 className="heading-font font-bold text-2xl mb-2 text-white">{t('not_found')}</h2>
           <Link href="/chien-dich" className="mt-6 text-red-500 hover:underline">← {t('back')}</Link>
         </div>
       ) : (

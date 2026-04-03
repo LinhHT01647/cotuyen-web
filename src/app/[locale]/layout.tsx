@@ -2,22 +2,30 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import CookieConsent from "@/components/CookieConsent";
 import {NextIntlClientProvider} from 'next-intl';
-import {getMessages} from 'next-intl/server';
+import {getMessages, getTranslations} from 'next-intl/server';
 import {notFound} from 'next/navigation';
 import {routing} from '@/i18n/routing';
 
-export const metadata: Metadata = {
-  title: "Cờ Tuyến — Mưu Lược, Chiến Thuật, Đỉnh Cao",
-  description:
-    "Cờ Tuyến — Tựa game chiến thuật mô phỏng chiến trường đỉnh cao. Tham gia cộng đồng, tranh tài giải đấu và khẳng định bản thân.",
-  keywords: ["Cờ Tuyến", "game chiến thuật", "strategy game", "board game", "online chess"],
-  icons: {
-    icon: [
-      { url: "/logo.png?v=2", type: "image/png" },
-    ],
-    apple: "/logo.png?v=2",
-  },
-};
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{locale: string}>
+}): Promise<Metadata> {
+  const {locale} = await params;
+  const t = await getTranslations({locale, namespace: 'Metadata'});
+
+  return {
+    title: t('title'),
+    description: t('desc'),
+    keywords: ["Cờ Tuyến", "game chiến thuật", "strategy game", "board game", "online chess"],
+    icons: {
+      icon: [
+        { url: "/logo.png?v=2", type: "image/png" },
+      ],
+      apple: "/logo.png?v=2",
+    },
+  };
+}
 
 export default async function RootLayout({
   children,

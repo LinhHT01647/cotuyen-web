@@ -1,7 +1,8 @@
 "use client";
+import { useTranslations } from "next-intl";
 
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import NewsForm from "../../NewsForm";
 
 // Dummy data for Edit fallback when BE api not ready 
@@ -28,6 +29,8 @@ const dummyArticleDetail = {
 
 export default function EditNewsPage() {
   const params = useParams<{ id: string }>();
+  const t = useTranslations('Admin');
+  const router = useRouter();
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const { useLocale } = require('next-intl');
@@ -60,7 +63,7 @@ export default function EditNewsPage() {
   }, [params?.id]);
 
   if (loading) {
-    return <main className="min-h-screen pt-20 flex items-center justify-center heading-font text-xl text-red-500 bg-[#0A0404]">ĐANG KẾT NỐI HỒ SƠ TỪ TIỀN TUYẾN...</main>;
+    return <main className="min-h-screen pt-20 flex items-center justify-center heading-font text-xl text-red-500 bg-[#0A0404]">{t('connecting')}</main>;
   }
 
   return <NewsForm initialData={data} isEdit={true} />;

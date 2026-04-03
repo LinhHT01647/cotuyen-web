@@ -57,7 +57,7 @@ export default function DangNhapPage() {
         });
         const data = await res.json().catch(() => ({}));
         if (!res.ok) {
-          throw new Error(data.message || data.error || "Đăng ký thất bại");
+          throw new Error(data.message || data.error || t('fail_register'));
         }
         if (data.message) {
            setSuccessMsg(data.message);
@@ -114,7 +114,7 @@ export default function DangNhapPage() {
           router.push("/");
         }, 1200);
       } catch (err: any) {
-        setErrorMsg(`[Cảnh báo Log]: ${err.message}`);
+        setErrorMsg(`${t('warn_log')} ${err.message}`);
       } finally {
         setLoading(false);
       }
@@ -128,7 +128,7 @@ export default function DangNhapPage() {
       <div className="hidden lg:block lg:w-1/2 relative overflow-hidden">
         <Image
           src="/images/mother-farewell.png"
-          alt="Người Mẹ Tiễn Con"
+          alt={t('alt_mother')}
           fill
           className="object-cover object-center"
           priority
@@ -189,7 +189,7 @@ export default function DangNhapPage() {
               className="heading-font font-semibold tracking-widest text-xs uppercase"
               style={{ color: "#FF5555" }}
             >
-              ⚔ 12,547 CHIẾN SĨ ĐANG TRỰC TUYẾN
+              {t('online_count')}
             </span>
           </div>
 
@@ -203,7 +203,7 @@ export default function DangNhapPage() {
             className="heading-font font-medium italic text-sm"
             style={{ color: "rgba(240,237,224,0.55)" }}
           >
-            &quot;Chiến đấu vì những người bạn yêu thương&quot;
+            {t('quote')}
           </p>
         </div>
       </div>
@@ -242,7 +242,7 @@ export default function DangNhapPage() {
             className="text-sm heading-font font-medium tracking-wide transition-colors"
             style={{ color: "rgba(240,237,224,0.45)" }}
           >
-            ← Quay về trang chủ
+            {t('back_home')}
           </Link>
 
           <a
@@ -250,7 +250,7 @@ export default function DangNhapPage() {
             className="text-sm heading-font font-semibold tracking-wide transition-colors"
             style={{ color: "rgba(240,237,224,0.45)" }}
           >
-            TRỢ GIÚP
+            {t('help')}
           </a>
         </div>
 
@@ -314,7 +314,7 @@ export default function DangNhapPage() {
                     type="text"
                     value={displayName}
                     onChange={(e) => setDisplayName(e.target.value)}
-                    placeholder="Nguyễn Văn Hùng"
+                    placeholder={t('placeholder_name')}
                     className="w-full px-4 py-3 rounded-lg text-sm transition-all"
                     style={{
                       background: "rgba(255,255,255,0.05)",
@@ -556,7 +556,7 @@ export default function DangNhapPage() {
               <a href="#" style={{ color: "rgba(218,0,0,0.6)" }}>
                 {t('tos_link')}
               </a>{" "}
-              của Cờ Tuyến Studio.
+              {t('studio_suffix')}
             </p>
           </div>
         </div>

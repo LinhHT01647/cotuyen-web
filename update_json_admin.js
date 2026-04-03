@@ -1,0 +1,162 @@
+const fs = require('fs');
+
+const langs = ['vi', 'en', 'zh'];
+const additions = {
+  vi: {
+    News: { "not_found": "404 LỖI / ERROR", "back": "Quay lại" },
+    Admin: {
+      "err_fetch": "Không thể tải danh sách bài viết từ Backend.",
+      "err_net": "Lỗi mạng:",
+      "confirm_del": "Bạn có chắc chắn muốn xóa bài viết vĩnh viễn không?",
+      "del_success": "Xóa thành công!",
+      "del_fail": "Lỗi khi xóa bài viết",
+      "checking_auth": "Đang kiểm tra quyền hạn...",
+      "dashboard": "Khu Vực Quản Trị",
+      "manage_news": "QUẢN LÝ TIN TỨC / SỰ KIỆN",
+      "new_post": "BÀI VIẾT MỚI",
+      "col_post": "BÀI VIẾT",
+      "col_type": "PHÂN LOẠI",
+      "col_date": "NGÀY ĐĂNG",
+      "col_author": "TÁC GIẢ",
+      "col_action": "THAO TÁC",
+      "loading_list": "Đang tải danh sách bài viết...",
+      "empty_list": "Chưa có bài viết nào được đăng tải.",
+      "view": "Xem trên trang",
+      "edit": "Chỉnh sửa",
+      "delete": "Xóa bài viết",
+      "err_save": "Gặp lỗi kết nối tự máy chủ. Không thể lưu bài viết.",
+      "save_success_edit": "Cập nhật bài viết thành công!",
+      "save_success_new": "Đăng bài viết mới thành công!",
+      "lbl_edit": "✏️ CHỈNH SỬA BÀI VIẾT",
+      "lbl_new": "⚔ ĐĂNG TẢI LÊN MẶT TRẬN",
+      "sec_general": "1. THÔNG TIN CHUNG",
+      "lbl_tag": "Phân loại Tag",
+      "type_news": "TIN TỨC BÌNH THƯỜNG (NEWS)",
+      "type_event": "SỰ KIỆN QUAN TRỌNG (EVENT)",
+      "lbl_img": "Ảnh Đại Diện (URL)",
+      "lbl_pub": "Hiển thị công khai với mọi người (Published)",
+      "sec_i18n": "2. NỘI DUNG ĐA NGÔN NGỮ (I18N)",
+      "lbl_vi": "🇻🇳 TIẾNG VIỆT",
+      "lbl_en": "🇬🇧 HIỂN THỊ QUỐC TẾ (ENGLISH)",
+      "lbl_zh": "🇨🇳 TIẾNG TRUNG",
+      "lbl_title": "Tiêu đề",
+      "ph_title": "Nhập tiêu đề",
+      "lbl_body": "Thân bài viết (Hỗ trợ HTML/iframe)",
+      "ph_body": "Chi tiết bài viết ngôn ngữ",
+      "btn_cancel": "Hủy / Trở về",
+      "btn_saving": "ĐANG XỬ LÝ...",
+      "btn_save_edit": "☑ LƯU THAY ĐỔI",
+      "btn_save_new": "🚀 ĐĂNG TẢI LÊN MẶT TRẬN",
+      "connecting": "ĐANG KẾT NỐI HỒ SƠ TỪ TIỀN TUYẾN..."
+    }
+  },
+  en: {
+    News: { "not_found": "404 ERROR / NOT FOUND", "back": "Go back" },
+    Admin: {
+      "err_fetch": "Failed to load article list from Backend.",
+      "err_net": "Network error:",
+      "confirm_del": "Are you sure you want to permanently delete this article?",
+      "del_success": "Deleted successfully!",
+      "del_fail": "Error deleting article",
+      "checking_auth": "Checking permissions...",
+      "dashboard": "Administration Area",
+      "manage_news": "NEWS / EVENTS MANAGEMENT",
+      "new_post": "NEW POST",
+      "col_post": "ARTICLE",
+      "col_type": "TYPE",
+      "col_date": "PUBLISH DATE",
+      "col_author": "AUTHOR",
+      "col_action": "ACTIONS",
+      "loading_list": "Loading article list...",
+      "empty_list": "No articles have been posted yet.",
+      "view": "View on site",
+      "edit": "Edit",
+      "delete": "Delete article",
+      "err_save": "Server connection error. Cannot save article.",
+      "save_success_edit": "Article updated successfully!",
+      "save_success_new": "New article posted successfully!",
+      "lbl_edit": "✏️ EDIT ARTICLE",
+      "lbl_new": "⚔ DEPLOY TO FRONTLINE",
+      "sec_general": "1. GENERAL INFORMATION",
+      "lbl_tag": "Category Tag",
+      "type_news": "NORMAL NEWS (NEWS)",
+      "type_event": "IMPORTANT EVENT (EVENT)",
+      "lbl_img": "Cover Image (URL)",
+      "lbl_pub": "Display publicly (Published)",
+      "sec_i18n": "2. MULTILINGUAL CONTENT (I18N)",
+      "lbl_vi": "🇻🇳 VIETNAMESE",
+      "lbl_en": "🇬🇧 INTERNATIONAL DISPLAY (ENGLISH)",
+      "lbl_zh": "🇨🇳 CHINESE",
+      "lbl_title": "Title",
+      "ph_title": "Enter title",
+      "lbl_body": "Article body (Supports HTML/iframe)",
+      "ph_body": "Article details for language",
+      "btn_cancel": "Cancel / Back",
+      "btn_saving": "PROCESSING...",
+      "btn_save_edit": "☑ SAVE CHANGES",
+      "btn_save_new": "🚀 DEPLOY TO FRONTLINE",
+      "connecting": "CONNECTING TO FRONTLINE DOSSIER..."
+    }
+  },
+  zh: {
+    News: { "not_found": "404 错误 / 未找到", "back": "返回" },
+    Admin: {
+      "err_fetch": "无法从后端加载文章列表。",
+      "err_net": "网络错误：",
+      "confirm_del": "您确定要永久删除此文章吗？",
+      "del_success": "删除成功！",
+      "del_fail": "删除文章时出错",
+      "checking_auth": "正在检查权限...",
+      "dashboard": "管理区",
+      "manage_news": "新闻 / 活动管理",
+      "new_post": "新文章",
+      "col_post": "文章",
+      "col_type": "分类",
+      "col_date": "发布日期",
+      "col_author": "作者",
+      "col_action": "操作",
+      "loading_list": "正在加载文章列表...",
+      "empty_list": "尚未发布任何文章。",
+      "view": "在网站上查看",
+      "edit": "编辑",
+      "delete": "删除文章",
+      "err_save": "服务器连接错误。无法保存文章。",
+      "save_success_edit": "文章更新成功！",
+      "save_success_new": "新文章发布成功！",
+      "lbl_edit": "✏️ 编辑文章",
+      "lbl_new": "⚔ 部署到前线",
+      "sec_general": "1. 一般信息",
+      "lbl_tag": "分类标签",
+      "type_news": "普通新闻 (NEWS)",
+      "type_event": "重要活动 (EVENT)",
+      "lbl_img": "封面图片 (URL)",
+      "lbl_pub": "公开发布 (Published)",
+      "sec_i18n": "2. 多语言内容 (I18N)",
+      "lbl_vi": "🇻🇳 越南语",
+      "lbl_en": "🇬🇧 国际显示 (ENGLISH)",
+      "lbl_zh": "🇨🇳 中文",
+      "lbl_title": "标题",
+      "ph_title": "输入标题",
+      "lbl_body": "文章正文 (支持 HTML/iframe)",
+      "ph_body": "语言文章详细信息",
+      "btn_cancel": "取消 / 返回",
+      "btn_saving": "处理中...",
+      "btn_save_edit": "☑ 保存更改",
+      "btn_save_new": "🚀 部署到前线",
+      "connecting": "正在连接前线档案..."
+    }
+  }
+};
+
+langs.forEach(lang => {
+  const path = `messages/${lang}.json`;
+  let data = JSON.parse(fs.readFileSync(path, 'utf8'));
+  
+  if(!data.News) data.News = {};
+  data.News = { ...data.News, ...additions[lang].News };
+  
+  if(!data.Admin) data.Admin = {};
+  data.Admin = { ...data.Admin, ...additions[lang].Admin };
+
+  fs.writeFileSync(path, JSON.stringify(data, null, 2));
+});

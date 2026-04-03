@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from "next-intl";
 
 import { useEffect, useState } from "react";
 import { Link, useRouter } from "@/i18n/routing";
@@ -13,6 +14,7 @@ export default function AdminNewsDashboard() {
   const [loading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const t = useTranslations('Admin');
   const router = useRouter();
   const locale = useLocale();
 
@@ -28,10 +30,10 @@ export default function AdminNewsDashboard() {
         const data = await res.json();
         setNews(data.data || []);
       } else {
-        setErrorMsg("Không thể tải danh sách bài viết từ Backend.");
+        setErrorMsg(t('err_fetch'));
       }
     } catch (err: any) {
-      setErrorMsg("Lỗi mạng: " + err.message);
+      setErrorMsg(`${t('err_net')} ` + err.message);
     } finally {
       setLoading(false);
     }
@@ -48,7 +50,7 @@ export default function AdminNewsDashboard() {
   }, [router, locale]);
 
   const handleDelete = async (id: string, title: string) => {
-    if (!confirm(`Bạn có chắc chắn muốn xóa bài viết "${title}" vĩnh viễn không?`)) {
+    if (!confirm(t('confirm_del'))) {
       return;
     }
     
@@ -65,18 +67,18 @@ export default function AdminNewsDashboard() {
       const data = await res.json().catch(() => ({}));
       
       if (res.ok) {
-        alert("Xóa thành công!");
+        alert(t('del_success'));
         setNews(news.filter(n => n.id !== id));
       } else {
-        alert(data.message || data.error || "Lỗi khi xóa bài viết");
+        alert(data.message || data.error || t('del_fail'));
       }
     } catch (err: any) {
-      alert("Lỗi kết nối: " + err.message);
+      alert(`${t('err_net')} ` + err.message);
     }
   };
 
   if (!isAdmin) {
-    return <div className="min-h-screen bg-[#0A0404] flex items-center justify-center text-white">Đang kiểm tra quyền hạn...</div>;
+    return <div className="min-h-screen bg-[#0A0404] flex items-center justify-center text-white">{t('checking_auth')}</div>;
   }
 
   return (
@@ -90,11 +92,11 @@ export default function AdminNewsDashboard() {
             <div className="flex items-center gap-2 mb-2">
               <span className="text-2xl">⚙️</span>
               <span className="heading-font font-bold tracking-widest text-xs uppercase" style={{ color: "#DA0000" }}>
-                Khu Vực Quản Trị
+                {t('dashboard')}
               </span>
             </div>
             <h1 className="heading-font text-3xl font-black text-white tracking-widest">
-              QUẢN LÝ TIN TỨC / SỰ KIỆN
+              {t('manage_news')}
             </h1>
           </div>
           
@@ -115,7 +117,7 @@ export default function AdminNewsDashboard() {
               }}
             >
               <PlusCircle size={18} />
-              BÀI VIẾT MỚI
+              {t('btn_create_new')}
             </Link>
           </div>
         </div>
@@ -132,11 +134,11 @@ export default function AdminNewsDashboard() {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr style={{ background: "rgba(218,0,0,0.1)", borderBottom: "1px solid rgba(218,0,0,0.2)" }}>
-                  <th className="px-6 py-4 heading-font font-bold text-xs tracking-widest text-[#FF5555]">BÀI VIẾT</th>
-                  <th className="px-6 py-4 heading-font font-bold text-xs tracking-widest text-[#FF5555]">PHÂN LOẠI</th>
-                  <th className="px-6 py-4 heading-font font-bold text-xs tracking-widest text-[#FF5555]">NGÀY ĐĂNG</th>
-                  <th className="px-6 py-4 heading-font font-bold text-xs tracking-widest text-[#FF5555]">TÁC GIẢ</th>
-                  <th className="px-6 py-4 heading-font font-bold text-xs tracking-widest text-[#FF5555] text-right">THAO TÁC</th>
+                  <th className="px-6 py-4 heading-font font-bold text-xs tracking-widest text-[#FF5555]">{t('col_post')}</th>
+                  <th className="px-6 py-4 heading-font font-bold text-xs tracking-widest text-[#FF5555]">{t('col_type')}</th>
+                  <th className="px-6 py-4 heading-font font-bold text-xs tracking-widest text-[#FF5555]">{t('col_date')}</th>
+                  <th className="px-6 py-4 heading-font font-bold text-xs tracking-widest text-[#FF5555]">{t('col_author')}</th>
+                  <th className="px-6 py-4 heading-font font-bold text-xs tracking-widest text-[#FF5555] text-right">{t('col_action')}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/5">
@@ -190,7 +192,7 @@ export default function AdminNewsDashboard() {
                           <Link 
                             href={`/chien-dich/${item.id}`}
                             className="p-2 rounded hover:bg-white/10 text-white/50 hover:text-white transition-colors"
-                            title="Xem trên trang"
+                            title={t('view')}
                             target="_blank"
                           >
                             <ExternalLink size={18} />
@@ -198,14 +200,14 @@ export default function AdminNewsDashboard() {
                           <Link 
                             href={`/admin/news/edit/${item.id}`}
                             className="p-2 rounded hover:bg-blue-500/20 text-blue-400 hover:text-blue-300 transition-colors"
-                            title="Chỉnh sửa"
+                            title={t('edit')}
                           >
                             <Edit3 size={18} />
                           </Link>
                           <button 
                             onClick={() => handleDelete(item.id, item.title)}
                             className="p-2 rounded hover:bg-red-500/20 text-red-500 hover:text-red-400 transition-colors"
-                            title="Xóa bài viết"
+                            title={t('delete')}
                           >
                             <Trash2 size={18} />
                           </button>

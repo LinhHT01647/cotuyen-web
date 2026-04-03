@@ -26,7 +26,7 @@ export default function HomePage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero-soldier.png"
-            alt="Người lính chỉ huy"
+            alt={t('alt_hero')}
             fill
             className="object-cover object-center"
             priority
@@ -216,7 +216,7 @@ export default function HomePage() {
               >
                 <span className="text-3xl">🍎</span>
                 <div className="text-left">
-                  <div className="text-[10px] heading-font tracking-widest" style={{ color: "rgba(240,237,224,0.5)" }}>TẢI TRÊN</div>
+                  <div className="text-[10px] heading-font tracking-widest" style={{ color: "rgba(240,237,224,0.5)" }}>{t('download_btn')}</div>
                   <div className="heading-font font-black text-base tracking-wide" style={{ color: "#F0EDE0" }}>App Store</div>
                 </div>
               </Link>
@@ -232,7 +232,7 @@ export default function HomePage() {
               >
                 <span className="text-3xl">🤖</span>
                 <div className="text-left">
-                  <div className="text-[10px] heading-font tracking-widest" style={{ color: "rgba(240,237,224,0.5)" }}>TẢI TRÊN</div>
+                  <div className="text-[10px] heading-font tracking-widest" style={{ color: "rgba(240,237,224,0.5)" }}>{t('download_btn')}</div>
                   <div className="heading-font font-black text-base tracking-wide" style={{ color: "#F0EDE0" }}>Google Play</div>
                 </div>
               </Link>
@@ -248,7 +248,7 @@ export default function HomePage() {
               >
                 <span className="text-3xl">📦</span>
                 <div className="text-left">
-                  <div className="text-[10px] heading-font tracking-widest" style={{ color: "rgba(240,237,224,0.5)" }}>TẢI FILE</div>
+                  <div className="text-[10px] heading-font tracking-widest" style={{ color: "rgba(240,237,224,0.5)" }}>{t('download_file')}</div>
                   <div className="heading-font font-black text-base tracking-wide" style={{ color: "#F0EDE0" }}>APK Direct</div>
                 </div>
               </Link>
@@ -611,7 +611,7 @@ export default function HomePage() {
             {/* Big featured card */}
             <div className="lg:col-span-3 group cursor-pointer rounded-xl overflow-hidden bg-[#120a0a] border border-[#DA0000]/10 hover:border-[#DA0000]/40 transition-all duration-300 transform hover:-translate-y-1">
               <div className="relative h-64 sm:h-80 overflow-hidden">
-                <Image src="/images/news-update.png" fill alt="Chiến Dịch Sinh Tồn" className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <Image src="/images/news-update.png" fill alt={t('news_survive')} className="object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute top-4 left-4 bg-[#DA0000] px-3 py-1 rounded-sm heading-font font-bold text-xs text-white tracking-widest">{t('news.update')}</div>
                 <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black to-transparent" />
               </div>

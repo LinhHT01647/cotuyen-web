@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from "next-intl";
 
 import { useEffect, useState } from "react";
 import Nav from "@/components/Nav";
@@ -19,6 +20,7 @@ import {
 import { useRouter } from "next/navigation";
 
 export default function ProfilePage() {
+  const t = useTranslations('Profile');
   const router = useRouter();
   const [username, setUsername] = useState("");
   const [userId, setUserId] = useState("");
@@ -48,10 +50,10 @@ export default function ProfilePage() {
         <div className="flex flex-col mb-8 relative">
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-red-600/10 blur-[80px] pointer-events-none rounded-full" />
           <h1 className="text-3xl md:text-5xl font-black heading-font tracking-widest text-[#DA0000] drop-shadow-lg z-10">
-            HỒ SƠ CHỈ HUY
+            {t('title')}
           </h1>
           <p className="text-gray-400 mt-2 text-sm z-10 uppercase tracking-widest heading-font">
-            THÔNG TIN QUÂN NHÂN VÀ THÀNH TÍCH CHIẾN TRƯỜNG
+            {t('subtitle')}
           </p>
         </div>
 
@@ -105,10 +107,10 @@ export default function ProfilePage() {
                   className="w-full flex items-center justify-center gap-2 py-3 rounded heading-font font-bold text-xs tracking-widest text-white transition-all duration-300 hover:bg-white/10"
                   style={{ border: "1px solid rgba(255,255,255,0.2)" }}
                 >
-                  <Edit3 size={16} /> CẬP NHẬT THÔNG TIN
+                  <Edit3 size={16} /> {t('update_info')}
                 </button>
                 <button className="w-full flex items-center justify-center gap-2 py-3 rounded heading-font font-bold text-xs tracking-widest text-gray-400 hover:text-white transition-colors">
-                  <Settings size={16} /> THIẾT LẬP TÀI KHOẢN
+                  <Settings size={16} /> {t('settings')}
                 </button>
               </div>
             </div>
@@ -118,11 +120,10 @@ export default function ProfilePage() {
               <ShieldAlert className="text-red-500 shrink-0 mt-0.5" size={18} />
               <div>
                 <h4 className="heading-font text-xs font-bold text-gray-300 tracking-wider">
-                  XÁC MINH CẤP CAO
+                  {t('security')}
                 </h4>
                 <p className="text-xs text-gray-500 mt-1">
-                  Tài khoản của bạn đã được mã hoá và bảo vệ bởi hệ thống
-                  chiến lược.
+                  {t('security_desc')}
                 </p>
               </div>
             </div>
@@ -144,26 +145,26 @@ export default function ProfilePage() {
               </div>
               <div className="flex-1 text-center sm:text-left">
                 <p className="text-xs text-gray-500 heading-font font-bold tracking-widest uppercase mb-2">
-                  Cấp bậc hiện tại
+                  {t('current_rank')}
                 </p>
                 <p className="text-gray-500 heading-font font-black tracking-widest text-xl">
-                  CHƯA XẾP HẠNG
+                  {t('unranked')}
                 </p>
                 <p className="text-xs text-gray-600 mt-3">
-                  Dữ liệu cấp bậc sẽ được cập nhật sau khi tham gia trận đầu tiên.
+                  {t('unranked_desc')}
                 </p>
               </div>
             </div>
 
             {/* Stats Grid — Empty states */}
             <h3 className="heading-font font-bold text-lg text-white tracking-widest border-b border-white/10 pb-2">
-              CHỈ SỐ TỔNG QUAN
+              {t('stats_title')}
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {[
-                { icon: Trophy, label: "Trận Thắng", color: "text-gray-600" },
-                { icon: Swords, label: "Trận Đã Chơi", color: "text-gray-600" },
-                { icon: Medal, label: "Tỉ Lệ Thắng", color: "text-gray-600" },
+                { icon: Trophy, label: t('stat_wins'), color: "text-gray-600" },
+                { icon: Swords, label: t('stat_played'), color: "text-gray-600" },
+                { icon: Medal, label: t('stat_winrate'), color: "text-gray-600" },
               ].map(({ icon: Icon, label, color }) => (
                 <div
                   key={label}
@@ -175,7 +176,7 @@ export default function ProfilePage() {
                     <span className="text-[10px] text-gray-600 heading-font font-bold uppercase tracking-widest">
                       {label}
                     </span>
-                    <span className="text-[10px] text-gray-700">Chưa có dữ liệu</span>
+                    <span className="text-[10px] text-gray-700">{t('no_data')}</span>
                   </div>
                 </div>
               ))}
@@ -184,7 +185,7 @@ export default function ProfilePage() {
             {/* Match History — Empty State */}
             <div className="mt-4">
               <h3 className="heading-font font-bold text-lg text-white tracking-widest border-b border-white/10 pb-2">
-                LỊCH SỬ CHIẾN DỊCH GẦN NHẤT
+                {t('history_title')}
               </h3>
 
               <div
@@ -197,10 +198,10 @@ export default function ProfilePage() {
                 <Clock size={40} className="text-gray-700" />
                 <div className="text-center">
                   <p className="heading-font font-bold text-gray-500 tracking-widest text-sm uppercase">
-                    Chưa có lịch sử trận đấu
+                    {t('no_history')}
                   </p>
                   <p className="text-xs text-gray-700 mt-2 max-w-xs">
-                    Các chiến dịch của bạn sẽ xuất hiện ở đây sau khi kết nối với hệ thống trận đấu.
+                    {t('no_history_desc')}
                   </p>
                 </div>
               </div>

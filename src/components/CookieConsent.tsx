@@ -3,7 +3,10 @@
 import { useState, useEffect } from "react";
 import { Cookie, X } from "lucide-react";
 
+import { useTranslations } from "next-intl";
+
 export default function CookieConsent() {
+  const t = useTranslations('CookieConsent');
   const [show, setShow] = useState(false);
   const [hasMounted, setHasMounted] = useState(false);
 
@@ -53,16 +56,14 @@ export default function CookieConsent() {
           <div className="flex-1">
             <h3 className="heading-font font-bold text-sm text-gray-100 tracking-wide flex items-center gap-2">
               <span className="sm:hidden text-red-500"><Cookie className="w-4 h-4" /></span>
-              CHÍNH SÁCH QUYỀN RIÊNG TƯ
+              {t('title')}
             </h3>
             <p className="text-xs text-gray-400 mt-1 max-w-2xl leading-relaxed">
-              Cờ Tuyến Studio sử dụng cookies để nâng cấp trải nghiệm người dùng, 
-              phân tích lưu lượng truy cập và tối ưu hoá hệ thống máy chủ. Bằng cách 
-              nhấn "Chấp nhận", bạn đồng ý với{" "}
+              {t('desc1')}
               <a href="#" className="text-red-500 hover:text-red-400 underline transition-colors">
-                Chính sách Cookie
-              </a>{" "}
-              của chúng tôi.
+                {t('link')}
+              </a>
+              {t('desc2')}
             </p>
           </div>
         </div>
@@ -72,7 +73,7 @@ export default function CookieConsent() {
             onClick={declineCookies}
             className="flex-1 md:flex-none px-4 py-2 text-xs heading-font font-bold tracking-widest text-gray-300 hover:text-white transition-colors border border-gray-700 hover:border-gray-500 rounded"
           >
-            TỪ CHỐI
+            {t('decline')}
           </button>
           <button
             onClick={acceptCookies}
@@ -82,7 +83,7 @@ export default function CookieConsent() {
               boxShadow: "0 0 15px rgba(218,0,0,0.4)",
             }}
           >
-            CHẤP NHẬN
+            {t('accept')}
           </button>
           
           <button 

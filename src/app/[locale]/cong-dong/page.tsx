@@ -8,40 +8,10 @@ import Image from "next/image";
 import { Trophy, MessageCircle, Facebook, Youtube, Clock, Users, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 
-const tournaments = [
-  {
-    name: "Giải Quốc Gia Mùa Xuân",
-    prize: "150,000,000₫",
-    players: "512",
-    status: "Đang Đăng Ký",
-    statusColor: "#22C55E",
-    date: "01/04/2025",
-  },
-  {
-    name: "Cúp Anh Hùng Tháng 4",
-    prize: "200,000,000₫",
-    players: "256",
-    status: "Sắp Diễn Ra",
-    statusColor: "#F5C518",
-    date: "15/04/2025",
-  },
-  {
-    name: "Giải Đấu Quốc Tế Hè",
-    prize: "150,000,000₫",
-    players: "128",
-    status: "Lên Kế Hoạch",
-    statusColor: "#9CA3AF",
-    date: "01/07/2025",
-  },
-];
-
-const socials = [
-  { icon: MessageCircle, label: "Discord", desc: "Chat & thảo luận", count: "8,500+" },
-  { icon: Facebook, label: "Facebook", desc: "Tin tức & cập nhật", count: "25,000+" },
-  { icon: Youtube, label: "YouTube", desc: "Video & stream", count: "5,200+" },
-];
+// Arrays moved inside component
 
 function Countdown() {
+  const t = useTranslations('Community');
   const [time, setTime] = useState({ days: 14, hours: 6, minutes: 30, seconds: 0 });
 
   useEffect(() => {
@@ -58,7 +28,7 @@ function Countdown() {
     return () => clearInterval(interval);
   }, []);
 
-  const labels: Record<string, string> = { days: "Ngày", hours: "Giờ", minutes: "Phút", seconds: "Giây" };
+  const labels: Record<string, string> = { days: t('days'), hours: t('hours'), minutes: t('minutes'), seconds: t('seconds') };
 
   return (
     <div className="flex gap-3 justify-center">
@@ -84,6 +54,39 @@ function Countdown() {
 
 export default function CongDongPage() {
   const t = useTranslations('Community');
+  const tournaments = [
+    {
+      name: t('season_title'),
+      prize: "150,000,000₫",
+      players: "512",
+      status: t('status_reg'),
+      statusColor: "#22C55E",
+      date: "01/04/2025",
+    },
+    {
+      name: t('cup_title'),
+      prize: "200,000,000₫",
+      players: "256",
+      status: t('status_soon'),
+      statusColor: "#F5C518",
+      date: "15/04/2025",
+    },
+    {
+      name: t('intl_title'),
+      prize: "150,000,000₫",
+      players: "128",
+      status: t('status_plan'),
+      statusColor: "#9CA3AF",
+      date: "01/07/2025",
+    },
+  ];
+
+  const socials = [
+    { icon: MessageCircle, label: "Discord", desc: t('desc_discord'), count: "8,500+" },
+    { icon: Facebook, label: "Facebook", desc: t('desc_facebook'), count: "25,000+" },
+    { icon: Youtube, label: "YouTube", desc: "Video & stream", count: "5,200+" },
+  ];
+
   return (
     <main className="min-h-screen" style={{ background: "#0A0404" }}>
       <Nav />
@@ -93,7 +96,7 @@ export default function CongDongPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero-vietnam.png"
-            alt="Giải Đấu"
+            alt={t('alt_tournament')}
             fill
             className="object-cover object-center opacity-20"
           />
@@ -115,7 +118,7 @@ export default function CongDongPage() {
           >
             <Trophy className="w-4 h-4" style={{ color: "#F5C518" }} />
             <span className="text-xs heading-font font-semibold tracking-widest uppercase" style={{ color: "#F5C518" }}>
-              Giải Thưởng Khổng Lồ
+              {t('prize_pool')}
             </span>
           </div>
 
@@ -123,19 +126,19 @@ export default function CongDongPage() {
             fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
             color: "#F5EDE0",
           }}>
-            GIẢI ĐẤU{" "}
+            {t('tour_pre')}{" "}
             <span style={{
               background: "linear-gradient(135deg, #DA0000, #FF4444)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
             }}>
-              HÀO HÙNG
+              {t('tour_suf')}
             </span>
           </h1>
 
           <p className="text-lg mb-3" style={{ color: "#9CA3AF" }}>
-            Tranh tài, khẳng định bản thân và chinh phục giải thưởng lên đến
+            {t('tour_desc')}
           </p>
 
           {/* Prize pool */}
@@ -156,7 +159,7 @@ export default function CongDongPage() {
           {/* Countdown */}
           <div className="mb-8">
             <p className="text-xs tracking-widest mb-4" style={{ color: "#6B7280" }}>
-              GIẢI ĐẤU TIẾP THEO BẮT ĐẦU TRONG
+              {t('next_tour')}
             </p>
             <Countdown />
           </div>
@@ -169,7 +172,7 @@ export default function CongDongPage() {
               boxShadow: "0 0 30px rgba(218,0,0,0.45), 0 4px 20px rgba(0,0,0,0.3)",
             }}
           >
-            ĐĂNG KÝ THAM CHIẾN
+            {t('btn_register_tour')}
             <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
@@ -180,14 +183,14 @@ export default function CongDongPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="display-font text-3xl font-bold" style={{ color: "#F5EDE0" }}>
-              Lịch Thi Đấu{" "}
+              {t('sched_pre')}{" "}
               <span style={{
                 background: "linear-gradient(135deg, #DA0000, #FF6B6B)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
               }}>
-                Sắp Tới
+                {t('sched_suf')}
               </span>
             </h2>
           </div>
@@ -261,14 +264,14 @@ export default function CongDongPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="display-font text-3xl font-bold" style={{ color: "#F5EDE0" }}>
-              Tham Gia{" "}
+              {t('join_pre')}{" "}
               <span style={{
                 background: "linear-gradient(135deg, #DA0000, #FF4444)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
               }}>
-                Chiến Tuyến
+                {t('join_suf')}
               </span>
             </h2>
           </div>
@@ -295,7 +298,7 @@ export default function CongDongPage() {
                 <div>
                   <div className="heading-font font-bold tracking-wide" style={{ color: "#F5EDE0" }}>{label}</div>
                   <div className="text-sm" style={{ color: "#9CA3AF" }}>{desc}</div>
-                  <div className="text-sm font-semibold mt-0.5" style={{ color: "#DA0000" }}>{count} thành viên</div>
+                  <div className="text-sm font-semibold mt-0.5" style={{ color: "#DA0000" }}>{count} {t('members')}</div>
                 </div>
               </a>
             ))}

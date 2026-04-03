@@ -1,10 +1,10 @@
 "use client";
+import { useTranslations, useLocale } from "next-intl";
 
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { CheckCircle2, XCircle, Loader2, Shield } from "lucide-react";
 import { Link } from "@/i18n/routing";
-import { useTranslations, useLocale } from "next-intl";
 
 type Status = "loading" | "success" | "error";
 
@@ -12,6 +12,7 @@ function VerifyEmailContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const locale = useLocale();
+  const t = useTranslations('Verify');
   const [status, setStatus] = useState<Status>("loading");
   const [username, setUsername] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
@@ -20,7 +21,7 @@ function VerifyEmailContent() {
     const token = searchParams.get("token");
     if (!token) {
       setStatus("error");
-      setErrorMsg("Không tìm thấy mã xác nhận trong đường dẫn.");
+      setErrorMsg(t('err_no_token'));
       return;
     }
 
@@ -46,11 +47,11 @@ function VerifyEmailContent() {
           setTimeout(() => router.push("/dang-nhap"), 5000);
         } else {
           setStatus("error");
-          setErrorMsg(data.message || `Xác minh thất bại (HTTP ${res.status})`);
+          setErrorMsg(data.message || `${t('err_verify_fail')} (HTTP ${res.status})`);
         }
       } catch (err: any) {
         setStatus("error");
-        setErrorMsg("Không kết nối được máy chủ. Vui lòng thử lại.");
+        setErrorMsg(t('err_network'));
       }
     };
 
@@ -78,7 +79,7 @@ function VerifyEmailContent() {
             ĐANG XÁC MINH...
           </h1>
           <p className="text-gray-500 text-sm">
-            Hệ thống đang kiểm tra mã xác nhận của bạn. Vui lòng chờ trong giây lát.
+            {t('verifying_desc')}
           </p>
         </>
       )}
@@ -97,11 +98,11 @@ function VerifyEmailContent() {
             <div className="flex items-center justify-center gap-2 mb-3">
               <Shield size={16} className="text-[#DA0000]" />
               <span className="text-xs text-[#DA0000] heading-font font-bold tracking-widest uppercase">
-                EMAIL ĐÃ XÁC MINH
+                {t('verified_tag')}
               </span>
             </div>
             <h1 className="heading-font text-3xl font-black text-white tracking-widest mb-3">
-              CHÀO MỪNG GIA NHẬP!
+              {t('welcome')}
             </h1>
             {username && (
               <p className="text-[#DA0000] heading-font font-bold text-lg tracking-widest mb-2">
@@ -109,10 +110,10 @@ function VerifyEmailContent() {
               </p>
             )}
             <p className="text-gray-400 text-sm leading-relaxed mt-3">
-              Tài khoản của bạn đã được kích hoạt thành công và sẵn sàng tham chiến.{" "}
+              {t('success_desc')}{" "}
               <br />
-              Đang chuyển đến trang đăng nhập trong{" "}
-              <strong className="text-white">5 giây</strong>...
+              {t('redirecting_1')}{" "}
+              <strong className="text-white">5  {t('redirecting_2')}</strong>...
             </p>
           </div>
 
@@ -124,9 +125,9 @@ function VerifyEmailContent() {
 
           <div className="grid grid-cols-3 w-full gap-3 mb-8">
             {[
-              { label: "TRẬN ĐẤU", val: "Sẵn sàng" },
-              { label: "CỘNG ĐỒNG", val: "Mở khóa" },
-              { label: "CẤP BẬC", val: "Mới nhập ngũ" },
+              { label: t('stat1'), val: t('stat1_val') },
+              { label: t('stat2'), val: t('stat2_val') },
+              { label: t('stat3'), val: t('stat3_val') },
             ].map((item) => (
               <div key={item.label} className="bg-black/30 rounded p-3 border border-white/5">
                 <p className="text-[9px] text-gray-500 heading-font tracking-widest mb-1">
@@ -142,7 +143,7 @@ function VerifyEmailContent() {
             className="w-full py-3 rounded heading-font font-bold text-sm tracking-widest text-white text-center block transition-all duration-300 hover:opacity-90"
             style={{ background: "#DA0000", boxShadow: "0 0 20px rgba(218,0,0,0.4)" }}
           >
-            ĐĂNG NHẬP NGAY ⚔
+            {t('btn_login_now')} ⚔
           </Link>
         </>
       )}
@@ -154,18 +155,18 @@ function VerifyEmailContent() {
             <XCircle size={52} className="text-red-500" />
           </div>
           <h1 className="heading-font text-2xl font-black text-white tracking-widest mb-3">
-            XÁC MINH THẤT BẠI
+            {t('fail_title')}
           </h1>
           <p className="text-gray-400 text-sm mb-2 leading-relaxed">{errorMsg}</p>
           <p className="text-xs text-gray-600 mb-8">
-            Link xác nhận có thể đã hết hạn (24 giờ) hoặc đã được sử dụng trước đó.
+            {t('fail_desc')}
           </p>
           <Link
             href="/dang-nhap"
             className="w-full py-3 rounded heading-font font-bold text-sm tracking-widest text-white text-center block transition-all duration-300 hover:bg-white/10"
             style={{ border: "1px solid rgba(218,0,0,0.4)" }}
           >
-            VỀ TRANG ĐĂNG NHẬP
+            {t('back_login')}
           </Link>
         </>
       )}
@@ -198,7 +199,7 @@ export default function VerifyEmailPage() {
             style={{ background: "rgba(10,4,4,0.8)", border: "1px solid rgba(218,0,0,0.25)" }}
           >
             <Loader2 size={60} className="text-[#DA0000] animate-spin mb-6" />
-            <p className="text-gray-500 text-sm">Đang tải trang xác minh...</p>
+            <p className="text-gray-500 text-sm">{t('loading')}</p>
           </div>
         }
       >
@@ -206,7 +207,7 @@ export default function VerifyEmailPage() {
       </Suspense>
 
       <p className="mt-8 text-xs text-gray-700 text-center">
-        Cờ Tuyến Studio © 2025 — Mưu Lược. Chiến Thuật. Đỉnh Cao.
+        {t('footer_copy')}
       </p>
     </main>
   );
