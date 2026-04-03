@@ -73,9 +73,9 @@ export default function Nav() {
             <Link href="/" className="flex items-center group flex-shrink-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/wordmark.png"
+                src="/logo_transparent.png"
                 alt="Co Tuyen"
-                className="h-9 w-auto object-contain"
+                className="h-12 md:h-14 w-auto object-contain"
               />
             </Link>
 
@@ -302,6 +302,14 @@ export default function Nav() {
                   </Link>
                 ))}
               </div>
+              <Link
+                href="#"
+                onClick={() => setMenuOpen(false)}
+                className="mt-2 flex items-center justify-center gap-2 w-full py-3 rounded-lg heading-font font-bold text-sm tracking-widest text-[#111]"
+                style={{ background: "linear-gradient(135deg, #CC9900 0%, #FFDD00 100%)", boxShadow: "0 0 14px rgba(255,221,0,0.3)" }}
+              >
+                <span>💰</span> {t('topup')}
+              </Link>
             </div>
 
             {isLoggedIn ? (

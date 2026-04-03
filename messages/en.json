@@ -43,6 +43,9 @@
       "subtitle": "Available on all platforms. Create an account and receive a Rookie Giftcode worth 500,000 Coins."
     },
     "features": {
+      "title1": "WHY",
+      "title2": "COMMAND CHESS?",
+      "subtitle": "Experience the pinnacle of modern military strategy on the board. Where tactical thinking and courage determine victory.",
       "tabs": [
         "BOARD",
         "RANKING",
@@ -192,7 +195,17 @@
     "reg_now": "Sign up now",
     "log_now": "Login",
     "tos": "By logging in, you agree to the",
-    "tos_link": "Terms of Service"
+    "tos_link": "Terms of Service",
+    "fail_register": "Registration failed",
+    "warn_log": "[Log Warning]:",
+    "alt_mother": "Mother Saying Goodbye To Son",
+    "brand": "COMMAND CHESS",
+    "online_count": "⚔ 12,547 COMMANDERS ONLINE",
+    "quote": "\"Fight for the ones you love\"",
+    "back_home": "← Back to Home",
+    "help": "HELP",
+    "placeholder_name": "John Doe",
+    "studio_suffix": "by Command Chess Studio."
   },
   "DoiQua": {
     "err_missing": "Please enter Giftcode.",
@@ -435,18 +448,6 @@
     "history_title": "RECENT CAMPAIGN HISTORY",
     "no_history": "No match history",
     "no_history_desc": "Your campaigns will appear here after connecting to the matchmaking system."
-  },
-  "Auth": {
-    "fail_register": "Registration failed",
-    "warn_log": "[Log Warning]:",
-    "alt_mother": "Mother Saying Goodbye To Son",
-    "brand": "COMMAND CHESS",
-    "online_count": "⚔ 12,547 COMMANDERS ONLINE",
-    "quote": "\"Fight for the ones you love\"",
-    "back_home": "← Back to Home",
-    "help": "HELP",
-    "placeholder_name": "John Doe",
-    "studio_suffix": "by Command Chess Studio."
   },
   "Admin": {
     "err_fetch": "Failed to load article list from Backend.",

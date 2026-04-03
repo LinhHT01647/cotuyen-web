@@ -43,6 +43,9 @@
       "subtitle": "Có mặt trên mọi nền tảng. Tạo tài khoản và nhận ngay Giftcode Tân Binh trị giá 500,000 Xu."
     },
     "features": {
+      "title1": "TẠI SAO",
+      "title2": "CỜ TUYẾN?",
+      "subtitle": "Trải nghiệm đỉnh cao chiến thuật quân sự hiện đại trên bàn cờ. Nơi tư duy và bản lĩnh quyết định chiến thắng.",
       "tabs": [
         "BÀN CỜ",
         "XẾP HẠNG",
@@ -192,7 +195,17 @@
     "reg_now": "Đăng ký ngay",
     "log_now": "Đăng nhập",
     "tos": "Bằng cách đăng nhập, bạn đồng ý với",
-    "tos_link": "Điều khoản dịch vụ"
+    "tos_link": "Điều khoản dịch vụ",
+    "fail_register": "Đăng ký thất bại",
+    "warn_log": "[Cảnh báo Log]:",
+    "alt_mother": "Người Mẹ Tiễn Con",
+    "brand": "CỜ TUYẾN",
+    "online_count": "⚔ 12,547 CHIẾN SĨ ĐANG TRỰC TUYẾN",
+    "quote": "\"Chiến đấu vì những người bạn yêu thương\"",
+    "back_home": "← Quay về trang chủ",
+    "help": "TRỢ GIÚP",
+    "placeholder_name": "Nguyễn Văn Hùng",
+    "studio_suffix": "của Cờ Tuyến Studio."
   },
   "DoiQua": {
     "err_missing": "Vui lòng nhập Giftcode.",
@@ -435,18 +448,6 @@
     "history_title": "LỊCH SỬ CHIẾN DỊCH GẦN NHẤT",
     "no_history": "Chưa có lịch sử trận đấu",
     "no_history_desc": "Các chiến dịch của bạn sẽ xuất hiện ở đây sau khi kết nối với hệ thống trận đấu."
-  },
-  "Auth": {
-    "fail_register": "Đăng ký thất bại",
-    "warn_log": "[Cảnh báo Log]:",
-    "alt_mother": "Người Mẹ Tiễn Con",
-    "brand": "CỜ TUYẾN",
-    "online_count": "⚔ 12,547 CHIẾN SĨ ĐANG TRỰC TUYẾN",
-    "quote": "\"Chiến đấu vì những người bạn yêu thương\"",
-    "back_home": "← Quay về trang chủ",
-    "help": "TRỢ GIÚP",
-    "placeholder_name": "Nguyễn Văn Hùng",
-    "studio_suffix": "của Cờ Tuyến Studio."
   },
   "Admin": {
     "err_fetch": "Không thể tải danh sách bài viết từ Backend.",

@@ -110,7 +110,7 @@ export default function ChienDichPage() {
           {isAdmin && (
             <Link 
               href="/admin/news/create"
-              className="flex items-center gap-2 px-5 py-2.5 rounded-lg heading-font font-bold text-sm tracking-wide text-white transition-all hover:scale-105 hidden sm:flex"
+              className="flex items-center justify-center gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg heading-font font-bold text-xs sm:text-sm tracking-wide text-white transition-all hover:scale-105"
               style={{
                 background: "linear-gradient(135deg, #DA0000 0%, #FF2020 100%)",
                 boxShadow: "0 0 20px rgba(218,0,0,0.5)",

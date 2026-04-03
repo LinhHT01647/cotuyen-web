@@ -43,6 +43,9 @@
       "subtitle": "全平台通用。创建帐户即送价值五十万金币的新手礼包。"
     },
     "features": {
+      "title1": "为什么选择",
+      "title2": "指挥棋?",
+      "subtitle": "在棋盘上体验现代军事战略的巅峰。在这里，战术思维和勇气决定胜利。",
       "tabs": [
         "棋盘",
         "排行",
@@ -192,7 +195,17 @@
     "reg_now": "立即注册",
     "log_now": "登录",
     "tos": "登录即表示您同意",
-    "tos_link": "服务条款"
+    "tos_link": "服务条款",
+    "fail_register": "注册失败",
+    "warn_log": "[日志警告]：",
+    "alt_mother": "母亲送别儿子",
+    "brand": "指挥官棋",
+    "online_count": "⚔ 12,547 名指挥官在线",
+    "quote": "“为你所爱的人而战”",
+    "back_home": "← 返回首页",
+    "help": "帮助",
+    "placeholder_name": "张三",
+    "studio_suffix": "由 指挥官棋 工作室提供。"
   },
   "DoiQua": {
     "err_missing": "请输入礼品码。",
@@ -435,18 +448,6 @@
     "history_title": "最近战役历史",
     "no_history": "暂无对战历史",
     "no_history_desc": "连接到匹配系统后，您的战役将显示在此处。"
-  },
-  "Auth": {
-    "fail_register": "注册失败",
-    "warn_log": "[日志警告]：",
-    "alt_mother": "母亲送别儿子",
-    "brand": "指挥官棋",
-    "online_count": "⚔ 12,547 名指挥官在线",
-    "quote": "“为你所爱的人而战”",
-    "back_home": "← 返回首页",
-    "help": "帮助",
-    "placeholder_name": "张三",
-    "studio_suffix": "由 指挥官棋 工作室提供。"
   },
   "Admin": {
     "err_fetch": "无法从后端加载文章列表。",
